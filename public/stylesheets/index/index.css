@@ -236,12 +236,14 @@ th, td {
     font-weight: 700;
     display: block;
     height: 0;
-    transition: height .4s, font-size .5s;
+    opacity: 0;
+    transition: height .4s, font-size .5s, opacity .25s;
 }
 
 .form-group:hover .form-hint {
     font-size: 14px;
     height: 35px;
+    opacity: 1;
 }
 
 .form-error {

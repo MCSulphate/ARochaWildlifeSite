@@ -312,3 +312,4 @@
 [01/07/18] 21:57:22 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
 [01/07/18] 22:03:09 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }
 [01/07/18] 22:03:21 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }
+[12/07/18] 02:28:01 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }

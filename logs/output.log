@@ -502,3 +502,6 @@
 [01/07/18] 22:10:27 [INFO] [Models/Location] Created a new location: Wolf Fields
 [02/07/18] 10:07:27 [INFO] [Application] Application setup finished, server has been started.
 [02/07/18] 10:49:30 [INFO] [Routes/Index] admin has logged in.
+[12/07/18] 02:26:43 [INFO] [Application] Application setup finished, server has been started.
+[12/07/18] 02:27:37 [INFO] [Routes/Index] admin has logged in.
+[12/07/18] 02:28:01 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }

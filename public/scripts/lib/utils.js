@@ -29,11 +29,16 @@ async function JSONRequest(url, body, method, shouldGetBody) {
 }
 
 // Displays a form error.
+let errorIDs = [];
 function displayFormError(formElement, errorMessage) {
     let errorElement = formElement.querySelector(".form-error");
+    
+    // Clear the timeouts, if there are any.
+    if (errorIDs[0]) clearTimeout(errorIDs[0]);
+    if (errorIDs[1]) clearTimeout(errorIDs[1]);
 
     if (errorElement) {
-        displayMessage(errorElement, errorMessage);
+        displayMessage(errorElement, errorMessage, errorIDs);
     }
     else {
         throw new Error("Could not display error message: No error element found in given form.");
@@ -41,29 +46,36 @@ function displayFormError(formElement, errorMessage) {
 }
 
 // Displays a form success message.
+let successIDs = [];
 function displayFormSuccess(formElement, successMessage) {
     let successElement = formElement.querySelector(".form-success");
     
+    // Clear the timeouts, if there are any.
+    if (successIDs[0]) clearTimeout(successIDs[0]);
+    if (successIDs[1]) clearTimeout(successIDs[1]);
+    
     if (successElement) {
-        displayMessage(successElement, successMessage);
+        displayMessage(successElement, successMessage, successIDs);
     }
     else {
         throw new Error("Could not display success message: No success element found in given form.");
     }
 }
 
-// Displays a message using textContent.
-function displayMessage(element, message) {
+// Displays a message using textContent. Sets timeout IDs so that they can be cancelled if needed.
+function displayMessage(element, message, timeoutIDs) {
     // Show the message.
     element.textContent = message;
     element.style.opacity = 1;
 
     // Hide the message after 10 seconds (10.4 to hide the text).
-    setTimeout(() => {
+    timeoutIDs[0] = setTimeout(() => {
         element.style.opacity = 0;
+        timeoutIDs[0] = null;
     }, 10000);
-    setTimeout(() => {
+    timeoutIDs[1] = setTimeout(() => {
         element.textContent = "";
+        timeoutIDs[1] = null;
     }, 10400);
 }
 
