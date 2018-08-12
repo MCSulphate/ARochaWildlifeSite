@@ -1,0 +1,80 @@
+<% include ../partials/header-start %>
+<% include ../partials/header-end %>
+
+<h1>Help Page</h1>
+<h4>Here you can find instructions on how to use this website.</h4>
+
+<div class="instructions-container" id="upload-help">
+    <h3>How to Upload Data</h3>
+    <ol>
+        <li>Click <strong>Upload Data</strong> in the navigation bar at the top.</li>
+        <li>There is a dropdown box, next to the <strong>Select Group</strong> button. Click this, and select a taxonomic group that you want to upload data for.</li>
+        <li>After selecting a group, a form will be loaded for you.</li>
+        <li>Fill in the form with your records. You can click 'Click to add another row' if you want to record more than one species.</li>
+        <li>When you have checked through your data, click <strong>Submit Upload</strong> to record your data.</li>
+        <li>If your upload is successful, you will be given a success message, and returned to the main page.</li>
+    </ol>
+</div>
+
+<div class="instructions-container" id="password-help">
+    <h3>How to Change Your Password</h3>
+    <ol>
+        <li>Click <strong>Profile</strong> in the top right of your screen.</li>
+        <li>From here, click <strong>Change your password</strong>.</li>
+        <li>Enter your old password in the first box that appears, and the one you want to change it to in the second box.</li>
+        <li>Click <strong>Save</strong>, and your password will be changed.</li>
+    </ol>
+</div>
+
+<% if (user.username === "admin") { %>
+    <div id="admin-help">
+        
+        <div class="instructions-container" id="account-help">
+            <h3>Managing User Accounts</h3>
+            <ol>
+                <li>Click <strong>Admin Panel</strong> in the navigation bar at the top.</li>
+                <li>Click <strong>Manage User Accounts</strong> from the list of things you can do.</li>
+                <li>Here, you can see a table of all of the user accounts currently on the database.</li>
+                <li>To edit a user's Location, click the <strong>Edit</strong> button, fill in a new location name and click <strong>Save</strong>.</li>
+                <li>To create a new user, click <strong>Add a new user account</strong>, fill in the form and click <strong>Submit</strong>.</li>
+                <li>Finally to delete a user account, click the <strong>Delete</strong> button on the row of the user you want to delete.</li>
+            </ol>
+        </div>
+        
+        <div class="instructions-container" id="taxonomic-group-help">
+            <h3>Managing Taxonomic Groups</h3>
+            <ol>
+                <li>Click <strong>Admin Panel</strong> in the navigation bar at the top.</li>
+                <li>Click <strong>Manage Taxonomic Groups</strong> from the list of things you can do.</li>
+                <li>Here, you can see a table of all of the taxonomic groups currently on the database.</li>
+                <li>To edit a taxonomic group, click the <strong>Edit</strong> button on the row of the group.</li>
+                <li>A form will open, where you can edit the taxonomic group.</li>
+                <li>When you have finished editing, click <strong>Update Group</strong> at the bottom of the form.</li>
+                <li>To create a taxonomic group, click <strong>Add a new taxonomic group</strong>. Make sure the form is closed if you want to see this button.</li>
+                <li>A form will appear, which you can fill in with the details of the taxonomic group.</li>
+                <li><strong>Optional Fields</strong> are bits of data which users will not <em>have</em> to include for each species of the group.</li>
+                <li><strong>Invalid Fields</strong> are bits of data which users <em>cannot</em> include for each species of the group.</li>
+                <li>When you have finished entering the data, click <strong>Create Group</strong> at the bottom of the form.</li>
+            </ol>
+        </div>
+        
+        <div class="instructions-container" id="data-review-help">
+            <h3>Reviewing Uploaded Data</h3>
+            <ol>
+                <li>Click <strong>Admin Panel</strong> in the navigation bar at the top.</li>
+                <li>Click <strong>Review Uploaded Data</strong> from the list of things you can do.</li>
+                <li>Here, you can see a list of all the species that have been uploaded, including some information about each.</li>
+                <li>You can now tick up to five species using the checkboxes in the table.</li>
+                <li>Now select a date range by using the two date inputs in the small box above the table.</li>
+                <li>If you wish to review data for just the species, click <strong>Go</strong>.</li>
+                <li>If you wish to review data for the species from a specific location, select a location from the dropdown box above the dates.</li>
+                <li>Note that you must select one from the first box if you are reviewing from one location.</li>
+                <li>If you wish to compare the data across two locations, select locations from <em>both</em> of the dropdown boxes.</li>
+                <li>Click <strong>Go</strong> to be sent to the review page.</li>
+            </ol>
+        </div>
+        
+    </div>
+<% } %>
+
+<% include ../partials/footer %>

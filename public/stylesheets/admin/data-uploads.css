@@ -1,0 +1,24 @@
+#uploads-container {
+    padding: 15px;
+}
+
+.upload-container {
+    position: relative;
+    padding: 4px;
+    margin-bottom: 10px;
+    background: #ccc;
+    border-radius: 5px;
+}
+
+.upload-info-container {
+}
+
+.upload-info-container p {
+    margin: 0;
+}
+
+.upload-controls-container {
+    position: absolute;
+    top: 5px;
+    right: 7px;
+}

@@ -1,0 +1,9 @@
+/* Matthew Lester NEA Project - taxonomic-groups.css (Taxonomic Group Management Page CSS) */
+
+#new-group-form label, #new-group-form input {
+    display: block;
+}
+
+#new-group-form select, #statuses input {
+    display: inline-block;
+}

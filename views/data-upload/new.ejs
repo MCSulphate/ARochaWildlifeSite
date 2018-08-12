@@ -1,0 +1,105 @@
+<% include ../partials/header-start %>
+<link rel="stylesheet" href="/stylesheets/data-upload/new.css">
+<% include ../partials/header-end %>
+
+<h1 class="header">Upload Page</h1>
+
+<% if (error) { %>
+
+    <h2>There was an error loading this page.</h2>
+    <h4>Please contact a system administrator and quote this message:</h4>
+    <p><%= error %></p>
+
+<% } else { %>
+
+    <div id="new-location-modal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+            <h2 class="modal-header">Submit a New Location</h2>
+            <div class="modal-content">
+                <p>If you could not see your location on that list, please fill out this form to submit a new location:</p>
+                
+                <div id="location-form" class="form">
+                    <div class="form-group">
+                        <span class="field">Location Name</span>
+                        <input id="new-location-field" type="text">
+                        
+                        <span class="form-hint">This field is case-sensitive.</span>
+                    </div>
+                    
+                    <a class="button" id="location-submit-button" href="#">Submit Location</a>
+                    
+                    <p class="form-error"></p>
+                    <p class="form-success"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="form-container">
+        <div id="load-form" class="form">
+            <p class="form-header">Please fill out this form:</p>
+            
+            <div class="form-group">
+                <span class="field">Taxonomic Group</span>
+                <select>
+                    <% groups.forEach(group => { %>
+                        <option value="<%= group.name %>"><%= group.name %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="form-group">
+                <span class="field">Where was this recorded?</span>
+                <select id="location-select">
+                    <% locations.forEach(location => { %>
+                        <option value="<%= location %>"><%= location %></option>
+                    <% }); %>
+                </select>
+                
+                <span class="form-hint">Can't see your location? Click <a id="location-popup-link" href="#">here</a>!</span>
+            </div>
+            <div class="form-group">
+                <span class="field">Who saw/recorded this data?</span>
+                <input type="text">
+                
+                <span class="form-hint">Separate multiple observers with commas.</span>
+            </div>
+            
+            <a class="button" id="form-load-button" href="#">Load Upload Form</a>
+        </div>
+    </div>
+    
+    <div id="upload-container">
+        
+        <p id="wait-message" style="display: none;">Please wait while we load your upload form...</p>
+        
+        <div id="table-container" style="display: none;">
+            <h2>You are uploading data for the <span id="upload-group-name"></span> taxonomic group.</h2>
+            
+            <!-- Using a table for the form as it sorts out horizontal layout. -->
+            <table id="upload-form">
+                <thead><tr></tr></thead>
+                <tbody></tbody>
+            </table>
+            <a href="#" id="new-row-button">Click to add another row.</a>
+            
+            <p><strong>Note:</strong> Fields marked with a <span class="required">*</span> are required.</p>
+            <br>
+            
+            <h4>Please thoroughly check all data for errors before clicking upload.</h4>
+            <p>After submission, your data cannot be edited.</p>
+            <button id="upload-button">Submit Upload</button>
+        </div>
+        
+    </div>
+    
+    <h4 id="error-message" style="display: none;"></h4>
+    
+    <!-- Scripts -->
+    <script src="/scripts/lib/utils.js"></script>
+    <script src="/scripts/lib/validator.js"></script>
+    <script src="/scripts/data-upload/new.js"></script>
+    
+<% } %>
+
+<% include ../partials/footer %>

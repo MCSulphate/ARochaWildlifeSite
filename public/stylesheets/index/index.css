@@ -1,0 +1,318 @@
+/* Matthew Lester NEA Project - index.css (Common / Default CSS) */
+
+/* Body Styling */
+html, body {
+    margin: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: Arial;
+    color: #222;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+/* General Styling */
+.header {
+    text-align: center;
+    position: relative;
+    margin-bottom: 45px;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 100%;
+    width: 15%;
+    /*box-shadow: 0px 5px 4px -4px #000;*/
+    border-bottom: 2px solid #555;
+}
+
+/* Button Styling */
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fefefe;
+    padding: 10px 15px;
+    font-weight: 700;
+    background-color: #4d94ff;
+    
+    border-radius: 5px;
+    border: 3px solid #0052cc;
+}
+
+.button:hover {
+    background-color: #66a3ff;
+}
+
+/* Error Message Styling */
+#error-message {
+    cursor: hand;
+}
+
+/* Main Content Styling */
+#content-container {
+    margin-top: 60px;
+    padding: 30px 40px;
+    z-index: 1;
+}
+
+/* Navigation Bar Styling */
+nav {
+    z-index: 2;
+    position: fixed;
+    background-color: #eee;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 60px;
+    padding: 0 10px 0 35px;
+    box-shadow: 0 2px 5px 0 #222;
+}
+
+nav a, nav .nav-item {
+    height: 100%;
+    display: inline-flex;
+    align-items: center;
+    padding: 0 15px;
+    margin: 0 5px;
+    
+    font-size: 20px;
+    text-decoration: none;
+}
+
+nav a, nav a:visited, nav a:active {
+    color: #000;
+    font-weight: 700;
+}
+
+#nav-logo {
+    width: 10%;
+    background-color: #eee;
+    position: relative;
+}
+
+#nav-logo:after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    top: 30px;
+    width: 125px;
+    height: 66px;
+    background-color: #eee;
+    box-shadow: 0 2px 5px 1px #111;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+#site-logo {
+    width: 105px;
+    height: 56px;
+    margin: 12px 0;
+    
+    position: relative;
+    left: 15px;
+    top: 20px;
+}
+
+#nav-main {
+    width: 90%;
+}
+
+.nav-container {
+    height: 100%;
+    float: left;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+/* Table Styling */
+table {
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: #eee;
+}
+
+thead tr {
+    background-color: #b3e6ff;
+}
+
+tr {
+    background-color: #fefefe;
+}
+
+tr:nth-child(2n) {
+    background-color: #efefef;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+}
+
+
+/* Form Styling */
+.form-container {
+    display: block;
+    text-align: center;
+}
+
+.form {
+    background-color: #c1ecf0;
+    border: 2px solid #32c0cd;
+    border-radius: 6px;
+    box-shadow: 3px 3px 4px #555;
+    padding: 8px 15px;
+    
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.form .button {
+    margin: 10px 0;
+}
+
+.form-header {
+    width: 500px;
+    text-align: center;
+    margin: 10px 0 15px 0;
+    font-size: 25px;
+}
+
+.inner-form {
+    margin: 15px 0 10px 0;
+}
+
+.form-group {
+    margin: 8px 0;
+    padding-left: 5px;
+}
+
+.form-group:after {
+    content: '';
+    clear: both;
+    height: 0;
+    width: 100%;
+    display: block;
+}
+
+.form-group input, .form-group select, .form-group .field {
+    float: left;
+}
+
+.form-group input, .form-group select {
+    width: 50%;
+}
+
+.form-group .field {
+    text-align: right;
+    display: inline-block;
+    font-weight: 700;
+    width: calc(50% - 6px);
+    margin-right: 6px;
+}
+
+.form-hint {
+    font-size: 0px;
+    color: #ff4d4d;
+    font-weight: 700;
+    display: block;
+    height: 0;
+    transition: height .4s, font-size .5s;
+}
+
+.form-group:hover .form-hint {
+    font-size: 14px;
+    height: 35px;
+}
+
+.form-error {
+    color: #ff1a1a;
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0;
+    transition: .3s opacity;
+}
+
+.form-success {
+    color: #00b300;
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0;
+    transition: .3s opacity;
+}
+
+/* Modal CSS */
+
+.modal {
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.close {
+    float: right;
+    color: #ff3333;
+    font-size: 35px;
+    margin-right: 10px;
+    cursor: hand;
+}
+
+.modal-container {
+    border-radius: 4px;
+    text-align: center;
+    background-color: #eee;
+    position: relative;
+    animation: modal-slide-down .5s ease-out forwards;
+    margin: 0 auto;
+    width: 80%;
+    transition: height .25s;
+}
+
+.modal-header {
+    border-radius: 4px 4px 0 0;
+    color: #eee;
+    background-color: #0052cc;
+    font-size: 35px;
+    padding: 10px 0;
+    margin: 0;
+    width: 100%;
+}
+
+.modal-content {
+    font-size: 17px;
+    padding: 0 10px 15px 10px;
+}
+
+@keyframes modal-slide-down {
+    from {
+        top: -50%;
+    }
+    to {
+        top: 15%;
+    }
+}

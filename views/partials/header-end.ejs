@@ -1,0 +1,32 @@
+    </head>
+    
+    <body>
+        <nav>
+            <div id="nav-logo" class="nav-container">
+                <img class="left" id="site-logo" src="/images/site-logo.png">
+            </div>
+            
+            <div id="nav-main" class="nav-container">
+                <a class="left" href="/">Home</a>
+                
+                <% if (user) { %>
+                    <a class="left" href="/track/new">Upload Data</a>
+                    <a class="left" href="/help">Help</a>
+                    <a class="left" href="/review/main">Review Data</a>
+                <% } %>
+                
+                <% if (user && user.username === "admin") { %>
+                    <a class="left" href="/admin/panel">Admin Panel</a>
+                <% } %>
+                
+                <% if (user) { %>
+                    <a class="right" href="/logout">Logout</a>
+                    <a class="right" href="/user/profile">Profile</a>
+                    <span class="right nav-item">Welcome, <%= user.username %></span>
+                <% } else { %>
+                    <a class="right" href="/login">Login</a>
+                <% } %>
+            </div>
+        </nav>
+        
+        <div id="content-container">

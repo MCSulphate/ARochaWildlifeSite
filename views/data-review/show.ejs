@@ -1,0 +1,71 @@
+<% include ../partials/header-start %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+<script src="/scripts/data-review/show.js"></script>
+<script>
+    let fromDate = new Date("<%- reviewData.fromDate %>");
+    let toDate = new Date("<%- reviewData.toDate %>");
+    <% if (reviewData.reviewType === "overall" || reviewData.reviewType === "single-site") { %>
+        let rawData = '<%- reviewData.dateCounts %>';
+        let rawDataObj = JSON.parse(rawData);
+    <% } %>
+</script>
+<% include ../partials/header-end %>
+
+<h1>Data Review</h1>
+
+<% let species = reviewData.species.join(", "); %>
+<% let reviewType = reviewData.reviewType; %>
+<% if (reviewType === "overall" || reviewType === "single-site") { %>
+    <% if (reviewType === "overall") { %>
+        <h3>Showing Overall Data Review for species: <%= species %></h3>
+    <% } else { %>
+        <h3>Showing Site Data Review for <%= reviewData.siteA %> for species: <%= species %></h3>
+    <% } %>
+    <h3>Data is from <%= reviewData.fromDate %> to <%= reviewData.toDate %>.</h3>
+    
+    <div class="chart-container" style="position: relative; width: 80%;">
+        <canvas id="chart1"></canvas>
+    </div>
+    
+    <script>
+        let chartElement = document.getElementById("chart1");
+        let chart = new Chart(chartElement, getChartData(rawDataObj, fromDate, toDate));
+    </script>
+<% } else { %>
+    <h3>Showing Site Comparison between <%= reviewData.siteA %> and <%= reviewData.siteB %> for species: <%= species %></h3>
+    
+    <div id="multi-chart-container"></div>
+    
+    <script>
+        let siteA = "<%= reviewData.siteA %>";
+        let siteB = "<%= reviewData.siteB %>";
+        
+        let siteAData = JSON.parse('<%- reviewData.data.siteAData %>');
+        let siteBData = JSON.parse('<%- reviewData.data.siteBData %>');
+        
+        let multiChartContainer = document.getElementById("multi-chart-container");
+        let chartContainerTemplate = document.createElement("div");
+        chartContainerTemplate.className = "chart-container";
+        chartContainerTemplate.style = "position: relative; width: 80%;";
+        
+        let speciesKeys = Object.keys(siteAData);
+        speciesKeys.forEach((species, index) => {
+            let chartInput = {}
+            chartInput[siteA] = siteAData[species];
+            chartInput[siteB] = siteBData[species];
+            
+            let canvas = document.createElement("canvas");
+            canvas.id = "canvas" + (index + 1);
+            
+            let container = chartContainerTemplate.cloneNode();
+            container.appendChild(canvas);
+            
+            multiChartContainer.appendChild(container);
+            
+            let speciesName = species.charAt(0).toUpperCase() + species.slice(1);
+            new Chart("canvas" + (index + 1), getChartData(chartInput, fromDate, toDate, speciesName));
+        });
+    </script>
+<% } %>
+
+<% include ../partials/footer %>

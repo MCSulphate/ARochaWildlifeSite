@@ -1,0 +1,35 @@
+{
+  "name": "nea",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev-start": "npx babel-node index.js",
+    "start": "node index.js",
+    "build": "npm run clean && npm run build-code && npm run copy-assets",
+    "build-code": "babel index.js -o build/index.js && babel lib -d build/lib && babel models -d build/models && babel routes -d build/routes && babel setup -d build/setup",
+    "install-build": "cd build && npm install",
+    "full-build": "npm run build && npm run install-build",
+    "clean": "rm -rf build && mkdir build",
+    "copy-assets": "cp -r public build && cp -r views build && cp .babelrc build && cp package.json build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0",
+    "coloured-logger": "^1.6.4",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "mongoose": "^5.0.9",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-builtin-extend": "^1.1.2",
+    "babel-preset-env": "^1.6.1",
+    "jest": "^22.4.3"
+  }
+}

@@ -1,0 +1,20 @@
+<% include ../partials/header-start %>
+<% include ../partials/header-end %>
+
+<h1>Login</h1>
+
+<% if (error) { %>
+    <h3><%= error %></h3>
+<% } %>
+
+<form action="/login" method="POST">
+    <label for="username">Username:</label>
+    <input type="text" name="username" placeholder="Username" autofocus>
+    
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="Password">
+    
+    <button>Login</button>
+</form>
+
+<% include ../partials/footer %>

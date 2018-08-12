@@ -1,0 +1,11 @@
+/* Matthew Lester NEA Project - new.css (Data Upload New Page CSS) */
+
+.required {
+    font-weight: 700;
+    color: red;
+}
+
+.new-species {
+    color: green;
+    font-weight: 700;
+}

@@ -1,0 +1,22 @@
+<% include ../partials/header-start %>
+<% include ../partials/header-end %>
+
+<h1>Profile Page</h1>
+<h3 id="username">Username: <%= user.username %></h3>
+<h3>Location Name: <%= user.locationName %></h3>
+
+<form id="change-password-form" style="display: none;">
+    <input id="old-password-field" type="password" placeholder="Old Password" minlength="8" maxlength="200">
+    <input id="new-password-field" type="password" placeholder="New Password" minlength="8" maxlength="200">
+    <button>Save</button>
+</form>
+
+<a id="form-toggle-button" href="#">Change your password</a>
+
+<h4 id="error-message" style="display: none;"></h4>
+
+<script src="/scripts/lib/utils.js"></script>
+<script src="/scripts/lib/validator.js"></script>
+<script src="/scripts/user/profile.js"></script>
+
+<% include ../partials/footer %>

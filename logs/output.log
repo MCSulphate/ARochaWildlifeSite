@@ -1,0 +1,504 @@
+[22/03/18] 12:05:31 [INFO] [Application] Application setup finished, server has been started.
+[22/03/18] 12:05:41 [INFO] [Routes/Index] admin has logged in.
+[22/03/18] 12:06:27 [INFO] [Routes/DataUpload] New species created: sadasds.
+[22/03/18] 12:06:27 [INFO] [Routes/DataUpload] New upload completed from user admin
+[22/03/18] 14:51:19 [INFO] [Application] Application setup finished, server has been started.
+[22/03/18] 15:01:38 [INFO] [Routes/Index] admin has logged in.
+[22/03/18] 15:02:05 [INFO] [Routes/DataUpload] New species created: daddadagahsjs.
+[22/03/18] 15:02:05 [INFO] [Routes/DataUpload] New upload completed from user admin
+[23/03/18] 08:42:21 [INFO] [Application] Application setup finished, server has been started.
+[23/03/18] 08:42:39 [INFO] [Routes/Index] admin has logged in.
+[23/03/18] 12:19:53 [INFO] [Application] Application setup finished, server has been started.
+[23/03/18] 12:20:05 [INFO] [Routes/Index] admin has logged in.
+[23/03/18] 12:20:46 [INFO] [Application] Application setup finished, server has been started.
+[23/03/18] 12:20:52 [INFO] [Routes/Index] admin has logged in.
+[24/03/18] 06:29:25 [INFO] [Application] Application setup finished, server has been started.
+[24/03/18] 06:29:37 [INFO] [Routes/Index] admin has logged in.
+[24/03/18] 06:32:41 [INFO] [Application] Application setup finished, server has been started.
+[24/03/18] 06:32:47 [INFO] [Routes/Index] admin has logged in.
+[24/03/18] 06:35:25 [INFO] [Routes/DataUpload] New species created: asdsasae.
+[24/03/18] 06:35:25 [INFO] [Routes/DataUpload] New species created: ddweasd.
+[24/03/18] 06:35:25 [INFO] [Routes/DataUpload] New upload completed from user admin
+[24/03/18] 10:56:30 [INFO] [Application] Application setup finished, server has been started.
+[24/03/18] 10:56:36 [INFO] [Routes/Index] admin has logged in.
+[24/03/18] 12:56:38 [INFO] [Application] Application setup finished, server has been started.
+[24/03/18] 12:56:45 [INFO] [Routes/Index] admin has logged in.
+[26/03/18] 08:40:45 [INFO] [Application] Application setup finished, server has been started.
+[26/03/18] 08:40:53 [INFO] [Routes/Index] admin has logged in.
+[26/03/18] 11:44:23 [INFO] [Application] Application setup finished, server has been started.
+[26/03/18] 11:44:34 [INFO] [Routes/Index] admin has logged in.
+[29/03/18] 09:57:35 [INFO] [Application] Application setup finished, server has been started.
+[29/03/18] 10:00:18 [INFO] [Routes/Index] admin has logged in.
+[29/03/18] 10:46:28 [ERROR] [Application] TypeError: this._model.removeById is not a function
+[29/03/18] 10:46:28 [ERROR] [Application]     at Species._callee6$ (/home/ubuntu/workspace/NEA/models/species.js:95:31)
+[29/03/18] 10:46:28 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:46:28 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:46:28 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:46:28 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/models/species.js:35:191)
+[29/03/18] 10:46:28 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/models/species.js:35:437
+[29/03/18] 10:46:28 [ERROR] [Application]     at new Promise (<anonymous>)
+[29/03/18] 10:46:28 [ERROR] [Application]     at Species.<anonymous> (/home/ubuntu/workspace/NEA/models/species.js:35:99)
+[29/03/18] 10:46:28 [ERROR] [Application]     at Species.removeSpeciesByID (/home/ubuntu/workspace/NEA/models/species.js:94:16)
+[29/03/18] 10:46:28 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:309:42)
+[29/03/18] 10:46:28 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:46:28 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:46:28 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:46:28 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:46:28 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:46:28 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:46:28 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[29/03/18] 10:46:28 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[29/03/18] 10:46:28 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[29/03/18] 10:46:28 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[29/03/18] 10:48:48 [INFO] [Application] Application setup finished, server has been started.
+[29/03/18] 10:48:52 [INFO] [Routes/Index] admin has logged in.
+[29/03/18] 10:51:22 [INFO] [Application] Application setup finished, server has been started.
+[29/03/18] 10:51:33 [INFO] [Routes/Index] admin has logged in.
+[29/03/18] 10:51:38 [ERROR] [Application] Error: Can't set headers after they are sent.
+[29/03/18] 10:51:38 [ERROR] [Application]     at validateHeader (_http_outgoing.js:494:11)
+[29/03/18] 10:51:38 [ERROR] [Application]     at ServerResponse.setHeader (_http_outgoing.js:501:3)
+[29/03/18] 10:51:38 [ERROR] [Application]     at Function.sendJSONResponse (/home/ubuntu/workspace/NEA/lib/utils.js:44:18)
+[29/03/18] 10:51:38 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:335:31)
+[29/03/18] 10:51:38 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:51:38 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:51:38 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:51:38 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:51:38 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:51:38 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:51:38 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[29/03/18] 10:51:38 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[29/03/18] 10:51:38 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[29/03/18] 10:51:38 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[29/03/18] 10:51:38 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[29/03/18] 10:51:38 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[29/03/18] 10:53:53 [INFO] [Application] Application setup finished, server has been started.
+[29/03/18] 10:54:23 [INFO] [Routes/Index] admin has logged in.
+[29/03/18] 10:54:27 [ERROR] [Application] Error: Can't set headers after they are sent.
+[29/03/18] 10:54:27 [ERROR] [Application]     at validateHeader (_http_outgoing.js:494:11)
+[29/03/18] 10:54:27 [ERROR] [Application]     at ServerResponse.setHeader (_http_outgoing.js:501:3)
+[29/03/18] 10:54:27 [ERROR] [Application]     at Function.sendJSONResponse (/home/ubuntu/workspace/NEA/lib/utils.js:44:18)
+[29/03/18] 10:54:27 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:336:31)
+[29/03/18] 10:54:27 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:54:27 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:54:27 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:54:27 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:54:27 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:54:27 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:54:27 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[29/03/18] 10:54:27 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[29/03/18] 10:54:27 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[29/03/18] 10:54:27 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[29/03/18] 10:54:27 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[29/03/18] 10:54:27 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[29/03/18] 10:55:52 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[29/03/18] 10:55:52 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[29/03/18] 10:55:52 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:55:52 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:55:52 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:55:52 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:55:52 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:55:52 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:56:48 [INFO] [Application] Application setup finished, server has been started.
+[29/03/18] 10:56:57 [INFO] [Routes/Index] admin has logged in.
+[29/03/18] 10:57:05 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:57:05 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:57:05 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:57:05 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:57:05 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:57:05 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:57:05 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:57:05 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:57:05 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[29/03/18] 10:57:05 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[29/03/18] 10:57:05 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[29/03/18] 10:57:05 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[29/03/18] 10:57:05 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[29/03/18] 10:57:20 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:57:20 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:57:20 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:57:20 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:57:20 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:57:20 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:57:20 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:57:20 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:57:20 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[29/03/18] 10:57:20 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:57:20 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:57:20 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:57:20 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:57:20 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:57:20 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:57:20 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:57:20 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:57:20 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[29/03/18] 10:57:33 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:57:33 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:57:33 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:57:33 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:57:33 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:57:33 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:57:33 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:57:33 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:57:33 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[29/03/18] 10:57:34 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:57:34 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:57:34 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:57:34 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:57:34 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:57:34 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:57:34 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:57:34 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:57:34 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[29/03/18] 10:57:36 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:57:36 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:57:36 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:57:36 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:57:36 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:57:36 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:57:36 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:57:36 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:57:36 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[29/03/18] 10:58:31 [INFO] [Routes/DataUpload] New species created: test.
+[29/03/18] 10:58:31 [INFO] [Routes/DataUpload] New upload completed from user admin
+[29/03/18] 10:59:01 [INFO] [Routes/DataUpload] New upload completed from user admin
+[29/03/18] 10:59:19 [ERROR] [Application] TypeError: loggedInUser.indexOf is not a function
+[29/03/18] 10:59:19 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:318:74)
+[29/03/18] 10:59:19 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[29/03/18] 10:59:19 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[29/03/18] 10:59:19 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[29/03/18] 10:59:19 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[29/03/18] 10:59:19 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[29/03/18] 10:59:19 [ERROR] [Application]     at <anonymous>
+[29/03/18] 10:59:19 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[30/03/18] 09:31:57 [INFO] [Application] Application setup finished, server has been started.
+[30/03/18] 09:32:05 [INFO] [Routes/Index] admin has logged in.
+[30/03/18] 09:32:11 [ERROR] [Application] TypeError: userDoc.indexOf is not a function
+[30/03/18] 09:32:11 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:323:68)
+[30/03/18] 09:32:11 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:32:11 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:32:11 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:32:11 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:32:11 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:32:11 [ERROR] [Application]     at <anonymous>
+[30/03/18] 09:32:11 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[30/03/18] 09:32:11 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[30/03/18] 09:32:11 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[30/03/18] 09:32:11 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[30/03/18] 09:32:11 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[30/03/18] 09:33:10 [INFO] [Application] Application setup finished, server has been started.
+[30/03/18] 09:33:17 [INFO] [Routes/Index] admin has logged in.
+[30/03/18] 09:33:25 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[30/03/18] 09:33:25 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[30/03/18] 09:33:25 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:33:25 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:33:25 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:33:25 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:33:25 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:33:25 [ERROR] [Application]     at <anonymous>
+[30/03/18] 09:33:25 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[30/03/18] 09:33:25 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[30/03/18] 09:33:25 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[30/03/18] 09:33:25 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[30/03/18] 09:33:25 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[30/03/18] 09:33:25 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[30/03/18] 09:33:25 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[30/03/18] 09:33:25 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[30/03/18] 09:33:25 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:33:25 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:33:25 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:33:25 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:33:25 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:33:25 [ERROR] [Application]     at <anonymous>
+[30/03/18] 09:33:26 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[30/03/18] 09:33:26 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[30/03/18] 09:33:26 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:33:26 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:33:26 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:33:26 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:33:26 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:33:26 [ERROR] [Application]     at <anonymous>
+[30/03/18] 09:33:26 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[30/03/18] 09:33:26 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[30/03/18] 09:33:26 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:33:26 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:33:26 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:33:26 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:33:26 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:33:26 [ERROR] [Application]     at <anonymous>
+[30/03/18] 09:35:26 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[30/03/18] 09:35:26 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[30/03/18] 09:35:26 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:35:26 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:35:26 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:35:26 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:35:26 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:35:26 [ERROR] [Application]     at <anonymous>
+[30/03/18] 09:35:26 [ERROR] [Application] TypeError: Cannot read property 'count' of null
+[30/03/18] 09:35:26 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:278:50)
+[30/03/18] 09:35:26 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[30/03/18] 09:35:26 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[30/03/18] 09:35:26 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[30/03/18] 09:35:26 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[30/03/18] 09:35:26 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[30/03/18] 09:35:26 [ERROR] [Application]     at <anonymous>
+[01/04/18] 07:52:55 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 07:53:10 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 07:53:21 [ERROR] [Application] TypeError: Cannot read property 'splice' of undefined
+[01/04/18] 07:53:21 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 07:53:21 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 07:53:21 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:301:40)
+[01/04/18] 07:53:21 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[01/04/18] 07:53:21 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 07:53:21 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[01/04/18] 07:53:21 [ERROR] [Application]     at <anonymous>
+[01/04/18] 07:53:21 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[01/04/18] 07:53:21 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[01/04/18] 07:53:21 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[01/04/18] 07:53:21 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[01/04/18] 07:53:21 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[01/04/18] 07:54:46 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 07:54:50 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 07:54:54 [ERROR] [Application] TypeError: Cannot read property 'splice' of undefined
+[01/04/18] 07:54:54 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:301:40)
+[01/04/18] 07:54:54 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 07:54:54 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 07:54:54 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 07:54:54 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[01/04/18] 07:54:54 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[01/04/18] 07:54:54 [ERROR] [Application]     at <anonymous>
+[01/04/18] 07:54:54 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[01/04/18] 07:54:54 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[01/04/18] 07:54:54 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[01/04/18] 07:54:54 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[01/04/18] 07:54:54 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[01/04/18] 07:56:38 [INFO] [Application] Successfully seeded the database.
+[01/04/18] 07:56:38 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 07:56:48 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 07:57:38 [INFO] [Routes/Admin] Created a taxonomic group: Test Group
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin] WriteError({"code":11000,"index":0,"errmsg":"insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.taxonomicgroups.$name_1  dup key: { : \"Test Group\" }","op":{"optionalFields":[],"invalidFields":[],"statuses":[],"species":[],"_id":"5ae81dfd90bfcd08e14f8cca","name":"Test Group","__v":0}})
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin]     at /home/ubuntu/workspace/NEA/node_modules/mongodb/lib/bulk/unordered.js:535:15
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin]     at handleCallback (/home/ubuntu/workspace/NEA/node_modules/mongodb/lib/utils.js:128:55)
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin]     at resultHandler (/home/ubuntu/workspace/NEA/node_modules/mongodb/lib/bulk/unordered.js:456:5)
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin]     at /home/ubuntu/workspace/NEA/node_modules/mongodb-core/lib/connection/pool.js:544:18
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[01/04/18] 07:57:49 [ERROR] [Routes/Admin]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[01/04/18] 07:58:42 [INFO] [Routes/DataUpload] New species created: test species.
+[01/04/18] 07:58:42 [INFO] [Routes/DataUpload] New upload completed from user admin
+[01/04/18] 07:59:00 [INFO] [Routes/DataUpload] New upload completed from user admin
+[01/04/18] 08:01:22 [INFO] [Application] Successfully seeded the database.
+[01/04/18] 08:01:22 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 08:01:30 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 08:06:03 [INFO] [Routes/DataUpload] New upload completed from user admin
+[01/04/18] 08:06:32 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 08:06:38 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 08:07:14 [ERROR] [Application] TypeError: Cannot read property 'toDateString' of undefined
+[01/04/18] 08:07:14 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:340:74)
+[01/04/18] 08:07:14 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 08:07:14 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 08:07:14 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 08:07:14 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[01/04/18] 08:07:14 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[01/04/18] 08:07:14 [ERROR] [Application]     at <anonymous>
+[01/04/18] 08:07:14 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[01/04/18] 08:07:14 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[01/04/18] 08:07:14 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[01/04/18] 08:07:14 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[01/04/18] 08:07:14 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[01/04/18] 08:07:14 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[01/04/18] 08:07:14 [ERROR] [Application] TypeError: Cannot read property 'toDateString' of undefined
+[01/04/18] 08:07:14 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:340:74)
+[01/04/18] 08:07:14 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 08:07:14 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 08:07:14 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 08:07:14 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[01/04/18] 08:07:14 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[01/04/18] 08:07:14 [ERROR] [Application]     at <anonymous>
+[01/04/18] 08:07:15 [ERROR] [Application] TypeError: Cannot read property 'toDateString' of undefined
+[01/04/18] 08:07:15 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:340:74)
+[01/04/18] 08:07:15 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 08:07:15 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 08:07:15 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 08:07:15 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[01/04/18] 08:07:15 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[01/04/18] 08:07:15 [ERROR] [Application]     at <anonymous>
+[01/04/18] 08:07:16 [ERROR] [Application] TypeError: Cannot read property 'splice' of undefined
+[01/04/18] 08:07:16 [ERROR] [Application]     at AdminRouter._callee10$ (/home/ubuntu/workspace/NEA/routes/admin.js:301:40)
+[01/04/18] 08:07:16 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 08:07:16 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 08:07:16 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 08:07:16 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/admin.js:51:191)
+[01/04/18] 08:07:16 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/admin.js:51:361
+[01/04/18] 08:07:16 [ERROR] [Application]     at <anonymous>
+[01/04/18] 08:07:16 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[01/04/18] 09:28:05 [INFO] [Application] Successfully seeded the database.
+[01/04/18] 09:28:05 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 09:28:09 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 09:28:21 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 09:29:33 [INFO] [Routes/Admin] Created a taxonomic group: Test
+[01/04/18] 09:29:47 [INFO] [Routes/DataUpload] New species created: test species.
+[01/04/18] 09:29:48 [INFO] [Routes/DataUpload] New upload completed from user admin
+[01/04/18] 09:45:40 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 09:45:48 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 09:49:00 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 09:49:18 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 09:49:28 [INFO] [Routes/DataUpload] New species created: test species 2.
+[01/04/18] 09:49:28 [INFO] [Routes/DataUpload] New upload completed from user admin
+[01/04/18] 09:58:18 [INFO] [Application] Successfully seeded the database.
+[01/04/18] 09:58:18 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 09:58:21 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 09:58:30 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 09:58:41 [INFO] [Routes/Admin] Created a new user: user
+[01/04/18] 09:59:10 [INFO] [Routes/Admin] Created a taxonomic group: Test Group
+[01/04/18] 10:04:11 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 10:04:15 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 10:04:56 [INFO] [Routes/DataUpload] New species created: test.
+[01/04/18] 10:04:56 [INFO] [Routes/DataUpload] New species created: test 2.
+[01/04/18] 10:04:56 [INFO] [Routes/DataUpload] New upload completed from user admin
+[01/04/18] 10:05:10 [INFO] [Routes/Index] user has logged in.
+[01/04/18] 10:05:27 [INFO] [Routes/DataUpload] New upload completed from user user
+[01/04/18] 10:05:33 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 10:05:44 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[01/04/18] 10:05:44 [INFO] [Routes/Admin] Updated (-1 seen, now 2 have been seen)
+[01/04/18] 10:05:44 [INFO] [Routes/Admin] Updated (-1 seen, now 1 have been seen)
+[01/04/18] 10:07:51 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 10:08:43 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 10:08:48 [ERROR] [Application] TypeError: Cannot read property 'date' of undefined
+[01/04/18] 10:08:48 [ERROR] [Application]     at DataUpload._callee7$ (/home/ubuntu/workspace/NEA/models/data-upload.js:125:31)
+[01/04/18] 10:08:48 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/04/18] 10:08:48 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/04/18] 10:08:48 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/models/data-upload.js:23:191)
+[01/04/18] 10:08:48 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/04/18] 10:08:48 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/models/data-upload.js:23:361
+[01/04/18] 10:08:48 [ERROR] [Application]     at <anonymous>
+[01/04/18] 10:08:48 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[01/04/18] 10:08:48 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[01/04/18] 10:08:48 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[01/04/18] 10:08:48 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[01/04/18] 10:08:48 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[01/04/18] 10:10:20 [INFO] [Application] Application setup finished, server has been started.
+[01/04/18] 10:10:35 [INFO] [Routes/Index] admin has logged in.
+[01/04/18] 10:10:40 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[01/04/18] 10:10:40 [INFO] [Routes/Admin] test Updated (-1 seen, now 1 have been seen)
+[01/04/18] 10:10:40 [INFO] [Routes/Admin] 2. test 2 Deleted (no more have been seen)
+[01/04/18] 10:10:40 [INFO] [Routes/Admin] 3. test Deleted (no more have been seen)
+[18/04/18] 11:11:25 [INFO] [Application] Application setup finished, server has been started.
+[18/04/18] 11:11:38 [INFO] [Application] Successfully reset and seeded the database.
+[18/04/18] 11:11:39 [INFO] [Application] Application setup finished, server has been started.
+[18/04/18] 11:11:47 [INFO] [Routes/Index] admin has logged in.
+[18/04/18] 11:24:38 [INFO] [Application] Application setup finished, server has been started.
+[18/04/18] 11:24:49 [INFO] [Routes/Index] admin has logged in.
+[18/04/18] 11:25:41 [INFO] [Routes/Admin] Created a taxonomic group: Test
+[18/04/18] 11:26:11 [INFO] [Routes/DataUpload] New species created: aaa.
+[18/04/18] 11:26:11 [INFO] [Routes/DataUpload] New species created: bbb.
+[18/04/18] 11:26:11 [INFO] [Routes/DataUpload] New species created: ccc.
+[18/04/18] 11:26:11 [INFO] [Routes/DataUpload] New upload completed from user admin
+[18/04/18] 11:26:31 [INFO] [Routes/DataUpload] New upload completed from user admin
+[18/04/18] 11:28:25 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[18/04/18] 11:28:25 [INFO] [Routes/Admin] 0 The species aaa was updated (-1 seen, now 1 have been seen).
+[18/04/18] 11:28:25 [INFO] [Routes/Admin] 1 The species bbb was deleted (no more have been seen).
+[18/04/18] 11:28:25 [INFO] [Routes/Admin] 2 The species ccc was deleted (no more have been seen).
+[18/04/18] 11:29:26 [INFO] [Application] Application setup finished, server has been started.
+[18/04/18] 11:29:31 [INFO] [Routes/Index] admin has logged in.
+[18/04/18] 11:29:42 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[18/04/18] 11:29:42 [INFO] [Routes/Admin] 01. The species aaa was deleted (no more have been seen).
+[18/04/18] 11:34:31 [INFO] [Application] Application setup finished, server has been started.
+[18/04/18] 11:34:37 [INFO] [Routes/Index] admin has logged in.
+[18/04/18] 11:34:54 [INFO] [Routes/DataUpload] New species created: aaa.
+[18/04/18] 11:34:54 [INFO] [Routes/DataUpload] New upload completed from user admin
+[18/04/18] 11:35:09 [INFO] [Routes/DataUpload] New upload completed from user admin
+[18/04/18] 11:35:22 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[18/04/18] 11:35:22 [INFO] [Routes/Admin] 1. The species aaa was updated (-1 seen, now 1 have been seen).
+[18/04/18] 11:35:27 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[18/04/18] 11:35:27 [INFO] [Routes/Admin] 1. The species aaa was deleted (no more have been seen).
+[18/04/18] 11:35:53 [INFO] [Routes/DataUpload] New species created: aaa.
+[18/04/18] 11:35:53 [INFO] [Routes/DataUpload] New species created: bbb.
+[18/04/18] 11:35:53 [INFO] [Routes/DataUpload] New species created: ccc.
+[18/04/18] 11:35:53 [INFO] [Routes/DataUpload] New upload completed from user admin
+[18/04/18] 11:36:08 [INFO] [Routes/DataUpload] New upload completed from user admin
+[18/04/18] 11:36:39 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[18/04/18] 11:36:39 [INFO] [Routes/Admin] 1. The species aaa was updated (-1 seen, now 1 have been seen).
+[18/04/18] 11:36:39 [INFO] [Routes/Admin] 2. The species bbb was deleted (no more have been seen).
+[18/04/18] 11:36:39 [INFO] [Routes/Admin] 3. The species ccc was deleted (no more have been seen).
+[18/04/18] 11:36:47 [INFO] [Routes/Admin] admin deleted an upload, here are a summary of the changes:
+[18/04/18] 11:36:47 [INFO] [Routes/Admin] 1. The species aaa was deleted (no more have been seen).
+[23/06/18] 16:16:11 [INFO] [Application] Application setup finished, server has been started.
+[23/06/18] 16:16:19 [INFO] [Application] Successfully reset and seeded the database.
+[23/06/18] 16:16:19 [INFO] [Application] Application setup finished, server has been started.
+[23/06/18] 16:16:45 [INFO] [Routes/Index] admin has logged in.
+[23/06/18] 16:18:38 [WARN] [Application] Error seeding database: User validation failed: locationName: Path `locationName` is required.
+[23/06/18] 16:18:38 [INFO] [Application] Application setup finished, server has been started.
+[23/06/18] 16:19:47 [INFO] [Application] Successfully reset and seeded the database.
+[23/06/18] 16:19:47 [INFO] [Application] Application setup finished, server has been started.
+[23/06/18] 16:19:54 [INFO] [Routes/Index] admin has logged in.
+[23/06/18] 16:20:34 [INFO] [Routes/Admin] Created a new user: test
+[23/06/18] 16:20:38 [INFO] [Routes/Admin] Deleted a user: test
+[23/06/18] 16:26:35 [INFO] [Application] Successfully reset and seeded the database.
+[23/06/18] 16:26:35 [INFO] [Application] Application setup finished, server has been started.
+[23/06/18] 16:26:42 [INFO] [Routes/Index] admin has logged in.
+[23/06/18] 16:27:29 [INFO] [Routes/Admin] Created a taxonomic group: Test Group
+[23/06/18] 16:27:52 [INFO] [Routes/DataUpload] New species created: test 1.
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload] ValidationError: location: Path `location` is required.
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload]     at new ValidationError (/home/ubuntu/workspace/NEA/node_modules/mongoose/lib/error/validation.js:27:11)
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload]     at model.Document.invalidate (/home/ubuntu/workspace/NEA/node_modules/mongoose/lib/document.js:1758:32)
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload]     at /home/ubuntu/workspace/NEA/node_modules/mongoose/lib/document.js:1630:17
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload]     at /home/ubuntu/workspace/NEA/node_modules/mongoose/lib/schematype.js:808:9
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[23/06/18] 16:27:52 [ERROR] [Routes/DataUpload]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[23/06/18] 16:59:56 [INFO] [Application] Application setup finished, server has been started.
+[23/06/18] 17:18:12 [INFO] [Routes/Index] admin has logged in.
+[24/06/18] 17:28:10 [INFO] [Application] Application setup finished, server has been started.
+[24/06/18] 17:28:52 [INFO] [Routes/Index] admin has logged in.
+[25/06/18] 20:53:42 [INFO] [Application] Application setup finished, server has been started.
+[25/06/18] 20:53:58 [INFO] [Routes/Index] admin has logged in.
+[27/06/18] 08:09:29 [INFO] [Application] Application setup finished, server has been started.
+[27/06/18] 08:12:07 [INFO] [Routes/Index] admin has logged in.
+[27/06/18] 08:59:37 [INFO] [Routes/Index] admin has logged in.
+[27/06/18] 12:17:10 [INFO] [Application] Application setup finished, server has been started.
+[27/06/18] 12:17:40 [INFO] [Routes/Index] admin has logged in.
+[01/07/18] 21:52:45 [INFO] [Application] Successfully reset and seeded the database.
+[01/07/18] 21:52:45 [INFO] [Application] Application setup finished, server has been started.
+[01/07/18] 21:52:59 [INFO] [Routes/Index] admin has logged in.
+[01/07/18] 21:57:22 [ERROR] [Application] TypeError: Cannot read property 'length' of undefined
+[01/07/18] 21:57:22 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/lib/validator.js:300:55
+[01/07/18] 21:57:22 [ERROR] [Application]     at Array.forEach (<anonymous>)
+[01/07/18] 21:57:22 [ERROR] [Application]     at Function.validateLengths (/home/ubuntu/workspace/NEA/lib/validator.js:298:20)
+[01/07/18] 21:57:22 [ERROR] [Application]     at DataUploadRouter._validateNewLocationData (/home/ubuntu/workspace/NEA/routes/data-upload.js:275:38)
+[01/07/18] 21:57:22 [ERROR] [Application]     at DataUploadRouter._callee2$ (/home/ubuntu/workspace/NEA/routes/data-upload.js:51:32)
+[01/07/18] 21:57:22 [ERROR] [Application]     at tryCatch (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:65:40)
+[01/07/18] 21:57:22 [ERROR] [Application]     at Generator.invoke [as _invoke] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:303:22)
+[01/07/18] 21:57:22 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (/home/ubuntu/workspace/NEA/node_modules/regenerator-runtime/runtime.js:117:21)
+[01/07/18] 21:57:22 [ERROR] [Application]     at step (/home/ubuntu/workspace/NEA/routes/data-upload.js:55:191)
+[01/07/18] 21:57:22 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/data-upload.js:55:437
+[01/07/18] 21:57:22 [ERROR] [Application]     at new Promise (<anonymous>)
+[01/07/18] 21:57:22 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/data-upload.js:55:99
+[01/07/18] 21:57:22 [ERROR] [Application]     at /home/ubuntu/workspace/NEA/routes/data-upload.js:47:9
+[01/07/18] 21:57:22 [ERROR] [Application]     at Layer.handle [as handle_request] (/home/ubuntu/workspace/NEA/node_modules/express/lib/router/layer.js:95:5)
+[01/07/18] 21:57:22 [ERROR] [Application]     at next (/home/ubuntu/workspace/NEA/node_modules/express/lib/router/route.js:137:13)
+[01/07/18] 21:57:22 [ERROR] [Application]     at Route.dispatch (/home/ubuntu/workspace/NEA/node_modules/express/lib/router/route.js:112:3)
+[01/07/18] 21:57:22 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[01/07/18] 21:57:22 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[01/07/18] 21:57:22 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[01/07/18] 21:57:22 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[01/07/18] 21:57:22 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[01/07/18] 21:57:22 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[01/07/18] 21:59:19 [INFO] [Application] Application setup finished, server has been started.
+[01/07/18] 21:59:27 [INFO] [Routes/Index] admin has logged in.
+[01/07/18] 21:59:48 [INFO] [Models/Location] Created a new location: Test Location
+[01/07/18] 22:00:09 [INFO] [Models/Location] Created a new location: Test Location
+[01/07/18] 22:01:09 [INFO] [Application] Successfully reset and seeded the database.
+[01/07/18] 22:01:09 [INFO] [Application] Application setup finished, server has been started.
+[01/07/18] 22:01:20 [INFO] [Application] Successfully reset and seeded the database.
+[01/07/18] 22:01:20 [INFO] [Application] Application setup finished, server has been started.
+[01/07/18] 22:01:31 [INFO] [Routes/Index] admin has logged in.
+[01/07/18] 22:02:03 [INFO] [Application] Application setup finished, server has been started.
+[01/07/18] 22:02:11 [INFO] [Routes/Index] admin has logged in.
+[01/07/18] 22:02:23 [INFO] [Models/Location] Created a new location: Test Location
+[01/07/18] 22:03:09 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }
+[01/07/18] 22:03:21 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }
+[01/07/18] 22:03:28 [INFO] [Models/Location] Created a new location: Test Location 2
+[01/07/18] 22:09:03 [INFO] [Application] Application setup finished, server has been started.
+[01/07/18] 22:09:25 [INFO] [Routes/Index] admin has logged in.
+[01/07/18] 22:09:50 [INFO] [Models/Location] Created a new location: Test Location 3
+[01/07/18] 22:10:27 [INFO] [Models/Location] Created a new location: Wolf Fields
+[02/07/18] 10:07:27 [INFO] [Application] Application setup finished, server has been started.
+[02/07/18] 10:49:30 [INFO] [Routes/Index] admin has logged in.

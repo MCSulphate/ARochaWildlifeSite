@@ -1,0 +1,51 @@
+<% include ../partials/header-start %>
+<link rel="stylesheet" href="/stylesheets/admin/accounts.css">
+<% include ../partials/header-end %>
+
+<h1>User Account Management</h1>
+
+<% if (error) { %>
+    <h3>There was an error finding the user accounts.</h3>
+    <p>Please contact a network administrator and quote the following message:</p>
+    <h5><%= error %></h5>
+<% } else { %>
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <% users.forEach(userObject => { %>
+                <tr>
+                    <td class="table-username"><%= userObject.username %></td>
+                    <% if (userObject.username !== user.username) { %>
+                        <td>
+                            <button class="delete-user-button">Delete</button>
+                        </td>
+                    <% } else { %>
+                        <td>No Actions Available</td>
+                    <% } %>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+    
+    <form id="new-user-form" style="display: none;">
+        <input id="username-field" type="text" placeholder="Username" minlength="3" maxlength="20">
+        <input id="password-field" type="password" placeholder="Password" minlength="8" maxlength="200">
+        <button>Submit</button>
+    </form>
+    
+    <a href="#" id="form-toggle-button">Add a new user account</a>
+    
+    <h4 id="error-message" style="display: none;"></h4>
+<% } %>
+
+<script src="/scripts/lib/utils.js"></script>
+<script src="/scripts/lib/validator.js"></script>
+<script src="/scripts/admin/accounts.js"></script>
+
+<% include ../partials/footer %>

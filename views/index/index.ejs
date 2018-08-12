@@ -1,0 +1,13 @@
+<% include ../partials/header-start %>
+<link rel="stylesheet" href="/stylesheets/index/landing.css">
+<% include ../partials/header-end %>
+
+<h1 class="banner">Welcome to the A Rocha UK / PIA Wildlife Tracker!</h1>
+
+<% if (!user) { %>
+    <p class="small-banner">Please <a href="/login">log in</a> to continue.</h3>
+<% } else { %>
+    <p class="small-banner">Please use the navigation bar at the top to find your way around the site.</h3>
+<% } %>
+
+<% include ../partials/footer %>

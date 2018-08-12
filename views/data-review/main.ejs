@@ -1,0 +1,110 @@
+<% include ../partials/header-start %>
+<% include ../partials/header-end %>
+
+<h1>Data Review Page</h1>
+
+<% if (error) { %>
+    <h3>There was an error loading this page. Please contact a system administrator and quote the following message:</h3>
+    <p><%= error %></p>
+<% } else { %>
+    <p>Welcome to the data review page. From here, you can look at how species are doing, compare them against other species, and compare species across sites.</p>
+    
+    <div id="instructions-container">
+        <h3>Instructions:</h3>
+        <ul>
+            <li>Use the two dropdown boxes to select the sites you want to compare.</li>
+            <li>If you do not want to compare sites, do not select any sites.</li>
+            <li>If you want to look at one site, just select the first site.</li>
+            <li>Tick up to 5 species that you want to compare, and click 'Go'.</li>
+        </ul>
+    </div>
+    
+    <% if (species.length === 0) { %>
+        <h3>There are no recorded species to display.</h3>
+    <% } else { %>
+        <form id="selection-form">
+            <div class="choice-container">
+                <span>Compare</span>
+                <select id="site-a-input">
+                    <option></option>
+                    <% locationNames.forEach(locationName => { %>
+                        <option value="<%= locationName %>"><%= locationName %></option>
+                    <% }); %>
+                </select>
+                <span>against</span>
+                <select id="site-b-input">
+                    <option></option>
+                    <% locationNames.forEach(locationName => { %>
+                        <option value="<%= locationName %>"><%= locationName %></option>
+                    <% }); %>
+                </select>
+            </div>
+            <div class="choice-container">
+                <span>From</span>
+                <input id="from-date" type="date">
+                <span>to</span>
+                <input id="to-date" type="date">
+            </div>
+            
+            <button>Go</button>
+        </form>
+        
+        <div id="species-container">
+            <h2>Species List</h2>
+            
+            <div id="sort-controls">
+                <span>Sort by</span>
+                <select id="sort-input">
+                    <option value="az-ascending" selected>A-Z Ascending</option>
+                    <option value="az-descending">A-Z Descending</option>
+                    <option value="taxonomic-group">Taxonomic Group</option>
+                    <option value="similar">Similar Names</option>
+                </select>
+                <button id="sort-button">Sort</button>
+            </div>
+            
+            <div id="species-inner-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Species</th>
+                            <th>Taxonomic Group</th>
+                            <th>Total Seen</th>
+                            <th>Seen By</th>
+                            <th>First Seen</th>
+                            <th>Last Seen</th>
+                            <th>Compare?</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <% 
+                            // Sort the species alphabetically, ascending.
+                            species.sort((a, b) => a.name > b.name);
+                            species.forEach(s => { %>
+                            <%
+                                let seenByNames = [];
+                                s.seenBy.forEach(sb => seenByNames.indexOf(sb.locationName) === -1 ? seenByNames.push(sb.locationName) : undefined);
+                            %>
+                            <tr>
+                                <td class="species-name"><%= s.name %></td>
+                                <td class="taxonomic-group"><%= s.taxonomicGroup.name %></td>
+                                <td><%= s.count %></td>
+                                <td><%= seenByNames.join(", ") %></td>
+                                <td><%= s.firstSeen.toDateString() %></td>
+                                <td><%= s.lastSeen.toDateString() %></td>
+                                <td><input type="checkbox"></td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    <% } %>
+    
+    <h4 id="error-message" display="none"></h4>
+    <script src="/scripts/lib/utils.js"></script>
+    <script src="/scripts/data-review/main.js"></script>
+<% } %>
+
+<% include ../partials/footer %>
