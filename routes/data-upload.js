@@ -241,9 +241,7 @@ class DataUploadRouter extends BaseRouter {
             }
 
             let isValid = this._validateGetGroupData(body);
-
             if (isValid === true) {
-
                 try {
                     let group = await tGroup.findGroupByName(body.name);
                     Utils.sendJSONResponse(res, group);

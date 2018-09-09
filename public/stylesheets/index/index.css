@@ -174,7 +174,7 @@ th, td {
 }
 
 .form {
-    background-color: #c1ecf0;
+    background-color: #d6f2f5;
     border: 2px solid #32c0cd;
     border-radius: 6px;
     box-shadow: 3px 3px 4px #555;
@@ -184,6 +184,18 @@ th, td {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+input, select {
+    border: 1px solid #84d9e1;
+    padding: 3px;
+    border-radius: 3px;
+    max-width: 200px;
+}
+
+input:focus {
+    border: 1px solid #80b3ff;
+    box-shadow: 0 0 3px 4px #b3d1ff;
 }
 
 .form .button {
@@ -228,13 +240,16 @@ th, td {
     font-weight: 700;
     width: calc(50% - 6px);
     margin-right: 6px;
+    line-height: 23px;
 }
 
 .form-hint {
+    position: relative;
+    top: 2px;
     font-size: 0px;
     color: #ff4d4d;
     font-weight: 700;
-    display: block;
+    display: inline-block;
     height: 0;
     opacity: 0;
     transition: height .4s, font-size .5s, opacity .25s;
@@ -242,7 +257,7 @@ th, td {
 
 .form-group:hover .form-hint {
     font-size: 14px;
-    height: 35px;
+    height: 20px;
     opacity: 1;
 }
 

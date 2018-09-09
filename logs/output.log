@@ -508,3 +508,15 @@
 [12/07/18] 02:47:20 [INFO] [Application] Application setup finished, server has been started.
 [12/07/18] 02:47:33 [INFO] [Routes/Index] admin has logged in.
 [12/07/18] 02:48:34 [ERROR] [Models/Location] Failed to create a new location: insertDocument :: caused by :: 11000 E11000 duplicate key error index: wildlife_website_db.locations.$locationName_1  dup key: { : "Test Location" }
+[07/08/18] 10:32:33 [INFO] [Application] Application setup finished, server has been started.
+[07/08/18] 10:33:16 [INFO] [Application] Successfully reset and seeded the database.
+[07/08/18] 10:33:16 [INFO] [Application] Application setup finished, server has been started.
+[07/08/18] 10:34:01 [INFO] [Routes/Index] admin has logged in.
+[07/08/18] 12:14:49 [INFO] [Application] Successfully reset and seeded the database.
+[07/08/18] 12:14:49 [INFO] [Application] Application setup finished, server has been started.
+[07/08/18] 12:15:10 [INFO] [Routes/Index] admin has logged in.
+[07/08/18] 12:51:11 [INFO] [Application] Application setup finished, server has been started.
+[07/08/18] 12:56:16 [INFO] [Application] Application setup finished, server has been started.
+[07/08/18] 12:57:36 [INFO] [Routes/Index] admin has logged in.
+[09/08/18] 10:56:46 [INFO] [Application] Application setup finished, server has been started.
+[09/08/18] 11:07:43 [INFO] [Routes/Index] admin has logged in.

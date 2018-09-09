@@ -5,6 +5,7 @@ import logger from "coloured-logger";
 import BaseRouter from "./base-router";
 import Middleware from "../lib/middleware";
 import passport from "passport";
+import Utils from "../lib/utils";
 
 // IndexRouter Class
 class IndexRouter extends BaseRouter {
@@ -35,22 +36,22 @@ class IndexRouter extends BaseRouter {
             passport.authenticate("local", (err, user, info) => {
                 if (err) {
                     log.error("Error authenticating a user: " + err.message);
-                    res.redirect("/login");
+                    Utils.sendJSONResponse(res);
                 }
                 else if (!user) {
                     // No need to log this, they just had wrong username/password combo.
-                    res.redirect("/login");
+                    Utils.sendJSONResponse(res, "Incorrect username or password.");
                 }
                 else {
 
                     req.logIn(user, err => {
                         if (err) {
                             log.error("Error logging a user in: " + err.message);
-                            res.redirect("/login");
+                            Utils.sendJSONResponse(res);
                         }
                         else {
                             log.info(`${user.username} has logged in.`);
-                            res.redirect("/");
+                            Utils.sendJSONResponse(res, {});
                         }
                     });
 
