@@ -42,6 +42,7 @@ html, body {
     padding: 10px 15px;
     font-weight: 700;
     background-color: #4d94ff;
+    cursor: pointer;
     
     border-radius: 5px;
     border: 3px solid #0052cc;
@@ -174,6 +175,7 @@ th, td {
 }
 
 .form {
+    text-align: center;
     background-color: #d6f2f5;
     border: 2px solid #32c0cd;
     border-radius: 6px;
@@ -203,9 +205,9 @@ input:focus {
 }
 
 .form-header {
-    width: 500px;
+    max-width: 500px;
     text-align: center;
-    margin: 10px 0 15px 0;
+    margin: 10px auto 15px auto;
     font-size: 25px;
 }
 
@@ -218,7 +220,7 @@ input:focus {
     padding-left: 5px;
 }
 
-.form-group:after {
+.clearfix, .form-group:after {
     content: '';
     clear: both;
     height: 0;
@@ -245,12 +247,13 @@ input:focus {
 
 .form-hint {
     position: relative;
+    width: 100%;
     top: 2px;
     font-size: 0px;
     color: #ff4d4d;
     font-weight: 700;
     display: inline-block;
-    height: 0;
+    height: 1px;
     opacity: 0;
     transition: height .4s, font-size .5s, opacity .25s;
 }

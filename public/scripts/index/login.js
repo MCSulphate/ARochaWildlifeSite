@@ -17,6 +17,10 @@ loginButton.addEventListener("click", async () => {
 
     let response = await JSONRequest("/login", data);
     if (response.error) {
+        // Clear the fields and show the error message.
+        usernameField.value = "";
+        passwordField.value = "";
+        
         displayFormError(loginForm, response.error);
     }
     else {

@@ -1,2 +1,14 @@
 /* Matthew Lester NEA Project - new.css (Data Upload New Page CSS) */
 
+#load-form {
+    min-width: 525px;
+}
+
+#upload-container {
+    margin: 35px 0 30px 0;
+    overflow: auto;
+}
+
+#species-form {
+    float: left;
+}

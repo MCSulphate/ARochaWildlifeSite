@@ -520,3 +520,12 @@
 [07/08/18] 12:57:36 [INFO] [Routes/Index] admin has logged in.
 [09/08/18] 10:56:46 [INFO] [Application] Application setup finished, server has been started.
 [09/08/18] 11:07:43 [INFO] [Routes/Index] admin has logged in.
+[09/08/18] 15:25:54 [INFO] [Application] Application setup finished, server has been started.
+[09/08/18] 15:26:47 [INFO] [Application] Successfully reset and seeded the database.
+[09/08/18] 15:26:47 [INFO] [Application] Application setup finished, server has been started.
+[09/08/18] 15:28:34 [INFO] [Routes/Index] admin has logged in.
+[09/08/18] 16:05:11 [INFO] [Routes/Index] admin has logged in.
+[09/08/18] 16:05:58 [INFO] [Routes/Index] admin has logged in.
+[09/08/18] 16:49:17 [INFO] [Application] Application setup finished, server has been started.
+[09/08/18] 16:51:02 [INFO] [Routes/Index] admin has logged in.
+[09/08/18] 16:59:02 [INFO] [Models/Location] Created a new location: Somewhere
