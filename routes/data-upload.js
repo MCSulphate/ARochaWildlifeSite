@@ -45,13 +45,36 @@ class DataUploadRouter extends BaseRouter {
         });
 
         // POST route for location creation.
-        this._router.post("/new-location", async(req, res) => {
+        this._router.post("/location", async(req, res) => {
             let body = req.body;
             
             // Make sure the uploaded data is valid.
             let isValid = this._validateNewLocationData(body);
             if (isValid === true) {
                 let success = await lModel.addNewLocation(body);
+                
+                // Ensure that the process was a success.
+                if (!success) {
+                    Utils.sendJSONResponse(res);
+                }
+                else {
+                    Utils.sendJSONResponse(res, {});
+                }
+            }
+            else {
+                // Send the validation error message.
+                Utils.sendJSONResponse(res, isValid);
+            }
+        });
+
+        // Handles requests to create new taxonomic groups.
+        this._router.post("/taxonomic-group", async(req, res) => {
+            let body = req.body;
+            
+            // Make sure the uploaded data is valid.
+            let isValid = this._validateNewGroupData(body);
+            if (isValid === true) {
+                let success = await tGroup.createGroup(body);
                 
                 // Ensure that the process was a success.
                 if (!success) {
@@ -232,30 +255,6 @@ class DataUploadRouter extends BaseRouter {
 
         });
 
-        // This route finds and returns form data for a specific taxonomic group.
-        this._router.post("/taxonomic-group", async(req, res) => {
-            let body = req.body;
-
-            if (!body) {
-                return Utils.sendJSONResponse(res, "No request body found.");
-            }
-
-            let isValid = this._validateGetGroupData(body);
-            if (isValid === true) {
-                try {
-                    let group = await tGroup.findGroupByName(body.name);
-                    Utils.sendJSONResponse(res, group);
-                }
-                catch (err) {
-                    new CustomError(err).printFormattedStack(log);
-                    Utils.sendJSONResponse(res);
-                }
-            }
-            else {
-                Utils.sendJSONResponse(res, isValid);
-            }
-        });
-
         // There is no index route for uploading, so redirect them to the new route.
         this._router.get("/", (req, res) => {
             res.redirect("/track/new");
@@ -290,6 +289,33 @@ class DataUploadRouter extends BaseRouter {
         }
     }
 
+    _validateNewGroupData(data) {
+        let localNames = {
+            groupName: "Group Name"
+        };
+
+        let typeValid = Validator.validateType(data, Object, "Uploaded Data");
+        
+        let typesValid = Validator.validateTypes(data, {
+            groupName: String
+        }, localNames);
+        
+        let lengthsValid = Validator.validateLengths(data, {
+            groupName: [5, 50]
+        }, localNames);
+        
+        let keysValid = Validator.validateKeyCount(data, 1, "The uploaded data");
+        
+        let resultsArray = [typeValid, typesValid, lengthsValid, keysValid];
+        
+        if (Validator.allValid(resultsArray)) {
+            return true;
+        }
+        else {
+            return Validator.getErrorMessage(resultsArray);
+        }
+    }
+
     _validateGetGroupData(data) {
         let localNames = {
             name: "Group Name"
@@ -302,31 +328,6 @@ class DataUploadRouter extends BaseRouter {
         }, localNames);
 
         let resultsArray = [typeValid, typesValid];
-
-        if (Validator.allValid(resultsArray)) {
-            return true;
-        }
-        else {
-            return Validator.getErrorMessage(resultsArray);
-        }
-    }
-
-    _validateDataUpload(data) {
-        let localNames = {
-            species: "Species",
-            taxonomicGroup: "Taxonomic Group"
-        };
-
-        let typeValid = Validator.validateType(data, Object);
-
-        let typesValid = Validator.validateTypes(data, {
-            species: Array,
-            taxonomicGroup: String
-        }, localNames);
-
-        let keysValid = Validator.validateKeyCount(data, 2);
-
-        let resultsArray = [typeValid, typesValid, keysValid];
 
         if (Validator.allValid(resultsArray)) {
             return true;

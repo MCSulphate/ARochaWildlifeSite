@@ -15,9 +15,10 @@
     <div id="new-location-modal" class="modal">
         <div class="modal-container">
             <span class="close">&times;</span>
+
             <h2 class="modal-header">Submit a New Location</h2>
             <div class="modal-content">
-                <p>If you could not see your location on the list, please fill out this form to submit a new location:</p>
+                <p>If you could not see the location on the list, please fill out this form to submit a new location:</p>
                 
                 <div id="location-form" class="form">
                     <div class="form-group">
@@ -35,6 +36,31 @@
             </div>
         </div>
     </div>
+
+    <div id="new-taxonomic-group-modal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+
+            <h2 class="modal-header">Submit a New Taxonomic Group</h2>
+            <div class="modal-content">
+                <p>If you could not see the taxonomic group on the list, please fill out the following form:</p>
+
+                <div id="taxonomic-group-form" class="form">
+                    <div class="form-group">
+                        <span class="field">Group Name</span>
+                        <input id="new-taxonomic-group-field" type="text" placeholder="Type here..">
+
+                        <span class="form-hint">This field is case-sensitive.</span>
+                    </div>
+
+                    <a class="button" id="taxonomic-group-submit-button" href="#">Submit Group</a>
+                    
+                    <p class="form-error"></p>
+                    <p class="form-success"></p>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <div class="form-container">
         <div id="load-form" class="form">
@@ -42,11 +68,13 @@
             
             <div class="form-group">
                 <span class="field">Taxonomic Group</span>
-                <select>
+                <select id="taxonomic-group-select">
                     <% groups.forEach(group => { %>
-                        <option value="<%= group.name %>"><%= group.name %></option>
+                        <option value="<%= group.name %>"><%= group.groupName %></option>
                     <% }); %>
                 </select>
+
+                <span class="form-hint">Can't see the group? Click <a id="taxonomic-group-popup-link" href="#">here</a>!</span>
             </div>
             <div class="form-group">
                 <span class="field">Where was this recorded?</span>
@@ -72,11 +100,6 @@
             <p class="form-header">Species Form</p>
 
             <div class="form-group">
-                <span class="field">Taxonomic Group</span>
-                <input type="text" placeholder="Type here..">
-            </div>
-
-            <div class="form-group">
                 <span class="field">Latin Name</span>
                 <input type="text" placeholder="Type here..">
             </div>
@@ -92,7 +115,15 @@
             </div>
 
             <div class="form-group">
-                <span class="field"></span>
+                <span class="field">Observers</span>
+                <input type="text" placeholder="Type here..">
+
+                <span class="form-hint">Separate with commas.</span>
+            </div>
+
+            <div class="form-group">
+                <span class="field">Comments</span>
+                <input type="text" placeholder="Type here..">
             </div>
 
             <a class="button">Add Species</a>

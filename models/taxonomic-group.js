@@ -8,17 +8,12 @@ import CustomError from "../lib/custom-error";
 // Require the BaseModel class.
 import BaseModel from "./base-model";
 
+// Log
+const log = logger({ logName: "Models/DataUpload" });
+
 // TaxonomicGroup Schema
 const TaxonomicGroupSchema = {
-    name: { required: true, type: String, unique: true },
-    optionalFields: { type: [String], default: [] },
-    invalidFields: { type: [String], default: [] },
-    statuses: { type: [String], default: [] },
-    species: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Species",
-        default: []
-    }]
+    groupName: { required: true, type: String, unique: true }
 };
 
 // Class instance (we only need one) - this makes it a singleton class.
@@ -28,9 +23,6 @@ let instance = null;
 class TaxonomicGroup extends BaseModel {
 
     constructor() {
-        // Log
-        const log = logger({ logName: "Models/DataUpload" });
-
         // Only call the super method if class instance doesn't exist.
         if (!instance) {
             super("TaxonomicGroup", TaxonomicGroupSchema);
@@ -65,8 +57,15 @@ class TaxonomicGroup extends BaseModel {
 
     createGroup(data) {
         return async function() {
-            let createdGroup = await this._model.create(data);
-            return createdGroup;
+            try {
+                let createdGroup = await this._model.create(data);
+                log.info(`Created a new taxonomic group: ${data.groupName}.`);
+                return createdGroup;
+            }
+            catch (err) {
+                log.error(`Failed to create a new taxonomic group: ${err.message}`);
+                return false;
+            }
         }.bind(this)();
     }
 
