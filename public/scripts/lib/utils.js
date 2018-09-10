@@ -202,3 +202,26 @@ function loadUploadTable(uploadData) {
     // Return the created table.
     return table;
 }
+
+// Adds an 'enter' listener to forms to press the button at the end.
+for (let form of document.querySelectorAll(".form")) {
+    // Check if the form has a button, and get the last one.
+    let buttons = form.querySelectorAll(".button");
+    if (buttons.length !== 0) {
+        let lastButton = buttons[buttons.length - 1];
+
+        form.addEventListener("keypress", event => {
+            console.log(event.key);
+            if (event.key === "Enter") {
+                // Trigger a click event on the button.
+                let clickEvent = new MouseEvent({
+                    view: window,
+                    bubbles: true,
+                    cancelable: false
+                });
+
+                lastButton.dispatchEvent(clickEvent);
+            }
+        });
+    }
+}
