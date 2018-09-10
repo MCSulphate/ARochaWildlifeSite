@@ -101,7 +101,7 @@
             <p class="form-header">Species Form</p>
 
             <div class="form-group">
-                <span class="field">Latin Name</span>
+                <span class="field">Latin Name <span class="required">*</span></span>
                 <input type="text" placeholder="Type here..">
             </div>
 
@@ -111,15 +111,13 @@
             </div>
 
             <div class="form-group">
-                <span class="field">Frequency</span>
+                <span class="field">Frequency <span class="required">*</span></span>
                 <input type="text" placeholder="Type here..">
             </div>
 
             <div class="form-group">
-                <span class="field">Observers</span>
+                <span class="field">Grid Reference</span>
                 <input type="text" placeholder="Type here..">
-
-                <span class="form-hint">Separate with commas.</span>
             </div>
 
             <div class="form-group">
@@ -128,10 +126,19 @@
             </div>
 
             <a class="button">Add Species</a>
+
+            <p class="form-footer">Fields marked with <span class="required">*</span> are required.</p>
         </div>
 
-        <div id="upload-status-container">
-
+        <div id="upload-status-container" class="form">
+            <p class="form-header">Current Species in Upload</p>
+            
+            <div class="upload-status-control">
+                <span class="latin-name">Lepidoptera synthis</span>
+                <span class="common-name">(Moth boy)</span>
+                <a class="edit-button" href="#">Edit</a>
+                <a class="remove-button" href="#">Remove</a>
+            </div>
         </div>
     </div>
     

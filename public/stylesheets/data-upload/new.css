@@ -5,10 +5,68 @@
 }
 
 #upload-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
     margin: 35px 0 30px 0;
     overflow: auto;
 }
 
 #species-form {
-    float: left;
+    margin-right: 25px;
+}
+
+#upload-status-container {
+}
+
+.upload-status-control {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.latin-name, .common-name {
+    line-height: 20px;
+    font-size: 15px;
+    margin: 5px;
+}
+
+.latin-name {
+    font-style: italic;
+}
+
+
+.edit-button, .remove-button {
+    cursor: pointer;
+    height: 20px;
+    width: 50px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #eee;
+    margin: 5px 0 5px 5px;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.edit-button:active, .remove-button:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+.edit-button {
+    background-color: rgb(255, 162, 41);
+    box-shadow: 2px 2px 0 0 rgb(212, 103, 0);
+}
+.edit-button:active {
+    box-shadow: 1px 1px 0 0 rgb(212, 103, 0);
+}
+
+.remove-button {
+    background-color: rgb(255, 50, 50);
+    box-shadow: 2px 2px 0 0 rgb(177, 30, 30);
+}
+.remove-button:active {
+    box-shadow: 1px 1px 0 0 rgb(177, 30, 30);
 }

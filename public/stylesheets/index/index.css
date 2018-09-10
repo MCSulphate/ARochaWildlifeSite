@@ -9,6 +9,10 @@ html, body {
     box-sizing: border-box;
     font-family: Arial;
     color: #222;
+    background-image: url(/images/background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 * {
@@ -20,6 +24,8 @@ html, body {
     text-align: center;
     position: relative;
     margin-bottom: 45px;
+    color: #eee;
+    text-shadow: 2px 2px 5px black;
 }
 
 .header::after {
@@ -30,8 +36,8 @@ html, body {
     margin: auto;
     height: 100%;
     width: 15%;
-    /*box-shadow: 0px 5px 4px -4px #000;*/
-    border-bottom: 2px solid #555;
+    box-shadow: 0 5px 4px -4px #333;
+    border-bottom: 2px solid #ddd;
 }
 
 /* Button Styling */
@@ -59,6 +65,8 @@ html, body {
 
 /* Main Content Styling */
 #content-container {
+    color: #eee;
+    text-shadow: 2px 2px 5px black;
     margin-top: 60px;
     padding: 30px 40px;
     z-index: 1;
@@ -175,6 +183,8 @@ th, td {
 }
 
 .form {
+    color: #222;
+    text-shadow: none;
     text-align: center;
     background-color: #d6f2f5;
     border: 2px solid #32c0cd;
@@ -211,6 +221,12 @@ input:focus {
     font-size: 25px;
 }
 
+.form-footer {
+    margin: 3px 0 10px 0;
+    font-size: 16px;
+    font-weight: 700;
+}
+
 .inner-form {
     margin: 15px 0 10px 0;
 }
@@ -220,7 +236,13 @@ input:focus {
     padding-left: 5px;
 }
 
-.clearfix, .form-group:after {
+.required {
+    font-weight: 700;
+    font-size: 18px;
+    color: #ff3333;
+}
+
+.clearfix:after, .form-group:after {
     content: '';
     clear: both;
     height: 0;
@@ -246,9 +268,7 @@ input:focus {
 }
 
 .form-hint {
-    position: relative;
-    width: 100%;
-    top: 2px;
+    margin-top: 2px;
     font-size: 0px;
     color: #ff4d4d;
     font-weight: 700;
@@ -324,6 +344,8 @@ input:focus {
 }
 
 .modal-content {
+    color: #222;
+    text-shadow: none;
     font-size: 17px;
     padding: 0 10px 15px 10px;
 }

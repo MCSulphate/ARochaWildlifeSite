@@ -211,13 +211,12 @@ for (let form of document.querySelectorAll(".form")) {
         let lastButton = buttons[buttons.length - 1];
 
         form.addEventListener("keypress", event => {
-            console.log(event.key);
             if (event.key === "Enter") {
                 // Trigger a click event on the button.
-                let clickEvent = new MouseEvent({
+                let clickEvent = new MouseEvent("click", {
                     view: window,
                     bubbles: true,
-                    cancelable: false
+                    cancelable: true
                 });
 
                 lastButton.dispatchEvent(clickEvent);

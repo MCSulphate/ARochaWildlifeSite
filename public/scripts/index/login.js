@@ -20,6 +20,7 @@ loginButton.addEventListener("click", async () => {
         // Clear the fields and show the error message.
         usernameField.value = "";
         passwordField.value = "";
+        usernameField.focus();
         
         displayFormError(loginForm, response.error);
     }
