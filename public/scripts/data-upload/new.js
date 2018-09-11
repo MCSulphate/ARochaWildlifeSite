@@ -115,7 +115,7 @@
     let speciesForm = document.getElementById("species-form");
     let latinNameInput = document.getElementById("latin-name-input");
     let commonNameInput = document.getElementById("common-name-input");
-    let frequencyInput = document.getElementById("frequency-input");
+    let countInput = document.getElementById("count-input");
     let gridReferenceInput = document.getElementById("grid-reference-input");
     let commentsInput = document.getElementById("comments-input");
 
@@ -127,7 +127,7 @@
 
     // Handles clicks on the 'Add Species' button.
     document.getElementById("add-species-button").addEventListener("click", () => {
-        if (latinNameInput.value === "" || frequencyInput.value === "") {
+        if (latinNameInput.value === "" || countInput.value === "") {
             displayFormError(speciesForm, "Please fill in the required fields.");
             return;
         }
@@ -135,7 +135,7 @@
         let speciesData = {
             latinName: latinNameInput.value,
             commonName: commonNameInput.value || "Not Given",
-            frequency: frequencyInput.value,
+            count: countInput.value,
             gridReference: gridReferenceInput.value || "Not Given",
             comments: commentsInput.value || "Not Given"
         };

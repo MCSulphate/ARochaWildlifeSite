@@ -587,3 +587,5 @@
 [11/08/18] 12:13:53 [INFO] [Routes/Index] admin has logged in.
 [11/08/18] 12:14:44 [INFO] [Models/DataUpload] Created a new taxonomic group: Mammals.
 [11/08/18] 12:15:00 [INFO] [Models/Location] Created a new location: Foxearth
+[11/08/18] 18:38:02 [INFO] [Application] Application setup finished, server has been started.
+[11/08/18] 18:40:10 [INFO] [Routes/Index] admin has logged in.
