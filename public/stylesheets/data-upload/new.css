@@ -17,7 +17,14 @@
     margin-right: 25px;
 }
 
-#upload-status-container {
+#status-controls-container {
+    background-color: #a8f6ff;
+    border-radius: 6px;
+    border: 2px solid #32c0cd;
+    padding: 0 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 225px;
 }
 
 .upload-status-control {
@@ -35,7 +42,6 @@
 .latin-name {
     font-style: italic;
 }
-
 
 .edit-button, .remove-button {
     cursor: pointer;

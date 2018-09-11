@@ -9,7 +9,7 @@
 
 (() => {
 
-    // Miscellaneous Elements
+    // Modals
     let locationModal = document.getElementById("new-location-modal");
     let tGroupModal = document.getElementById("new-taxonomic-group-modal");
 
@@ -109,6 +109,76 @@
                 displayFormError(form, err.message);
             }
         }
+    });
+
+    // Form Elements
+    let speciesForm = document.getElementById("species-form");
+    let latinNameInput = document.getElementById("latin-name-input");
+    let commonNameInput = document.getElementById("common-name-input");
+    let frequencyInput = document.getElementById("frequency-input");
+    let gridReferenceInput = document.getElementById("grid-reference-input");
+    let commentsInput = document.getElementById("comments-input");
+
+    // Status Controls Elements
+    let statusControlsContainer = document.getElementById("status-controls-container");
+
+    // Array containing the species data.
+    let speciesDataContainer = [];
+
+    // Handles clicks on the 'Add Species' button.
+    document.getElementById("add-species-button").addEventListener("click", () => {
+        if (latinNameInput.value === "" || frequencyInput.value === "") {
+            displayFormError(speciesForm, "Please fill in the required fields.");
+            return;
+        }
+
+        let speciesData = {
+            latinName: latinNameInput.value,
+            commonName: commonNameInput.value || "Not Given",
+            frequency: frequencyInput.value,
+            gridReference: gridReferenceInput.value || "Not Given",
+            comments: commentsInput.value || "Not Given"
+        };
+
+        speciesDataContainer.push(speciesData);
+
+        // Create a new status control and add it to the container.
+        let statusControl = document.createElement("div");
+        statusControl.className = "upload-status-control";
+
+        let latinName = document.createElement("span");
+        latinName.className = "latin-name";
+        latinName.textContent = speciesData.latinName;
+        let commonName = document.createElement("span");
+        commonName.className = "common-name";
+        commonName.textContent = "(" + speciesData.commonName + ")";
+
+        let editButton = document.createElement("a");
+        editButton.className = "edit-button";
+        editButton.href = "#";
+        editButton.textContent = "Edit";
+
+        let removeButton = document.createElement("a");
+        removeButton.className = "remove-button";
+        removeButton.href = "#";
+        removeButton.textContent = "Remove";
+
+        // Add click listeners to the buttons.
+        // TODO
+
+        statusControl.appendChild(latinName);
+        statusControl.appendChild(commonName);
+        statusControl.appendChild(editButton);
+        statusControl.appendChild(removeButton);
+
+        statusControlsContainer.appendChild(statusControl);
+
+        // Clear the inputs.
+        latinNameInput.value = "";
+        commonNameInput.value = "";
+        frequencyInput.value = "";
+        gridReferenceInput.value = "";
+        commentsInput.value = "";
     });
 
     // Add click listener to hide error message.

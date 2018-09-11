@@ -76,6 +76,7 @@
 
                 <span class="form-hint">Can't see the group? Click <a id="taxonomic-group-popup-link" href="#">here</a>!</span>
             </div>
+
             <div class="form-group">
                 <span class="field">Where was this recorded?</span>
                 <select id="location-select">
@@ -86,11 +87,10 @@
                 
                 <span class="form-hint">Can't see your location? Click <a id="location-popup-link" href="#">here</a>!</span>
             </div>
+
             <div class="form-group">
                 <span class="field">Who saw/recorded this data?</span>
                 <input type="text">
-                
-                <span class="form-hint">Separate multiple observers with commas.</span>
             </div>
         </div>
         
@@ -102,43 +102,50 @@
 
             <div class="form-group">
                 <span class="field">Latin Name <span class="required">*</span></span>
-                <input type="text" placeholder="Type here..">
+                <input id="latin-name-input" type="text" placeholder="Type here..">
             </div>
 
             <div class="form-group">
                 <span class="field">Common Name</span>
-                <input type="text" placeholder="Type here..">
+                <input id="common-name-input" type="text" placeholder="Type here..">
             </div>
 
             <div class="form-group">
                 <span class="field">Frequency <span class="required">*</span></span>
-                <input type="text" placeholder="Type here..">
+                <input id="frequency-input" type="text" placeholder="Type here..">
             </div>
 
             <div class="form-group">
                 <span class="field">Grid Reference</span>
-                <input type="text" placeholder="Type here..">
+                <input id="grid-reference-input" type="text" placeholder="Type here..">
             </div>
 
-            <div class="form-group">
+            <div class="form-group">    
                 <span class="field">Comments</span>
-                <input type="text" placeholder="Type here..">
+                <input id="comments-input" type="text" placeholder="Type here..">
             </div>
 
-            <a class="button">Add Species</a>
+            <a id="add-species-button" class="button">Add Species</a>
 
             <p class="form-footer">Fields marked with <span class="required">*</span> are required.</p>
+
+            <p class="form-error"></p>
+            <p class="form-success"></p>
         </div>
 
         <div id="upload-status-container" class="form">
             <p class="form-header">Current Species in Upload</p>
             
-            <div class="upload-status-control">
-                <span class="latin-name">Lepidoptera synthis</span>
-                <span class="common-name">(Moth boy)</span>
-                <a class="edit-button" href="#">Edit</a>
-                <a class="remove-button" href="#">Remove</a>
+            <div id="status-controls-container">
+                <div class="upload-status-control">
+                    <span class="latin-name">Lepidoptera synthis</span>
+                    <span class="common-name">(Moth boy)</span>
+                    <a class="edit-button" href="#">Edit</a>
+                    <a class="remove-button" href="#">Remove</a>
+                </div>
             </div>
+
+            <a class="button">Submit Upload</a>
         </div>
     </div>
     
