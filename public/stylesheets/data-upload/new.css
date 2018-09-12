@@ -27,6 +27,10 @@
     max-height: 225px;
 }
 
+#status-controls-container p {
+    margin: 5px 0;
+}
+
 .upload-status-control {
     display: flex;
     flex-direction: row;

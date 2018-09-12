@@ -22,8 +22,10 @@
                 
                 <div id="location-form" class="form">
                     <div class="form-group">
-                        <span class="field">Location Name</span>
-                        <input id="new-location-field" type="text">
+                        <div class="form-group-input">
+                            <span class="field">Location Name</span>
+                            <input id="new-location-field" type="text">
+                        </div>
                         
                         <span class="form-hint">This field is case-sensitive.</span>
                     </div>
@@ -47,8 +49,10 @@
 
                 <div id="taxonomic-group-form" class="form">
                     <div class="form-group">
-                        <span class="field">Group Name</span>
-                        <input id="new-taxonomic-group-field" type="text" placeholder="Type here..">
+                        <div class="form-group-input">
+                            <span class="field">Group Name</span>
+                            <input id="new-taxonomic-group-field" type="text" placeholder="Type here..">
+                        </div>
 
                         <span class="form-hint">This field is case-sensitive.</span>
                     </div>
@@ -67,30 +71,36 @@
             <p class="form-header">Please fill out this form:</p>
             
             <div class="form-group">
-                <span class="field">Taxonomic Group</span>
-                <select id="taxonomic-group-select">
-                    <% groups.forEach(group => { %>
-                        <option value="<%= group.name %>"><%= group.groupName %></option>
-                    <% }); %>
-                </select>
+                <div class="form-group-input">
+                    <span class="field">Taxonomic Group</span>
+                    <select id="taxonomic-group-select">
+                        <% groups.forEach(group => { %>
+                            <option value="<%= group.name %>"><%= group.groupName %></option>
+                        <% }); %>
+                    </select>
+                </div>
 
                 <span class="form-hint">Can't see the group? Click <a id="taxonomic-group-popup-link" href="#">here</a>!</span>
             </div>
 
             <div class="form-group">
-                <span class="field">Where was this recorded?</span>
-                <select id="location-select">
-                    <% locations.forEach(location => { %>
-                        <option value="<%= location %>"><%= location %></option>
-                    <% }); %>
-                </select>
+                <div class="form-group-input">
+                    <span class="field">Where was this recorded?</span>
+                    <select id="location-select">
+                        <% locations.forEach(location => { %>
+                            <option value="<%= location %>"><%= location %></option>
+                        <% }); %>
+                    </select>
+                </div>
                 
                 <span class="form-hint">Can't see your location? Click <a id="location-popup-link" href="#">here</a>!</span>
             </div>
 
             <div class="form-group">
-                <span class="field">Who saw/recorded this data?</span>
-                <input type="text">
+                <div class="form-group-input">
+                    <span class="field">Who saw/recorded this data?</span>
+                    <input type="text">
+                </div>
             </div>
         </div>
         
@@ -101,30 +111,47 @@
             <p class="form-header">Species Form</p>
 
             <div class="form-group">
-                <span class="field">Latin Name <span class="required">*</span></span>
-                <input id="latin-name-input" type="text" placeholder="Type here..">
+                <div class="form-group-input">
+                    <span class="field">Latin Name <span class="required">*</span></span>
+                    <input id="latin-name-input" type="text" placeholder="Type here..">
+                </div>
             </div>
 
             <div class="form-group">
-                <span class="field">Common Name</span>
-                <input id="common-name-input" type="text" placeholder="Type here..">
+                <div class="form-group-input">
+                    <span class="field">Common Name</span>
+                    <input id="common-name-input" type="text" placeholder="Type here..">
+                </div>
             </div>
 
             <div class="form-group">
-                <span class="field">Count <span class="required">*</span></span>
-                <input id="count-input" type="number">
+                <div class="form-group-input">
+                    <span class="field">Count <span class="required">*</span></span>
+                    <input id="count-input" type="number">
+                </div>
 
                 <p class="form-hint">For plants, please give an approximate value.</p>
             </div>
 
             <div class="form-group">
-                <span class="field">Grid Reference</span>
-                <input id="grid-reference-input" type="text" placeholder="Type here..">
+                <div class="form-group-input">
+                    <span class="field">Date <span class="required">*</span></span>
+                    <input id="date-input" type="date">
+                </div>
             </div>
 
-            <div class="form-group">    
-                <span class="field">Comments</span>
-                <input id="comments-input" type="text" placeholder="Type here..">
+            <div class="form-group">
+                <div class="form-group-input">
+                    <span class="field">Grid Reference</span>
+                    <input id="grid-reference-input" type="text" placeholder="Type here..">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-group-input">
+                    <span class="field">Comments</span>
+                    <input id="comments-input" type="text" placeholder="Type here..">
+                </div>
             </div>
 
             <a id="add-species-button" class="button">Add Species</a>
@@ -139,12 +166,7 @@
             <p class="form-header">Current Species in Upload</p>
             
             <div id="status-controls-container">
-                <div class="upload-status-control">
-                    <span class="latin-name">Lepidoptera synthis</span>
-                    <span class="common-name">(Moth boy)</span>
-                    <a class="edit-button" href="#">Edit</a>
-                    <a class="remove-button" href="#">Remove</a>
-                </div>
+                <p>No species currently in the upload.</p>
             </div>
 
             <a class="button">Submit Upload</a>

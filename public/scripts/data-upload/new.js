@@ -1,12 +1,5 @@
 // Matthew Lester NEA Project - new.js (Data Upload New Page Script)
 
-// ESLint Warning Hiders
-/* global message */
-/* global changeVisibility */
-/* global JSONRequest */
-/* global displayFormError */
-/* global displayFormSuccess */
-
 (() => {
 
     // Modals
@@ -32,6 +25,10 @@
     tGroupModal.querySelector(".close").addEventListener("click", event => {
         tGroupModal.style.display = "none";
     });
+
+    //
+    // Modal Handling
+    //
 
     // Sends a POST request to create a new location.
     document.getElementById("location-submit-button").addEventListener("click", async event => {
@@ -111,11 +108,16 @@
         }
     });
 
+    //
+    // Upload Form Handling
+    //
+
     // Form Elements
     let speciesForm = document.getElementById("species-form");
     let latinNameInput = document.getElementById("latin-name-input");
     let commonNameInput = document.getElementById("common-name-input");
     let countInput = document.getElementById("count-input");
+    let dateInput = document.getElementById("date-input");
     let gridReferenceInput = document.getElementById("grid-reference-input");
     let commentsInput = document.getElementById("comments-input");
 
@@ -127,7 +129,7 @@
 
     // Handles clicks on the 'Add Species' button.
     document.getElementById("add-species-button").addEventListener("click", () => {
-        if (latinNameInput.value === "" || countInput.value === "") {
+        if (latinNameInput.value === "" || countInput.value === "" || dateInput.value === "") {
             displayFormError(speciesForm, "Please fill in the required fields.");
             return;
         }
@@ -136,11 +138,23 @@
             latinName: latinNameInput.value,
             commonName: commonNameInput.value || "Not Given",
             count: countInput.value,
+            date: dateInput.value,
             gridReference: gridReferenceInput.value || "Not Given",
             comments: commentsInput.value || "Not Given"
         };
 
+        // Check if the species is in the upload already.
+        if (checkIfInUpload(speciesData.latinName)) {
+            displayFormError(speciesForm, "Please do not add duplicate species in an upload, edit them instead.");
+            return;
+        }
+
         speciesDataContainer.push(speciesData);
+
+        // If this is the first species being added, remove the 'No species in upload' message.
+        if (speciesDataContainer.length === 1) {
+            statusControlsContainer.querySelector("p").remove();
+        }
 
         // Create a new status control and add it to the container.
         let statusControl = document.createElement("div");
@@ -164,7 +178,8 @@
         removeButton.textContent = "Remove";
 
         // Add click listeners to the buttons.
-        // TODO
+        editButton.addEventListener("click", () => { editSpeciesEntry(speciesData.latinName); });
+        removeButton.addEventListener("click", () => { removeSpeciesEntry(speciesData.latinName); });
 
         statusControl.appendChild(latinName);
         statusControl.appendChild(commonName);
@@ -176,10 +191,85 @@
         // Clear the inputs.
         latinNameInput.value = "";
         commonNameInput.value = "";
-        frequencyInput.value = "";
+        countInput.value = "";
+        dateInput.value = "";
         gridReferenceInput.value = "";
         commentsInput.value = "";
     });
+
+    // Checks if a species is already in the upload.
+    function checkIfInUpload(latinName) {
+        for (let species of speciesDataContainer) {
+            if (species.latinName === latinName) return true;
+        }
+
+        return false;
+    }
+
+    // Loads data for editing a species entry.
+    function editSpeciesEntry(latinName) {
+        // Get the species data, replace all filler data.
+        let speciesData = findSpeciesData(latinName);
+        replaceFillerData(speciesData);
+
+        // Set the input values.
+        latinNameInput.value = speciesData.latinName;
+        commonNameInput.value = speciesData.commonName;
+        countInput.value = speciesData.count;
+        dateInput.value = speciesData.date;
+        gridReferenceInput.value = speciesData.gridReference;
+        commentsInput.value = speciesData.comments;
+
+        // Remove the species entry.
+        removeSpeciesEntry(latinName);
+    }
+
+    // Removes a species entry.
+    function removeSpeciesEntry(latinName) {
+        // Get the index of the data.
+        let index = findSpeciesData(latinName, true);
+
+        // Remove the data from the object.
+        speciesDataContainer.splice(index, 1);
+        console.log(speciesDataContainer);
+
+        // Find and remove the element.
+        statusControlsContainer.querySelectorAll(".upload-status-control")[index].remove();
+
+        // If there are now no species, re-add the 'No species in upload' message.
+        if (speciesDataContainer.length === 0) {
+            let message = document.createElement("p");
+            message.textContent = "No species currently in the upload.";
+            statusControlsContainer.appendChild(message);
+        }
+    }
+
+    // Finds species data by latin name.
+    function findSpeciesData(latinName, getIndex) {
+        if (getIndex) {
+            for (let i = 0; i < speciesDataContainer.length; i++) {
+                let data = speciesDataContainer[i];
+                if (data.latinName === latinName) return i;
+            }
+
+            return -1;
+        }
+        else {
+            for (let data of speciesDataContainer) {
+                if (data.latinName === latinName) return data;
+            }
+
+            return null;
+        }
+    }
+
+    // Replaces filler data with empty strings.
+    function replaceFillerData(speciesData) {
+        for (let key of Object.keys(speciesData)) {
+            if (speciesData[key] === "Not Given") speciesData[key] = "";
+        }
+    }
+
 
     // Add click listener to hide error message.
     errorMessage.addEventListener("click", () => changeVisibility(errorMessage, false));

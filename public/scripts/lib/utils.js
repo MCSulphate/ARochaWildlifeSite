@@ -79,6 +79,48 @@ function displayMessage(element, message, timeoutIDs) {
     }, 10400);
 }
 
+// Clears error messages.
+function clearFormErrors(formElement) {
+    let errorElement = formElement.querySelector(".form-error");
+    
+    // Clear the timeouts, if there are any.
+    if (errorIDs[0]) clearTimeout(errorIDs[0]);
+    if (errorIDs[1]) clearTimeout(errorIDs[1]);
+
+    // Set opacity to 0 immediately, set timeout for hiding.
+    try {
+        errorElement.style.opacity = 0;
+        timeoutIDs[1] = setTimeout(() => {
+            errorElement.textContent = "";
+            timeoutIDs[1] = null;
+        }, 400);
+    }
+    catch (err) {
+        throw new Error("Could not clear form error messages, no error element found in given form.");
+    }
+}
+
+// Clears success messages.
+function clearFormSuccesses(formElement) {
+    let successElement = formElement.querySelector(".form-success");
+    
+    // Clear the timeouts, if there are any.
+    if (successIDs[0]) clearTimeout(successIDs[0]);
+    if (successIDs[1]) clearTimeout(successIDs[1]);
+
+    // Set opacity to 0 immediately, set timeout for hiding.
+    try {
+        successElement.style.opacity = 0;
+        timeoutIDs[1] = setTimeout(() => {
+            successElement.textContent = "";
+            timeoutIDs[1] = null;
+        }, 400);
+    }
+    catch (err) {
+        throw new Error("Could not clear form success messages, no success element found in given form.");
+    }
+}
+
 // Shows a message using an element bound to the function, and logs errors to the console.
 function message(message, error) {
     if (this === window || !this) {
