@@ -195,6 +195,10 @@
         dateInput.value = "";
         gridReferenceInput.value = "";
         commentsInput.value = "";
+
+        // Hide errors, show success.
+        clearFormErrors(speciesForm);
+        displayFormSuccess(speciesForm, "Species added to upload.");
     });
 
     // Checks if a species is already in the upload.
@@ -270,8 +274,38 @@
         }
     }
 
+    // Handles finalising the upload.
+    let uploadStatusForm = document.getElementById("upload-status-container");
+    let submitButton = document.getElementById("submit-upload-button");
+    let submitButtonEnabled = true;
+    submitButton.addEventListener("click", uploadData);
 
-    // Add click listener to hide error message.
-    errorMessage.addEventListener("click", () => changeVisibility(errorMessage, false));
+    async function uploadData() {
+        // Check that they have some species in the upload.
+        if (speciesDataContainer.length === 0) {
+            displayFormError(uploadStatusForm, "Please add at least 1 species to the upload.");
+            return;
+        }
+
+        if (!submitButtonEnabled) return;
+        else submitButtonEnabled = false;
+
+        // All other fields except the species data is handled server-side, so let's upload that.
+        let data = {
+            species: speciesDataContainer // Array containing data to be uploaded.
+        };
+
+        let response = await JSONRequest("/track/new", data);
+        if (response.error) {
+            displayFormError(uploadStatusForm, response.error);
+            submitButtonEnabled = true;
+        }
+        else {
+            displayFormSuccess(uploadStatusForm, "Data successfully uploaded! Redirecting you in a few seconds.");
+            setTimeout(() => {
+                window.location = "/review/main";
+            });
+        }
+    }
 
 })();

@@ -90,12 +90,13 @@ function clearFormErrors(formElement) {
     // Set opacity to 0 immediately, set timeout for hiding.
     try {
         errorElement.style.opacity = 0;
-        timeoutIDs[1] = setTimeout(() => {
+        errorIDs[1] = setTimeout(() => {
             errorElement.textContent = "";
-            timeoutIDs[1] = null;
+            errorIDs[1] = null;
         }, 400);
     }
     catch (err) {
+        console.log(err.message);
         throw new Error("Could not clear form error messages, no error element found in given form.");
     }
 }
@@ -111,9 +112,9 @@ function clearFormSuccesses(formElement) {
     // Set opacity to 0 immediately, set timeout for hiding.
     try {
         successElement.style.opacity = 0;
-        timeoutIDs[1] = setTimeout(() => {
+        successIDs[1] = setTimeout(() => {
             successElement.textContent = "";
-            timeoutIDs[1] = null;
+            successIDs[1] = null;
         }, 400);
     }
     catch (err) {

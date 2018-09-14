@@ -95,6 +95,18 @@ class DataUploadRouter extends BaseRouter {
 
             let body = req.body;
 
+            // Parse the upload!
+
+            // Send an error.
+            Utils.sendJSONResponse(res);
+
+            //
+            // LEGACY CODE!! DOES NOT WORK! Some may be helpful for writing new code though.
+            //
+
+            // Do not remove!
+            return;
+
             let isValid = this._validateDataUpload(body);
             if (isValid === true) {
                 let taxonomicGroup = body.taxonomicGroup;

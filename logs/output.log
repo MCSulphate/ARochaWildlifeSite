@@ -593,3 +593,56 @@
 [11/08/18] 21:32:31 [INFO] [Routes/Index] admin has logged in.
 [12/08/18] 21:45:33 [INFO] [Application] Application setup finished, server has been started.
 [12/08/18] 21:45:37 [INFO] [Routes/Index] admin has logged in.
+[14/08/18] 22:17:35 [INFO] [Application] Application setup finished, server has been started.
+[14/08/18] 22:26:11 [INFO] [Routes/Index] admin has logged in.
+[14/08/18] 22:32:45 [INFO] [Application] Application setup finished, server has been started.
+[14/08/18] 22:33:43 [INFO] [Routes/Index] admin has logged in.
+[14/08/18] 22:43:16 [INFO] [Routes/DataUpload] Received data upload from admin.
+[14/08/18] 22:43:16 [INFO] [Routes/DataUpload] Species count: 1
+[14/08/18] 22:43:16 [INFO] [Routes/DataUpload] First species:
+[14/08/18] 22:43:16 [INFO] [Routes/DataUpload] 
+{
+    "latinName": "gay",
+    "commonName": "gay",
+    "count": "1",
+    "date": "2018-09-02",
+    "gridReference": "Not Given",
+    "comments": "Not Given"
+}
+[14/08/18] 22:43:16 [ERROR] [Application] ReferenceError: sendJSONResponse is not defined
+[14/08/18] 22:43:16 [ERROR] [Application]     at DataUploadRouter._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-upload.js:105:13)
+[14/08/18] 22:43:16 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[14/08/18] 22:43:16 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[14/08/18] 22:43:16 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[14/08/18] 22:43:16 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:437
+[14/08/18] 22:43:16 [ERROR] [Application]     at new Promise (<anonymous>)
+[14/08/18] 22:43:16 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:99
+[14/08/18] 22:43:16 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:191)
+[14/08/18] 22:43:16 [ERROR] [Application]     at C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-upload.js:94:9
+[14/08/18] 22:43:16 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[14/08/18] 22:43:16 [ERROR] [Application]     at next (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\route.js:137:13)
+[14/08/18] 22:43:16 [ERROR] [Application]     at Route.dispatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\route.js:112:3)
+[14/08/18] 22:43:16 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[14/08/18] 22:43:16 [ERROR] [Application]     at Function.process_params (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\index.js:335:12)
+[14/08/18] 22:43:16 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\index.js:281:22
+[14/08/18] 22:43:16 [ERROR] [Application]     at next (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\index.js:275:10)
+[14/08/18] 22:43:16 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[14/08/18] 22:43:16 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[14/08/18] 22:43:16 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[14/08/18] 22:43:16 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[14/08/18] 22:43:16 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[14/08/18] 22:43:16 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[14/08/18] 22:43:56 [INFO] [Application] Application setup finished, server has been started.
+[14/08/18] 22:43:59 [INFO] [Routes/Index] admin has logged in.
+[14/08/18] 22:47:49 [INFO] [Routes/DataUpload] Received data upload from admin.
+[14/08/18] 22:47:49 [INFO] [Routes/DataUpload] Species count: 1
+[14/08/18] 22:47:49 [INFO] [Routes/DataUpload] First species:
+[14/08/18] 22:47:49 [INFO] [Routes/DataUpload] 
+{
+    "latinName": "1",
+    "commonName": "1",
+    "count": "1",
+    "date": "2018-09-24",
+    "gridReference": "Not Given",
+    "comments": "peen"
+}
