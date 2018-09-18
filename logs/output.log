@@ -646,3 +646,123 @@
     "gridReference": "Not Given",
     "comments": "peen"
 }
+[16/08/18] 22:45:28 [INFO] [Application] Application setup finished, server has been started.
+[16/08/18] 22:45:36 [INFO] [Routes/Index] admin has logged in.
+[16/08/18] 22:49:02 [INFO] [Application] Successfully reset and seeded the database.
+[16/08/18] 22:49:02 [INFO] [Application] Application setup finished, server has been started.
+[16/08/18] 22:49:09 [INFO] [Routes/Index] admin has logged in.
+[16/08/18] 22:49:25 [INFO] [Models/DataUpload] Created a new taxonomic group: Test Group.
+[16/08/18] 22:49:34 [INFO] [Models/Location] Created a new location: Test Location
+[16/08/18] 23:10:00 [INFO] [Application] Application setup finished, server has been started.
+[16/08/18] 23:10:28 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 11:54:39 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 11:54:46 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 11:55:02 [ERROR] [Application] TypeError: log.success is not a function
+[18/08/18] 11:55:02 [ERROR] [Application]     at DataUploadRouter._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-upload.js:114:17)
+[18/08/18] 11:55:02 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[18/08/18] 11:55:02 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[18/08/18] 11:55:02 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[18/08/18] 11:55:02 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:191)
+[18/08/18] 11:55:02 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:437
+[18/08/18] 11:55:02 [ERROR] [Application]     at new Promise (<anonymous>)
+[18/08/18] 11:55:02 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:99
+[18/08/18] 11:55:02 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[18/08/18] 11:55:02 [ERROR] [Application]     at next (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\route.js:137:13)
+[18/08/18] 11:55:02 [ERROR] [Application]     at Route.dispatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\route.js:112:3)
+[18/08/18] 11:55:02 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[18/08/18] 11:55:02 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\index.js:281:22
+[18/08/18] 11:55:02 [ERROR] [Application]     at C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-upload.js:94:9
+[18/08/18] 11:55:02 [ERROR] [Application]     at Function.process_params (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\index.js:335:12)
+[18/08/18] 11:55:02 [ERROR] [Application]     at next (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\express\lib\router\index.js:275:10)
+[18/08/18] 11:55:02 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[18/08/18] 11:55:02 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[18/08/18] 11:55:02 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[18/08/18] 11:55:02 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[18/08/18] 11:55:02 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[18/08/18] 11:55:02 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[18/08/18] 11:58:35 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 11:58:40 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 11:58:51 [INFO] [Routes/DataUpload] Successfully procured ids:
+[18/08/18] 11:58:51 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 11:58:51 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 11:58:51 [INFO] [Routes/DataUpload] 
+"5b9ecfced5adfe2054caac56"
+[18/08/18] 11:59:38 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 11:59:41 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 11:59:52 [INFO] [Routes/DataUpload] Successfully procured ids:
+[18/08/18] 11:59:52 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 11:59:52 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 11:59:52 [INFO] [Routes/DataUpload] 
+"5b9ecfced5adfe2054caac56"
+[18/08/18] 12:00:23 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 12:00:29 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 12:00:37 [INFO] [Routes/DataUpload] Successfully procured ids:
+[18/08/18] 12:00:37 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 12:00:37 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 12:00:37 [INFO] [Routes/DataUpload] 
+"5b9ecfced5adfe2054caac56"
+[18/08/18] 12:02:07 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 12:02:10 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 12:02:20 [INFO] [Routes/DataUpload] Successfully procured ids:
+[18/08/18] 12:02:20 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 12:02:20 [INFO] [Routes/DataUpload] 
+{}
+[18/08/18] 12:02:20 [INFO] [Routes/DataUpload] 
+"5b9ecfced5adfe2054caac56"
+[18/08/18] 12:03:21 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 12:03:27 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 12:07:26 [INFO] [Routes/DataUpload] Successfully procured ids:
+[18/08/18] 12:07:26 [INFO] [Routes/DataUpload] 
+"5b9ecfe5d5adfe2054caac57"
+[18/08/18] 12:07:26 [INFO] [Routes/DataUpload] 
+"5b9ecfeed5adfe2054caac58"
+[18/08/18] 12:07:26 [INFO] [Routes/DataUpload] 
+"5b9ecfced5adfe2054caac56"
+[18/08/18] 14:13:52 [INFO] [Application] Successfully reset and seeded the database.
+[18/08/18] 14:13:52 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 14:22:57 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 14:23:05 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 14:23:15 [INFO] [Models/DataUpload] Created a new taxonomic group: Test Group.
+[18/08/18] 14:23:21 [INFO] [Models/Location] Created a new location: Test Location
+[18/08/18] 14:24:05 [ERROR] [Application] ReferenceError: observers is not defined
+[18/08/18] 14:24:05 [ERROR] [Application]     at DataUploadRouter._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-upload.js:131:17)
+[18/08/18] 14:24:05 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[18/08/18] 14:24:05 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[18/08/18] 14:24:05 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[18/08/18] 14:24:05 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:191)
+[18/08/18] 14:24:05 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:361
+[18/08/18] 14:24:05 [ERROR] [Application]     at <anonymous>
+[18/08/18] 14:24:05 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[18/08/18] 14:24:05 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[18/08/18] 14:24:05 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[18/08/18] 14:24:05 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[18/08/18] 14:24:05 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[18/08/18] 14:24:56 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 14:25:01 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 14:25:41 [ERROR] [Application] TypeError: dataUpload.createUpload is not a function
+[18/08/18] 14:25:41 [ERROR] [Application]     at DataUploadRouter._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-upload.js:137:50)
+[18/08/18] 14:25:41 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[18/08/18] 14:25:41 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[18/08/18] 14:25:41 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[18/08/18] 14:25:41 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:191)
+[18/08/18] 14:25:41 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-upload.js:55:361
+[18/08/18] 14:25:41 [ERROR] [Application]     at <anonymous>
+[18/08/18] 14:25:41 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[18/08/18] 14:25:41 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[18/08/18] 14:25:41 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[18/08/18] 14:25:41 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[18/08/18] 14:25:41 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[18/08/18] 14:26:18 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 14:26:23 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 14:29:58 [INFO] [Application] Successfully reset and seeded the database.
+[18/08/18] 14:29:58 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 15:53:42 [INFO] [Routes/Index] admin has logged in.
+[18/08/18] 15:53:54 [INFO] [Models/DataUpload] Created a new taxonomic group: AAAAA.
+[18/08/18] 15:54:01 [INFO] [Models/Location] Created a new location: AAAAA

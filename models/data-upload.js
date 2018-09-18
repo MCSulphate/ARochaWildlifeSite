@@ -15,18 +15,14 @@ const DataUploadSchema = {
     species: {
         required: true,
         type: [{
-            species: {
-                required: true,
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Species"
-            },
-            number: { required: true, type: Number },
-            gender: { type: String, default: null },
-            age: { type: String, default: null },
-            status: { type: String, default: null },
+            _id: false,
+            id: false,
+            latinName: { required: true, type: String },
+            commonName: { required: true, type: String },
+            count: { required: true, type: Number },
             date: { required: true, type: Date },
-            observers: { type: [String], default: [] },
-            comment: { type: String, default: null }
+            gridReference: { required: true, type: String },
+            comments: { required: true, type: String }
         }]
     },
     taxonomicGroup: {
@@ -34,7 +30,15 @@ const DataUploadSchema = {
         type: mongoose.Schema.Types.ObjectId,
         ref: "TaxonomicGroup"
     },
-    location: { required: true, type: String },
+    location: {
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Location"
+    },
+    observers: {
+        required: true,
+        type: String
+    },
     owner: {
         required: true,
         type: mongoose.Schema.Types.ObjectId,
@@ -90,8 +94,13 @@ class DataUpload extends BaseModel {
 
     createUpload(data) {
         return async function() {
-            let createdUpload = await this._model.create(data);
-            return createdUpload;
+            try {
+                return await this._model.create(data);
+            }
+            catch (err) {
+                log.error(`Failed to create data upload: ${err.message}`);
+                return null;
+            }
         }.bind(this)();
     }
 

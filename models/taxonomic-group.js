@@ -36,14 +36,35 @@ class TaxonomicGroup extends BaseModel {
 
     findAllGroups() {
         return async function() {
-            let foundGroups = this._model.find({});
-            return foundGroups;
+            let groupNames = [];
+            let dbData = await this._model.find({});
+
+            for (let group of dbData) {
+                if (group.groupName) {
+                    groupNames.push(group.groupName);
+                }
+            }
+
+            return groupNames;
         }.bind(this)();
     }
 
-    findGroupByName(name) {
+    findGroupID(groupName) {
         return async function() {
-            let foundGroup = await this._model.findOne({ name });
+            let foundGroup = await this._model.findOne({ groupName });
+            
+            if (foundGroup) {
+                return foundGroup._id;
+            }
+            else {
+                throw new Error(`The taxonomic group ${groupName} could not be found.`);
+            }
+        }.bind(this)();
+    }
+
+    findGroupByName(groupName) {
+        return async function() {
+            let foundGroup = await this._model.findOne({ groupName });
             return foundGroup;
         }.bind(this)();
     }
@@ -71,14 +92,14 @@ class TaxonomicGroup extends BaseModel {
 
     updateGroup(data) {
         return async function() {
-            let updatedGroup = await this._model.findOneAndUpdate({ name: data.name }, data, { new: true });
+            let updatedGroup = await this._model.findOneAndUpdate({ groupName: data.groupName }, data, { new: true });
             return updatedGroup;
         }.bind(this)();
     }
 
-    removeGroupByName(name) {
+    removeGroupByName(groupName) {
         return async function() {
-            await this._model.remove({ name });
+            await this._model.remove({ groupName });
             return;
         }.bind(this)();
     }

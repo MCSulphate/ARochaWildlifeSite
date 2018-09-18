@@ -17,15 +17,6 @@ let log = logger({ logName: "Models/User" });
 const UserSchema = {
     // Identifiable Data
     username: { required: true, type: String, unique: true },
-    speciesSeen: {
-        type: Object, // Not very safe to do this, but I cannot find any support for what I want to do at the moment.
-        default: {}
-    },
-    dataUploads: [{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "DataUpload",
-        default: []
-    }],
 
     // Password-Related Data
     hash: { required: true, type: String },

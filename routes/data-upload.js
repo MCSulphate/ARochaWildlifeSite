@@ -27,6 +27,7 @@ class DataUploadRouter extends BaseRouter {
         let sModel = new Species();
         let uModel = new User();
         let lModel = new Location();
+        let dModel = new DataUpload();
 
         // Redirect users if they are not logged in.
         this._router.use(Middleware.redirectTo("/login").ifNotLoggedIn);
@@ -94,11 +95,55 @@ class DataUploadRouter extends BaseRouter {
         this._router.post("/new", async(req, res) => {
 
             let body = req.body;
+            let species = body.species;
+            let taxonomicGroup = body.taxonomicGroup;
+            let location = body.location;
+            let observers = body.observers;
+            let owner = req.user._id;
 
-            // Parse the upload!
+            // Attempt to resolve database ids for the taxonomic group and location.
+            try {
+                taxonomicGroup = await tGroup.findGroupID(taxonomicGroup);
+                location = await lModel.findLocationID(location);
+            }
+            catch (err) {
+                log.error(`Failed to resolve Taxonomic Group / Location ids: ${err.message}`);
+                Utils.sendJSONResponse(res);
+                return;
+            }
 
-            // Send an error.
-            Utils.sendJSONResponse(res);
+            // Attempt to replace every species date with an actual date object.
+            try {
+                for (let item of species) {
+                    item.date = new Date(item.date);
+                }
+            }
+            catch (err) {
+                log.error(`Failed to create date objects for upload: ${err.message}`);
+                Utils.sendJSONResponse(res);
+                return;
+            }
+
+            // Create the data upload document.
+            let dataUpload = {
+                species,
+                taxonomicGroup,
+                location,
+                observers,
+                owner,
+                date: new Date()
+            };
+
+            let createdUpload = await dModel.createUpload(dataUpload);
+
+            if (!createdUpload) {
+                // Upload failed, send an error.
+                Utils.sendJSONResponse(res);
+            }
+            else {
+                // Send the success response.
+                Utils.sendJSONResponse(res, {});
+            }
 
             //
             // LEGACY CODE!! DOES NOT WORK! Some may be helpful for writing new code though.

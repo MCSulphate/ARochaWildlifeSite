@@ -280,6 +280,10 @@
     let submitButtonEnabled = true;
     submitButton.addEventListener("click", uploadData);
 
+    let taxonomicGroupSelect = document.getElementById("taxonomic-group-select");
+    let locationSelect = document.getElementById("location-select");
+    let observersInput = document.getElementById("observers-input");
+
     async function uploadData() {
         // Check that they have some species in the upload.
         if (speciesDataContainer.length === 0) {
@@ -287,12 +291,21 @@
             return;
         }
 
+        // Check that both the taxonomic group and location have been set.
+        if (taxonomicGroupSelect.value === "" || locationSelect.value === "") {
+            displayFormError(uploadStatusForm, "Please fill out the Taxonomic Group and Location form.");
+            return;
+        }
+
         if (!submitButtonEnabled) return;
         else submitButtonEnabled = false;
 
-        // All other fields except the species data is handled server-side, so let's upload that.
+        // Create a data object containing upload data, send it to the server.
         let data = {
-            species: speciesDataContainer // Array containing data to be uploaded.
+            species: speciesDataContainer, // Array containing data to be uploaded.
+            taxonomicGroup: taxonomicGroupSelect.value,
+            location: locationSelect.value,
+            observers: observersInput.value || "Not Given"
         };
 
         let response = await JSONRequest("/track/new", data);
@@ -304,7 +317,7 @@
             displayFormSuccess(uploadStatusForm, "Data successfully uploaded! Redirecting you in a few seconds.");
             setTimeout(() => {
                 window.location = "/review/main";
-            });
+            }, 3500);
         }
     }
 
