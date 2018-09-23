@@ -72,9 +72,17 @@ class DataUpload extends BaseModel {
         }.bind(this)();
     }
 
-    findAllUploads() {
+    findAllUploads(sortByDate) {
         return async function() {
-            let foundUploads = await this._model.find({}).sort("-date").exec();
+            let foundUploads;
+
+            if (sortByDate) {
+                foundUploads = await this._model.find({}).sort("-date").exec();
+            }
+            else {
+                foundUploads = await this._model.find({});
+            }
+            
             return foundUploads;
         }.bind(this)();
     }

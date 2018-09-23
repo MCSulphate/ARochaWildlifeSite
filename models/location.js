@@ -59,6 +59,19 @@ class Location extends BaseModel {
         }.bind(this)();
     }
 
+    findLocationByID(id) {
+        return async function() {
+            let foundLocation = await this._model.findById(id);
+
+            if (foundLocation) {
+                return foundLocation;
+            }
+            else {
+                log.error("Failed to find location by id.");
+            }
+        }.bind(this)();
+    }
+
     addNewLocation(data) {
         return async function() {
             try {

@@ -766,3 +766,150 @@
 [18/08/18] 15:53:42 [INFO] [Routes/Index] admin has logged in.
 [18/08/18] 15:53:54 [INFO] [Models/DataUpload] Created a new taxonomic group: AAAAA.
 [18/08/18] 15:54:01 [INFO] [Models/Location] Created a new location: AAAAA
+[18/08/18] 19:29:43 [INFO] [Application] Application setup finished, server has been started.
+[18/08/18] 19:31:34 [INFO] [Routes/Index] admin has logged in.
+[19/08/18] 13:08:49 [INFO] [Application] Application setup finished, server has been started.
+[19/08/18] 13:08:54 [INFO] [Routes/Index] admin has logged in.
+[20/08/18] 18:18:26 [INFO] [Application] Application setup finished, server has been started.
+[20/08/18] 18:18:31 [INFO] [Routes/Index] admin has logged in.
+[23/08/18] 16:26:29 [INFO] [Application] Application setup finished, server has been started.
+[23/08/18] 16:26:37 [INFO] [Routes/Index] admin has logged in.
+[23/08/18] 17:32:45 [INFO] [Application] Application setup finished, server has been started.
+[23/08/18] 18:37:56 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:08:57 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:09:00 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:09:02 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:09:02 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:09:02 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:09:02 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:09:02 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:09:02 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:09:02 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:09:02 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:09:02 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[24/08/18] 00:09:02 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[24/08/18] 00:09:02 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[24/08/18] 00:09:02 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[24/08/18] 00:09:02 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[24/08/18] 00:09:02 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[24/08/18] 00:09:03 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:09:03 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:09:03 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:09:03 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:09:03 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:09:03 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:09:03 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:09:03 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:09:03 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:09:03 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:09:03 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:09:03 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:09:03 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:09:03 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:09:03 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:09:03 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:09:03 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:09:03 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:09:49 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:09:49 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:09:49 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:09:49 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:09:49 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:09:49 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:09:49 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:09:49 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:09:49 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:09:49 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:09:49 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:09:49 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:09:49 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:09:49 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:09:49 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:09:49 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:09:49 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:09:49 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:09:49 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:09:49 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:09:49 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:09:49 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:09:49 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:09:49 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:09:49 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:09:49 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:09:49 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:10:08 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:10:08 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:10:08 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:10:08 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:10:08 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:10:08 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:10:08 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:10:08 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:10:08 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:10:08 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:10:08 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:10:08 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:10:08 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:10:08 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:10:08 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:10:08 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:10:08 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:10:08 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:10:08 [ERROR] [Application] Error: Failed to find a taxonomic group by id (maybe it doesn't exist?)
+[24/08/18] 00:10:08 [ERROR] [Application]     at TaxonomicGroup._callee4$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/models/taxonomic-group.js:80:23)
+[24/08/18] 00:10:08 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:10:08 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:10:08 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:10:08 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:191)
+[24/08/18] 00:10:08 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\models\taxonomic-group.js:27:361
+[24/08/18] 00:10:08 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:16:02 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:20:18 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:20:38 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:20:40 [ERROR] [Models/DataUpload] Failed to find tgroup by id.
+[24/08/18] 00:20:41 [ERROR] [Models/DataUpload] Failed to find tgroup by id.
+[24/08/18] 00:20:41 [ERROR] [Models/DataUpload] Failed to find tgroup by id.
+[24/08/18] 00:24:16 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:24:22 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:24:23 [ERROR] [Routes/DataReview] Failed to construct species data: lModel.findGroupByID is not a function
+[24/08/18] 00:24:23 [ERROR] [Application] Error: Can't set headers after they are sent.
+[24/08/18] 00:24:23 [ERROR] [Application]     at validateHeader (_http_outgoing.js:494:11)
+[24/08/18] 00:24:23 [ERROR] [Application]     at ServerResponse.setHeader (_http_outgoing.js:501:3)
+[24/08/18] 00:24:23 [ERROR] [Application]     at Function.sendJSONResponse (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/lib/utils.js:44:18)
+[24/08/18] 00:24:23 [ERROR] [Application]     at DataReviewRouter._callee2$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-review.js:119:19)
+[24/08/18] 00:24:23 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[24/08/18] 00:24:23 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[24/08/18] 00:24:23 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[24/08/18] 00:24:23 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:191)
+[24/08/18] 00:24:23 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:361
+[24/08/18] 00:24:23 [ERROR] [Application]     at <anonymous>
+[24/08/18] 00:24:23 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[24/08/18] 00:24:23 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[24/08/18] 00:24:23 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[24/08/18] 00:24:23 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[24/08/18] 00:24:23 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[24/08/18] 00:24:51 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:24:59 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:27:52 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:27:57 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:27:58 [INFO] [Routes/DataReview] AAAAA
+[24/08/18] 00:28:43 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:28:53 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:29:04 [INFO] [Models/Location] Created a new location: BBBBBB
+[24/08/18] 00:29:27 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
+[24/08/18] 00:30:08 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
+[24/08/18] 00:33:31 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:33:36 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:33:37 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
+[24/08/18] 00:34:04 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:34:08 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 00:34:09 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
+[24/08/18] 00:35:10 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 00:35:16 [INFO] [Routes/Index] admin has logged in.

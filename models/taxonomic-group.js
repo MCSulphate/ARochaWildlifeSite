@@ -72,7 +72,13 @@ class TaxonomicGroup extends BaseModel {
     findGroupByID(id) {
         return async function() {
             let foundGroup = await this._model.findById(id);
-            return foundGroup;
+            
+            if (foundGroup) {
+                return foundGroup;
+            }
+            else {
+                log.error("Failed to find tgroup by id.");
+            }
         }.bind(this)();
     }
 

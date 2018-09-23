@@ -4,11 +4,13 @@
 import BaseRouter from "./base-router";
 import logger from "coloured-logger";
 import Middleware from "../lib/middleware";
-import User from "../models/user";
 import CustomError from "../lib/custom-error";
 import Species from "../models/species";
 import DataUpload from "../models/data-upload";
+import TaxonomicGroup from "../models/taxonomic-group";
+import Location from "../models/location";
 import Validator from "../lib/validator";
+import Utils from "../lib/utils";
 
 // Log
 let log = logger({ logName: "Routes/DataReview" });
@@ -20,24 +22,102 @@ class DataReviewRouter extends BaseRouter {
         super();
 
         // Models
-        let uModel = new User();
-        let sModel = new Species();
+        let dUpload = new DataUpload();
+        let tGroup = new TaxonomicGroup();
+        let lModel = new Location();
 
         // Redirect non-logged-in users to the login page.
         this._router.use(Middleware.redirectTo("/login").ifNotLoggedIn);
 
         // Main review selection page.
         this._router.get("/main", async(req, res) => {
-            try {
-                let locationNames = await uModel.getLocationList();
-                let species = await sModel.findAllSpecies(true);
+            res.render("data-review/main");
+        });
 
-                res.render("data-review/main", { locationNames: locationNames, species: species });
+        // Finds and returns species data.
+        this._router.post("/species-data", async(req, res) => {
+            // Get all the data uploads.
+            let uploads = await dUpload.findAllUploads();
+
+            // Object to store intermediate upload parsing results in.
+            let intermediateSpeciesData = {};
+
+            // Array to store final species data for sending in.
+            let finalSpeciesData = [];
+
+            // Loop through the uploads, taking each species, lower-casing, and adding count values.
+            try {
+                for (let upload of uploads) {
+                    let taxonomicGroup = await tGroup.findGroupByID(upload.taxonomicGroup);
+                    let location = await lModel.findLocationByID(upload.location);
+                    let observers = upload.observers;
+                    let uploadSpecies = upload.species;
+
+                    for (let species of uploadSpecies) {
+                        let latinName = species.latinName;
+                        let commonName = species.commonName;
+                        let count = species.count;
+                        let gridReference = species.gridReference;
+                        let comments = species.comments;
+
+                        // Check if the species has been added to the intermediate yet.
+                        if (!intermediateSpeciesData[latinName]) {
+                            // Add it, setting all the different values.
+                            let data = intermediateSpeciesData[latinName] = {};
+                            data.taxonomicGroup = taxonomicGroup.groupName;
+                            data.latinName = latinName;
+                            data.commonName = commonName;
+                            data.count = count;
+                            data.gridReferences = [gridReference];
+                            data.comments = [comments];
+                            data.observers = [observers];
+                            data.locations = [location.locationName];
+                        }
+                        else {
+                            // Otherwise update the current one.
+                            let data = intermediateSpeciesData[latinName];
+                            
+                            // If no valid common name has been found yet, update it.
+                            if (data.commonName === "Not Given") {
+                                data.commonName = commonName;
+                            }
+
+                            data.count += count;
+                            
+                            // Avoid duplicates.
+                            if (data.gridReferences.indexOf(gridReference) === -1) {
+                                data.gridReferences.push(gridReference);
+                            }
+                            if (data.comments.indexOf(comments) === -1) {
+                                data.comments.push(comments);
+                            }
+                            if (data.observers.indexOf(observers) === -1) {
+                                data.observers.push(observers);
+                            }
+                            if (data.locations.indexOf(location.locationName) === -1) {
+                                data.locations.push(location.locationName);
+                            }
+                        }
+                    }
+                }
             }
             catch (err) {
-                new CustomError(err).printFormattedStack(log);
-                res.render("data-review/main", { error: err.message });
+                log.error(`Failed to construct species data: ${err.message}`);
+                Utils.sendJSONResponse(res);
+                return;
             }
+
+            // Now we have all the data we need! Turn into final data for sending...
+            for (let key of Object.keys(intermediateSpeciesData)) {
+                let speciesData = intermediateSpeciesData[key];
+                finalSpeciesData.push(speciesData);
+            }
+
+            let data = {
+                species: finalSpeciesData
+            };
+
+            Utils.sendJSONResponse(res, data);
         });
 
         // Show page, where all results are shown.
@@ -162,7 +242,7 @@ class DataReviewRouter extends BaseRouter {
                     }
                     
                     dateCounts[sp] = {};
-                    let relatedUploads = await new DataUpload().findUploadsForSpeciesInDateRange(sDoc._id, fromDate, toDate, locationName);
+                    let relatedUploads = await dUpload.findUploadsForSpeciesInDateRange(sDoc._id, fromDate, toDate, locationName);
 
                     // Nested loops that count the number of each species found by date.
                     relatedUploads.forEach(upload => {

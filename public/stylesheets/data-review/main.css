@@ -1,0 +1,43 @@
+#species-table-container {
+    padding: 10px;
+    background-color: rgba(102, 163, 255, 0.4);
+    border-radius: 10px;
+    border: 1px solid #66a3ff;
+}
+
+#table-controls-container {
+    margin: 0 0 15px 0;
+}
+
+#table-container {
+    width: 100%;
+}
+
+#sort-method-select {
+    min-width: 170px;
+}
+
+.control-button {
+    padding: 2px 7px;
+    cursor: pointer;
+    height: 35px;
+    width: 75px;
+    border-radius: 3px;
+    font-size: 15px;
+    color: #eee;
+    margin: 5px 0 5px 5px;
+    text-decoration: none;
+    line-height: 23px;
+    background-color: #1a75ff;
+    border: 1px solid #0047b3;
+}
+
+#loading-image {
+    height: 100px;
+    width: 150px;
+    transition: opacity .75s;
+}
+
+.error-message {
+    color: #ff1a1a;
+}
