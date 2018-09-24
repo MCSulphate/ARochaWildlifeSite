@@ -19,11 +19,9 @@
                 <td>
                     <select id="sort-type-select">
                         <option value=""></option>
-                        <option value="Latin Name">Latin Name</option>
-                        <option value="Common Name">Common Name</option>
-                        <option value="Taxonomic Group">Taxonomic Group</option>
-                        <option value="Grid Reference">Grid Reference</option>
-                        <option value="Comments">Comments</option>
+                        <option value="latinName">Latin Name</option>
+                        <option value="commonName">Common Name</option>
+                        <option value="taxonomicGroup">Taxonomic Group</option>
                     </select>
                 </td>
 
@@ -31,8 +29,8 @@
                 <td>
                     <select id="sort-method-select">
                         <option value=""></option>
-                        <option value="A-Z">A-Z</option>
-                        <option value="Z-A">Z-A</option>
+                        <option value="az">A-Z</option>
+                        <option value="za">Z-A</option>
                     </select>
                 </td>
 
@@ -42,12 +40,12 @@
             <tr id="filter-controls">
                 <td>Filter by</td>
                 <td>
-                    <select id="filter-select">
+                    <select id="filter-type-select">
                         <option value=""></option>
                         <option value="Latin Name">Latin Name</option>
                         <option value="Common Name">Common Name</option>
                         <option value="Taxonomic Group">Taxonomic Group</option>
-                        <option value="Grid Reference">Grid Reference</option>
+                        <option value="Grid Reference">Grid References</option>
                         <option value="Comments">Comments</option>
                     </select>
                 </td>
@@ -60,9 +58,20 @@
         </table>
 
         <div class="form" id="table-container">
-            <p class="form-header">Please select the species you wish to review:</p>
+            <p class="form-header">Please click to select the species you wish to review:</p>
 
             <img id="loading-image" src="/images/loading.gif">
+
+            <table style="display: none" id="species-table">
+                <thead>
+                    <tr>
+                        <th>Latin Name</th>
+                        <th>Common Name</th>
+                        <th>Taxonomic Group</th>
+                        <th>Locations</th>
+                    </tr>
+                </thead>
+            </table>
         </div>
     </div>
 

@@ -913,3 +913,11 @@
 [24/08/18] 00:34:09 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
 [24/08/18] 00:35:10 [INFO] [Application] Application setup finished, server has been started.
 [24/08/18] 00:35:16 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 13:29:19 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 13:31:42 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 15:05:04 [INFO] [Application] Successfully reset and seeded the database.
+[24/08/18] 15:05:04 [INFO] [Application] Application setup finished, server has been started.
+[24/08/18] 15:05:10 [INFO] [Routes/Index] admin has logged in.
+[24/08/18] 15:05:23 [INFO] [Models/DataUpload] Created a new taxonomic group: Test Group.
+[24/08/18] 15:05:31 [INFO] [Models/Location] Created a new location: Test Location
+[24/08/18] 23:09:11 [INFO] [Models/DataUpload] Created a new taxonomic group: Another Test Group.

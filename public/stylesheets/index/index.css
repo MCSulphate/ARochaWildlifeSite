@@ -152,16 +152,20 @@ nav a, nav a:visited, nav a:active {
 /* Table Styling */
 table {
     border-collapse: collapse;
-    background-color: #d6f2f5;
 }
 
 thead tr {
-    background-color: #d6f2f5;
+    background-color: rgba(102, 163, 255);
 }
 
-tr {
+tbody tr {
     background-color: #d6f2f5;
-    border-bottom: 1px solid #32c0cd;
+    /* border-bottom: 1px solid #32c0cd; */
+    border-bottom: 1px solid #333;
+}
+
+tbody tr:nth-of-type(2n) {
+    background-color: #c1ebf0;
 }
 
 th, td {

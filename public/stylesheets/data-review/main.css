@@ -9,8 +9,28 @@
     margin: 0 0 15px 0;
 }
 
-#table-container {
+#table-container, #species-table {
     width: 100%;
+}
+
+#species-table {
+    text-align: center;
+}
+
+tbody tr {
+    user-select: none;
+}
+
+#species-table tr {
+    cursor: hand;
+}
+
+.table-highlight {
+    border-radius: 6px;
+    margin: 3px;
+    padding: 2px;
+    background-color: #1a75ff;
+    color: #eee;
 }
 
 #sort-method-select {
@@ -36,6 +56,11 @@
     height: 100px;
     width: 150px;
     transition: opacity .75s;
+}
+
+/* Have to make this more specific to override default table styling. */
+table tbody .selected-species {
+    background-color: #4dff4d;
 }
 
 .error-message {

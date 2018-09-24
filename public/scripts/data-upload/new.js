@@ -127,6 +127,11 @@
     // Array containing the species data.
     let speciesDataContainer = [];
 
+    // Capitalises the first letter of a string.
+    function capitaliseFirst(string) {
+        return string.substring(0, 1).toUpperCase() + string.substring(1);
+    }
+
     // Handles clicks on the 'Add Species' button.
     document.getElementById("add-species-button").addEventListener("click", () => {
         if (latinNameInput.value === "" || countInput.value === "" || dateInput.value === "") {
@@ -135,8 +140,8 @@
         }
 
         let speciesData = {
-            latinName: latinNameInput.value,
-            commonName: commonNameInput.value || "Not Given",
+            latinName: capitaliseFirst(latinNameInput.value.toLowerCase()),
+            commonName: commonNameInput.value ? capitaliseFirst(commonNameInput.value.toLowerCase()) : "Not Given",
             count: countInput.value,
             date: dateInput.value,
             gridReference: gridReferenceInput.value || "Not Given",

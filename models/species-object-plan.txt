@@ -1,9 +1,0 @@
-species (latin name is the key, lowercase) : {
-    taxonomicGroup: the group
-    locations: [ list of locations it's been seen at ]
-    observers: [ list of observers that have seen it ]
-    gridReferences: [ list of grid references it's been seen at ]
-    latinName: the latin name
-    commonName: the common name (any clashes will be ignored after the first common name found)
-    count: the total count (maybe irrelevant)
-}

@@ -39,11 +39,8 @@ class DataReviewRouter extends BaseRouter {
             // Get all the data uploads.
             let uploads = await dUpload.findAllUploads();
 
-            // Object to store intermediate upload parsing results in.
-            let intermediateSpeciesData = {};
-
-            // Array to store final species data for sending in.
-            let finalSpeciesData = [];
+            // Object to store parsed species data in.
+            let parsedSpeciesData = {};
 
             // Loop through the uploads, taking each species, lower-casing, and adding count values.
             try {
@@ -61,9 +58,9 @@ class DataReviewRouter extends BaseRouter {
                         let comments = species.comments;
 
                         // Check if the species has been added to the intermediate yet.
-                        if (!intermediateSpeciesData[latinName]) {
+                        if (!parsedSpeciesData[latinName]) {
                             // Add it, setting all the different values.
-                            let data = intermediateSpeciesData[latinName] = {};
+                            let data = parsedSpeciesData[latinName] = {};
                             data.taxonomicGroup = taxonomicGroup.groupName;
                             data.latinName = latinName;
                             data.commonName = commonName;
@@ -75,7 +72,7 @@ class DataReviewRouter extends BaseRouter {
                         }
                         else {
                             // Otherwise update the current one.
-                            let data = intermediateSpeciesData[latinName];
+                            let data = parsedSpeciesData[latinName];
                             
                             // If no valid common name has been found yet, update it.
                             if (data.commonName === "Not Given") {
@@ -107,14 +104,8 @@ class DataReviewRouter extends BaseRouter {
                 return;
             }
 
-            // Now we have all the data we need! Turn into final data for sending...
-            for (let key of Object.keys(intermediateSpeciesData)) {
-                let speciesData = intermediateSpeciesData[key];
-                finalSpeciesData.push(speciesData);
-            }
-
             let data = {
-                species: finalSpeciesData
+                species: parsedSpeciesData
             };
 
             Utils.sendJSONResponse(res, data);
