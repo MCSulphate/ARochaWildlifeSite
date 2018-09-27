@@ -127,14 +127,11 @@
     // Buttons
     let sortButton = document.getElementById("sort-button");
     let filterButton = document.getElementById("filter-button");
+    let filterClearButton = document.getElementById("filter-clear-button");
 
     // Sort Fields
     let sortTypeSelect = document.getElementById("sort-type-select");
     let sortMethodSelect = document.getElementById("sort-method-select");
-
-    // Filter Fields
-    let filterTypeSelect = document.getElementById("filter-type-select");
-    let filterTextInput = document.getElementById("filter-text-input");
 
     // Sorting Handler
     sortButton.addEventListener("click", () => {
@@ -163,6 +160,7 @@
             else return null;
         }
 
+        // Sort the rows.
         tableRows.sort((a, b) => {
             let typeA = a.querySelectorAll("td")[typeIndex].textContent;
             let typeB = b.querySelectorAll("td")[typeIndex].textContent;
@@ -195,6 +193,74 @@
         // Remove the current table, add the new one.
         document.querySelector("#species-table").querySelector("tbody").remove();
         speciesTable.appendChild(newTableBody);
+    });
+
+    // Filter Fields
+    let filterTypeSelect = document.getElementById("filter-type-select");
+    let filterTextInput = document.getElementById("filter-text-input");
+
+    // Filtering Handler
+    filterButton.addEventListener("click", () => {
+        let filterType = filterTypeSelect.value;
+        let filterText = filterTextInput.value;
+        let tableRows = document.querySelector("#species-table").querySelector("tbody").querySelectorAll("tr");
+
+        // Make sure they filled in the fields.
+        if (!filterType || !filterText) return;
+        filterText = filterText.toLowerCase();
+
+        // Filter the rows.
+        for (let i = 0; i < tableRows.length; i++) {
+            let latinName = tableRows[i].querySelector("td").textContent;
+            let speciesData = species[latinName];
+            let filterData = speciesData[filterType];
+            let containsFlag = false;
+
+            if (typeof filterData === "string") {
+                if (filterData.toLowerCase().indexOf(filterText) !== -1) containsFlag = true;
+            }
+            else {
+                for (let str of filterData) {
+                    if (str.toLowerCase().indexOf(filterText) !== -1) containsFlag = true;
+                }
+            }
+
+            // If it does not contain the filter, hide it.
+            if (!containsFlag) {
+                tableRows[i].style.display = "none";
+            }
+        }
+    });
+
+    // Clears filtering on species.
+    filterClearButton.addEventListener("click", () => {
+        let tableRows = document.querySelector("#species-table").querySelector("tbody").querySelectorAll("tr");
+
+        for (let i = 0; i < tableRows.length; i++) {
+            tableRows[i].style.display = "";
+        }
+    });
+
+    //
+    // MODAL FUNCTIONALITY CODE
+    //
+
+    // Modal
+    let locationsModal = document.getElementById("locations-modal");
+
+    // Causes the modal to pop up.
+    document.getElementById("species-submit-button").addEventListener("click", event => {
+        // Don't do anything if they haven't selected any species.
+        if (selectedSpecies.length === 0) return;
+        // We don't want to compare more than 20 species at a time.
+        else if (selectedSpecies.length > 20) return;
+        
+        locationsModal.style.display = "block";
+    });
+
+    // Closes the modals.
+    locationsModal.querySelector(".close").addEventListener("click", event => {
+        locationsModal.style.display = "none";
     });
 
 })();

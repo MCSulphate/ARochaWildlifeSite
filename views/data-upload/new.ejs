@@ -74,8 +74,8 @@
                 <div class="form-group-input">
                     <span class="field">Taxonomic Group</span>
                     <select id="taxonomic-group-select">
+                        <option value=""></option>
                         <% groups.forEach(group => { %>
-                            <option value=""></option>
                             <option value="<%= group %>"><%= group %></option>
                         <% }); %>
                     </select>
@@ -88,8 +88,8 @@
                 <div class="form-group-input">
                     <span class="field">Where was this recorded?</span>
                     <select id="location-select">
+                        <option value=""></option>
                         <% locations.forEach(location => { %>
-                            <option value=""></option>
                             <option value="<%= location %>"><%= location %></option>
                         <% }); %>
                     </select>

@@ -921,3 +921,7 @@
 [24/08/18] 15:05:23 [INFO] [Models/DataUpload] Created a new taxonomic group: Test Group.
 [24/08/18] 15:05:31 [INFO] [Models/Location] Created a new location: Test Location
 [24/08/18] 23:09:11 [INFO] [Models/DataUpload] Created a new taxonomic group: Another Test Group.
+[27/08/18] 17:50:24 [INFO] [Application] Application setup finished, server has been started.
+[27/08/18] 17:53:40 [INFO] [Routes/Index] admin has logged in.
+[27/08/18] 18:19:57 [INFO] [Models/Location] Created a new location: Another Test Location
+[27/08/18] 18:45:27 [INFO] [Routes/Index] admin has logged in.

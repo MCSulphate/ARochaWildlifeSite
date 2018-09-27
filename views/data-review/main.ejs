@@ -12,50 +12,68 @@
 
 <% } else { %>
 
+    <div id="locations-modal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+    
+            <h2 class="modal-header">Select Locations</h2>
+            <div class="modal-content">
+                <p>If applicable, select locations you want to compare. Otherwise, click Continue.</p>
+            </div>
+        </div>
+    </div>
+
     <div id="species-table-container">
-        <table id="table-controls-container" class="form">
-            <tr id="sort-controls">
-                <td>Sort by</td>
-                <td>
-                    <select id="sort-type-select">
-                        <option value=""></option>
-                        <option value="latinName">Latin Name</option>
-                        <option value="commonName">Common Name</option>
-                        <option value="taxonomicGroup">Taxonomic Group</option>
-                    </select>
-                </td>
-
-                <td>in order</td>
-                <td>
-                    <select id="sort-method-select">
-                        <option value=""></option>
-                        <option value="az">A-Z</option>
-                        <option value="za">Z-A</option>
-                    </select>
-                </td>
-
-                <td><a href="#" id="sort-button" class="control-button">Sort</a></td>
-            </tr>
-
-            <tr id="filter-controls">
-                <td>Filter by</td>
-                <td>
-                    <select id="filter-type-select">
-                        <option value=""></option>
-                        <option value="Latin Name">Latin Name</option>
-                        <option value="Common Name">Common Name</option>
-                        <option value="Taxonomic Group">Taxonomic Group</option>
-                        <option value="Grid Reference">Grid References</option>
-                        <option value="Comments">Comments</option>
-                    </select>
-                </td>
-
-                <td>containing text:</td>
-                <td><input id="filter-text-input" type="text"></td>
-
-                <td><a href="#" id="filter-button" class="control-button">Filter</a></td>
-            </tr>
-        </table>
+        <div id="top-row-container">
+            <table id="table-controls-container" class="form">
+                <tr id="sort-controls">
+                    <td>Sort by</td>
+                    <td>
+                        <select id="sort-type-select">
+                            <option value=""></option>
+                            <option value="latinName">Latin Name</option>
+                            <option value="commonName">Common Name</option>
+                            <option value="taxonomicGroup">Taxonomic Group</option>
+                        </select>
+                    </td>
+            
+                    <td>in order</td>
+                    <td>
+                        <select id="sort-method-select">
+                            <option value=""></option>
+                            <option value="az">A-Z</option>
+                            <option value="za">Z-A</option>
+                        </select>
+                    </td>
+            
+                    <td><a href="#" id="sort-button" class="control-button">Sort</a></td>
+                </tr>
+            
+                <tr id="filter-controls">
+                    <td>Filter by</td>
+                    <td>
+                        <select id="filter-type-select">
+                            <option value=""></option>
+                            <option value="latinName">Latin Name</option>
+                            <option value="commonName">Common Name</option>
+                            <option value="taxonomicGroup">Taxonomic Group</option>
+                            <option value="gridReferences">Grid References</option>
+                            <option value="comments">Comments</option>
+                        </select>
+                    </td>
+            
+                    <td>containing text:</td>
+                    <td><input id="filter-text-input" type="text"></td>
+            
+                    <td>
+                        <a href="#" id="filter-button" class="control-button">Filter</a>
+                        <a href="#" id="filter-clear-button" class="control-button">Clear Filter</a>
+                    </td>
+                </tr>
+            </table>
+            
+            <a href="#" class="button" id="species-submit-button">Submit Species</a>
+        </div>
 
         <div class="form" id="table-container">
             <p class="form-header">Please click to select the species you wish to review:</p>
