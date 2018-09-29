@@ -99,7 +99,7 @@
 
         if (selectedSpecies.indexOf(latinName) === -1) {
             selectedSpecies.push(latinName);
-            tableRow.className = "selected-species";
+            tableRow.className = "selected-row";
         }
         else {
             selectedSpecies.splice(selectedSpecies.indexOf(latinName), 1);
@@ -258,9 +258,99 @@
         locationsModal.style.display = "block";
     });
 
-    // Closes the modals.
+    // Closes the modal.
     locationsModal.querySelector(".close").addEventListener("click", event => {
         locationsModal.style.display = "none";
     });
+
+    // Elements
+    let locationsTable = document.getElementById("locations-table");
+    let locationsTableBody = locationsTable.querySelector("tbody");
+
+    // Selected Locations
+    let selectedLocations = [];
+    function toggleLocationSelection(tableRow) {
+        let locationName = tableRow.querySelector("td").textContent;
+
+        if (selectedLocations.indexOf(locationName) === -1) {
+            selectedLocations.push(locationName);
+            tableRow.className = "selected-row";
+        }
+        else {
+            selectedLocations.splice(selectedLocations.indexOf(locationName), 1);
+            tableRow.className = "";
+        }
+    }
+
+    // Fetches location data from the server.
+    (async() => {
+        try {
+            let body = await JSONRequest("/review/locations-data", {});
+
+            if (body.error) {
+                let errorMessage = document.createElement("h2");
+                errorMessage.class = "error-message";
+                errorMessage.textContent = body.error;
+    
+                locationsTableBody.appendChild(errorMessage);
+            }
+            else {
+                let locations = body.locations;
+                for (let location of locations) {
+                    let tableRow = document.createElement("tr");
+                    let tableData = document.createElement("td");
+
+                    tableData.textContent = location;
+                    tableRow.appendChild(tableData);
+                    locationsTableBody.appendChild(tableRow);
+
+                    // Add a click listener to the row to toggle selection.
+                    tableRow.addEventListener("click", () => {
+                        toggleLocationSelection(tableRow);
+                    });
+                }
+            }
+        }
+        catch (err) {
+            let errorMessage = document.createElement("h2");
+            errorMessage.class = "error-message";
+            errorMessage.textContent = "There was an error loading this page. Please report this to a system administrator.";
+
+            tbody.appendChild(errorMessage);
+        }
+    })();
+
+    //
+    // CHART CREATION CODE
+    //
+
+    // Container for the detailed species data.
+    let detailedSpecies;
+
+    // Click listener for the locations submit button:
+    // Fetches detailed data for each species from the server.
+    document.getElementById("locations-submit-button").addEventListener("click", async() => {
+        try {
+            let dataToSend = {
+                latinNames: selectedSpecies,
+                locationNames: selectedLocations
+                //fromDate,
+                //toDate
+            };
+
+            detailedSpecies = await JSONRequest("/review/species-details", dataToSend);
+
+            createCharts();
+        }
+        catch (err) {
+            displayFormError(locationsTable, "Failed to fetch species data. Please report this to an admin.");
+            console.log(err.message);
+        }
+    });
+
+    // Creates the charts and opens them in a new modal.
+    function createCharts() {
+        //TODO
+    }
 
 })();

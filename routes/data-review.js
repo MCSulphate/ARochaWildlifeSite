@@ -34,6 +34,21 @@ class DataReviewRouter extends BaseRouter {
             res.render("data-review/main");
         });
 
+        // Finds and returns location data.
+        this._router.post("/locations-data", async(req, res) => {
+            try {
+                // Get the locations.
+                let locations = await lModel.findAllLocations();
+
+                // Send them down the pipe!
+                Utils.sendJSONResponse(res, { locations });
+            }
+            catch (err) {
+                log.error(`Failed to find locations: ${err.message}`);
+                Utils.sendJSONResponse(res);
+            }
+        });
+
         // Finds and returns species data.
         this._router.post("/species-data", async(req, res) => {
             // Get all the data uploads.

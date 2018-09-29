@@ -2,7 +2,7 @@
     display: inline-block;
     height: 92px;
     width: 600px;
-    line-height: 70px;
+    line-height: 66px;
     text-align: center;
     margin-left: 20px;
     font-size: 25px;
@@ -30,7 +30,7 @@
     width: 100%;
 }
 
-#species-table {
+#species-table, #locations-table {
     text-align: center;
 }
 
@@ -52,6 +52,30 @@ tbody tr {
 
 #sort-method-select {
     min-width: 170px;
+}
+
+#locations-table-container {
+    margin-bottom: 15px;
+    max-height: 254px;
+    overflow:hidden;
+}
+
+#locations-table {
+    max-height: 250px;
+    margin-bottom: 3px;
+    overflow-y: auto;
+}
+
+#locations-table tr {
+    width: 80%;
+    margin: 0 10% 0 10%;
+}
+
+#locations-submit-button {
+    font-size: 20px;
+    width: 200px;
+    height: 65px;
+    line-height: 39px;
 }
 
 .control-button {
@@ -76,7 +100,7 @@ tbody tr {
 }
 
 /* Have to make this more specific to override default table styling. */
-table tbody .selected-species {
+table tbody .selected-row {
     background-color: #4dff4d;
 }
 

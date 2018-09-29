@@ -531,3 +531,47 @@
 [24/08/18] 00:30:08 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
 [24/08/18] 00:33:37 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
 [24/08/18] 00:34:09 [ERROR] [Routes/DataReview] Failed to construct species data: locationName is not defined
+[28/08/18] 10:33:49 [ERROR] [Routes/DataReview] Failed to find locations: sendJSONResponse is not defined
+[28/08/18] 10:33:49 [ERROR] [Application]     at DataReviewRouter._callee2$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-review.js:48:17)
+[28/08/18] 10:33:49 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[28/08/18] 10:33:49 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[28/08/18] 10:33:49 [ERROR] [Application] ReferenceError: sendJSONResponse is not defined
+[28/08/18] 10:33:49 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[28/08/18] 10:33:49 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:191)
+[28/08/18] 10:33:49 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:361
+[28/08/18] 10:33:49 [ERROR] [Application]     at <anonymous>
+[28/08/18] 10:33:49 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[28/08/18] 10:33:49 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[28/08/18] 10:33:49 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[28/08/18] 10:33:49 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[28/08/18] 10:33:49 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[28/08/18] 10:35:01 [ERROR] [Routes/DataReview] Failed to find locations: sendJSONResponse is not defined
+[28/08/18] 10:35:01 [ERROR] [Application] ReferenceError: sendJSONResponse is not defined
+[28/08/18] 10:35:01 [ERROR] [Application]     at DataReviewRouter._callee2$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-review.js:48:17)
+[28/08/18] 10:35:01 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[28/08/18] 10:35:01 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[28/08/18] 10:35:01 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[28/08/18] 10:35:01 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:191)
+[28/08/18] 10:35:01 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:361
+[28/08/18] 10:35:01 [ERROR] [Application]     at <anonymous>
+[28/08/18] 10:35:01 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[28/08/18] 10:35:13 [ERROR] [Routes/DataReview] Failed to find locations: sendJSONResponse is not defined
+[28/08/18] 10:35:13 [ERROR] [Application] ReferenceError: sendJSONResponse is not defined
+[28/08/18] 10:35:13 [ERROR] [Application]     at DataReviewRouter._callee2$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-review.js:48:17)
+[28/08/18] 10:35:13 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[28/08/18] 10:35:13 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[28/08/18] 10:35:13 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[28/08/18] 10:35:13 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:191)
+[28/08/18] 10:35:13 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:361
+[28/08/18] 10:35:13 [ERROR] [Application]     at <anonymous>
+[28/08/18] 10:35:13 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[28/08/18] 10:36:32 [ERROR] [Routes/DataReview] Failed to find locations: sendJSONResponse is not defined
+[28/08/18] 10:36:32 [ERROR] [Application] ReferenceError: sendJSONResponse is not defined
+[28/08/18] 10:36:32 [ERROR] [Application]     at DataReviewRouter._callee2$ (C:/Users/Matthew Lester/Desktop/Coding/VSCode Workspace/ARochaWildlifeSite/routes/data-review.js:48:17)
+[28/08/18] 10:36:32 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[28/08/18] 10:36:32 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[28/08/18] 10:36:32 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:191)
+[28/08/18] 10:36:32 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\routes\data-review.js:51:361
+[28/08/18] 10:36:32 [ERROR] [Application]     at <anonymous>
+[28/08/18] 10:36:32 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[28/08/18] 10:36:32 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
