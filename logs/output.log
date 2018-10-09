@@ -993,3 +993,10 @@
 [28/08/18] 15:21:02 [INFO] [Models/Location] Created a new location: Test11
 [28/08/18] 15:21:04 [INFO] [Models/Location] Created a new location: Test12
 [28/08/18] 15:21:06 [INFO] [Models/Location] Created a new location: Test13
+[29/08/18] 14:02:40 [INFO] [Application] Application setup finished, server has been started.
+[29/08/18] 14:03:54 [INFO] [Routes/Index] admin has logged in.
+[29/08/18] 14:34:27 [INFO] [Routes/Index] admin has logged in.
+[29/08/18] 17:30:16 [INFO] [Application] Application setup finished, server has been started.
+[29/08/18] 17:31:36 [INFO] [Application] Application setup finished, server has been started.
+[29/08/18] 17:31:43 [INFO] [Routes/Index] admin has logged in.
+[29/08/18] 17:32:17 [INFO] [Routes/DataUpload] New data upload from admin completed, containing 1 species.

@@ -18,10 +18,18 @@
     
             <h2 class="modal-header">Select Locations</h2>
             <div class="modal-content">
-                <p>If applicable, click to select the locations you want to compare.</p>
+                <p>Please select the date range for the data, and if applicable, click to select the locations you want to compare.</p>
 
                 <div id="locations-table-container">
                     <table id="locations-table" class="form">
+                        <thead>
+                            <tr>
+                                <td>From</td>
+                                <td><input id="from-date" type="date"></td>
+                                <td>to</td>
+                                <td><input id="to-date" type="date"></td>
+                            </tr>
+                        </thead>
                         <tbody></tbody>
                     </table>
                 </div>

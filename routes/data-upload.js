@@ -142,6 +142,7 @@ class DataUploadRouter extends BaseRouter {
             }
             else {
                 // Send the success response.
+                log.info(`New data upload from ${req.user.username} completed, containing ${species.length} species.`);
                 Utils.sendJSONResponse(res, {});
             }
 

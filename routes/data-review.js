@@ -126,6 +126,27 @@ class DataReviewRouter extends BaseRouter {
             Utils.sendJSONResponse(res, data);
         });
 
+        // Finds and returns detailed species data for chart creation.
+        this._router.post("/detailed-species-data", async(req, res) => {
+            let body = req.body;
+            // Time at the start of today.
+            let currentTime = new Date(new Date().toDateString()).getTime();
+
+            let latinNames = body.latinNames;
+            let locationNames = body.locationNames;
+            // If there is no from date, set it to a year ago.
+            let fromDate = body.fromDate ? new Date(body.fromDate) : new Date(currentTime - (1000 * 60 * 60 * 24 * 365));
+            // If there is no to date, set it to today.
+            let toDate = body.toDate ? new Date(body.toDate) : new Date();
+
+            console.log(latinNames);
+            console.log(locationNames);
+            console.log(fromDate.toDateString());
+            console.log(toDate.toDateString());
+
+            Utils.sendJSONResponse(res, { message: "nya, nyaa~~ >w<" });
+        });
+
         // Show page, where all results are shown.
         this._router.get("/show", async(req, res) => {
             let query = req.query;

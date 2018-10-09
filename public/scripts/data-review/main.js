@@ -32,11 +32,11 @@
                 // Sort the data alphabetically. First, we need a list of the names.
                 let nameList = Object.keys(species);
 
-                /*nameList.sort((a, b) => {
+                nameList.sort((a, b) => {
                     if (a.toLowerCase() < b.toLowerCase()) return -1;
                     else if (a.toLowerCase() > b.toLowerCase()) return 1;
                     else return 0;
-                });*/
+                });
 
                 // The table body to add to the table.
                 let tableBody = document.createElement("tbody");
@@ -300,6 +300,7 @@
                     let tableRow = document.createElement("tr");
                     let tableData = document.createElement("td");
 
+                    tableData.colSpan = 4;
                     tableData.textContent = location;
                     tableRow.appendChild(tableData);
                     locationsTableBody.appendChild(tableRow);
@@ -327,30 +328,44 @@
     // Container for the detailed species data.
     let detailedSpecies;
 
+    // Elements
+    let fromDateInput = document.getElementById("from-date");
+    let toDateInput = document.getElementById("to-date");
+
     // Click listener for the locations submit button:
     // Fetches detailed data for each species from the server.
     document.getElementById("locations-submit-button").addEventListener("click", async() => {
         try {
             let dataToSend = {
                 latinNames: selectedSpecies,
-                locationNames: selectedLocations
-                //fromDate,
-                //toDate
+                locationNames: selectedLocations,
+                fromDate: fromDateInput.value ? new Date(fromDateInput.value) : null,
+                toDate: toDateInput.value ? new Date(toDateInput.value) : null
             };
 
-            detailedSpecies = await JSONRequest("/review/species-details", dataToSend);
+            // If there is a from-date and no to-date, set it to today.
+            if (dataToSend.fromDate && !dataToSend.toDate) {
+                dataToSend.toDate = new Date();
+            }
 
+            // Check that the to-date is more recent than the from date.
+            if (dataToSend.fromDate && dataToSend.toDate && dataToSend.fromDate.getTime() > dataToSend.toDate.getTime()) {
+                displayFormError(locationsModal, "Please select a to-date that is after the from-date.");
+                return;
+            }
+
+            detailedSpecies = await JSONRequest("/review/detailed-species-data", dataToSend);
             createCharts();
         }
         catch (err) {
-            displayFormError(locationsTable, "Failed to fetch species data. Please report this to an admin.");
+            displayFormError(locationsModal, "Failed to fetch species data. Please report this to an admin.");
             console.log(err.message);
         }
     });
 
     // Creates the charts and opens them in a new modal.
     function createCharts() {
-        //TODO
+        displayFormSuccess(locationsModal, detailedSpecies.message);
     }
 
 })();

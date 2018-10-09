@@ -54,6 +54,11 @@ tbody tr {
     min-width: 170px;
 }
 
+#locations-modal p {
+    max-width: 600px;
+    margin: 15px auto;
+}
+
 #locations-table-container {
     margin-bottom: 15px;
     max-height: 254px;
@@ -66,9 +71,21 @@ tbody tr {
     overflow-y: auto;
 }
 
+#locations-table thead tr {
+    background-color: #98dee6;
+}
+
 #locations-table tr {
     width: 80%;
     margin: 0 10% 0 10%;
+}
+
+#locations-table td {
+    min-width: 100px;
+}
+
+#locations-table tbody td {
+    column-span: all;
 }
 
 #locations-submit-button {
