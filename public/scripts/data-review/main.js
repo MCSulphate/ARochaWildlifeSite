@@ -365,7 +365,13 @@
 
     // Creates the charts and opens them in a new modal.
     function createCharts() {
-        displayFormSuccess(locationsModal, detailedSpecies.message);
+        if (detailedSpecies.error) displayFormError(locationsModal, detailedSpecies.error);
+        else {
+            displayFormSuccess(locationsModal, "Successfully executed query, check console.");
+            console.dir(detailedSpecies.speciesData);
+
+            // Time to make the graphs!
+        }
     }
 
 })();

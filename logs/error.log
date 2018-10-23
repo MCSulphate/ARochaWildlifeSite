@@ -575,3 +575,73 @@
 [28/08/18] 10:36:32 [ERROR] [Application]     at <anonymous>
 [28/08/18] 10:36:32 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
 [28/08/18] 10:36:32 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[22/09/18] 14:41:23 [ERROR] [Application] UnhandledPromiseRejectionWarning: TypeError: lModel.findUploadsForSpeciesInDateRange is not a function
+[22/09/18] 14:41:23 [ERROR] [Application]     at DataReviewRouter._callee4$ (C:/Users/eagle/Desktop/Coding/VSCode Workspaces/ARochaWildlifeSite/routes/data-review.js:153:52)
+[22/09/18] 14:41:23 [ERROR] [Application]     at tryCatch (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[22/09/18] 14:41:23 [ERROR] [Application]     at step (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:191)
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:437
+[22/09/18] 14:41:23 [ERROR] [Application]     at new Promise (<anonymous>)
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:99
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:/Users/eagle/Desktop/Coding/VSCode Workspaces/ARochaWildlifeSite/routes/data-review.js:130:9
+[22/09/18] 14:41:23 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[22/09/18] 14:41:23 [ERROR] [Application]     at next (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\route.js:137:13)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Route.dispatch (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\route.js:112:3)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\index.js:281:22
+[22/09/18] 14:41:23 [ERROR] [Application]     at Function.process_params (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\index.js:335:12)
+[22/09/18] 14:41:23 [ERROR] [Application]     at next (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\index.js:275:10)
+[22/09/18] 14:41:23 [ERROR] [Application]     at emitWarning (internal/process/promises.js:65:17)
+[22/09/18] 14:41:23 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:109:11)
+[22/09/18] 14:41:23 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[22/09/18] 14:41:23 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[22/09/18] 14:41:23 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[22/09/18] 14:41:23 [ERROR] [Application] TypeError: lModel.findUploadsForSpeciesInDateRange is not a function
+[22/09/18] 14:41:23 [ERROR] [Application]     at DataReviewRouter._callee4$ (C:/Users/eagle/Desktop/Coding/VSCode Workspaces/ARochaWildlifeSite/routes/data-review.js:153:52)
+[22/09/18] 14:41:23 [ERROR] [Application]     at tryCatch (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[22/09/18] 14:41:23 [ERROR] [Application]     at step (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:191)
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:437
+[22/09/18] 14:41:23 [ERROR] [Application]     at new Promise (<anonymous>)
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:99
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:/Users/eagle/Desktop/Coding/VSCode Workspaces/ARochaWildlifeSite/routes/data-review.js:130:9
+[22/09/18] 14:41:23 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[22/09/18] 14:41:23 [ERROR] [Application]     at next (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\route.js:137:13)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Route.dispatch (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\route.js:112:3)
+[22/09/18] 14:41:23 [ERROR] [Application]     at Layer.handle [as handle_request] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\layer.js:95:5)
+[22/09/18] 14:41:23 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\index.js:281:22
+[22/09/18] 14:41:23 [ERROR] [Application]     at Function.process_params (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\index.js:335:12)
+[22/09/18] 14:41:23 [ERROR] [Application]     at next (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\express\lib\router\index.js:275:10)
+[22/09/18] 14:41:23 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[22/09/18] 14:41:23 [ERROR] [Application]     at emitWarning (internal/process/promises.js:92:15)
+[22/09/18] 14:41:23 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:109:11)
+[22/09/18] 14:41:23 [ERROR] [Application]     at runMicrotasksCallback (internal/process/next_tick.js:124:9)
+[22/09/18] 14:41:23 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[22/09/18] 14:41:23 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[22/09/18] 14:42:43 [ERROR] [Application] UnhandledPromiseRejectionWarning: ReferenceError: uploads is not defined
+[22/09/18] 14:42:43 [ERROR] [Application]     at DataReviewRouter._callee4$ (C:/Users/eagle/Desktop/Coding/VSCode Workspaces/ARochaWildlifeSite/routes/data-review.js:158:47)
+[22/09/18] 14:42:43 [ERROR] [Application]     at tryCatch (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[22/09/18] 14:42:43 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[22/09/18] 14:42:43 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[22/09/18] 14:42:43 [ERROR] [Application]     at step (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:191)
+[22/09/18] 14:42:43 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:361
+[22/09/18] 14:42:43 [ERROR] [Application]     at <anonymous>
+[22/09/18] 14:42:43 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[22/09/18] 14:42:43 [ERROR] [Application]     at emitWarning (internal/process/promises.js:65:17)
+[22/09/18] 14:42:43 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:109:11)
+[22/09/18] 14:42:43 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[22/09/18] 14:42:43 [ERROR] [Application] ReferenceError: uploads is not defined
+[22/09/18] 14:42:43 [ERROR] [Application]     at DataReviewRouter._callee4$ (C:/Users/eagle/Desktop/Coding/VSCode Workspaces/ARochaWildlifeSite/routes/data-review.js:158:47)
+[22/09/18] 14:42:43 [ERROR] [Application]     at tryCatch (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[22/09/18] 14:42:43 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[22/09/18] 14:42:43 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[22/09/18] 14:42:43 [ERROR] [Application]     at step (C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:191)
+[22/09/18] 14:42:43 [ERROR] [Application]     at C:\Users\eagle\Desktop\Coding\VSCode Workspaces\ARochaWildlifeSite\routes\data-review.js:51:361
+[22/09/18] 14:42:43 [ERROR] [Application]     at <anonymous>
+[22/09/18] 14:42:43 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[22/09/18] 14:42:43 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[22/09/18] 14:42:43 [ERROR] [Application]     at emitWarning (internal/process/promises.js:92:15)
+[22/09/18] 14:42:43 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:109:11)
+[22/09/18] 14:42:43 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)

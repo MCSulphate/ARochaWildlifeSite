@@ -27,6 +27,7 @@ class MainSetup {
 
             // Log
             let log = logger({ logName: "Application" });
+            log.info("Starting application..");
 
             // Log warnings to the console.
             process.on("warning", err => {

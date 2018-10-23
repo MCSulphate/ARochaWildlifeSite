@@ -139,12 +139,60 @@ class DataReviewRouter extends BaseRouter {
             // If there is no to date, set it to today.
             let toDate = body.toDate ? new Date(body.toDate) : new Date();
 
-            console.log(latinNames);
-            console.log(locationNames);
-            console.log(fromDate.toDateString());
-            console.log(toDate.toDateString());
+            // Loop through locations, then species.
+            let queryError = false;
+            if (locationNames.length > 0) {
+                let speciesData = {};
+                for (let location of locationNames) {
+                    speciesData[location] = {};
 
-            Utils.sendJSONResponse(res, { message: "nya, nyaa~~ >w<" });
+                    for (let latinName of latinNames) {
+
+                        let results = await dUpload.findUploadsForSpeciesInDateRange(latinName, fromDate, toDate, location);
+                        if (!results) {
+                            log.error(`Failed to find location ${locationName}.`);
+                        }
+                        else {
+                            log.info(`Found ${results.length} suitable uploads.`);
+                            
+                            if (!speciesData[location][latinName]) speciesData[location][latinName] = {};
+                            if (results.length === 0) continue;
+                            
+                            for (let upload of results) {
+                                let species = upload.species;
+                                let singleData;
+
+                                // Find the species' data within the upload.
+                                for (let speciesItem of species) {
+                                    if (speciesItem.latinName === latinName) singleData = speciesItem;
+                                }
+
+                                // Grab the count and date of the recording.
+                                let count = singleData.count;
+                                let date = singleData.date.toDateString();
+
+                                // Update the count at that date for this species and location.
+                                if (!speciesData[location][latinName][date]) {
+                                    speciesData[location][latinName][date] = count;
+                                }
+                                else {
+                                    speciesData[location][latinName][date] += count;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                Utils.sendJSONResponse(res, { speciesData });
+            }
+            else {
+                let speciesData = {};
+                for (let latinName of latinNames) {
+
+
+
+                }
+            }
         });
 
         // Show page, where all results are shown.

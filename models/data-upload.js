@@ -3,6 +3,7 @@
 // Imports
 import logger from "coloured-logger";
 import mongoose from "mongoose";
+import Location from "./location";
 
 // Log
 const log = logger({ logName: "Models/DataUpload" });
@@ -49,6 +50,9 @@ const DataUploadSchema = {
 
 // Class instance (we only need one) - this makes it a singleton class.
 let instance = null;
+
+// Location model instance.
+let lModel = new Location();
 
 // DataUpload Class (contains DataUpload methods)
 class DataUpload extends BaseModel {
@@ -112,18 +116,24 @@ class DataUpload extends BaseModel {
         }.bind(this)();
     }
 
-    findUploadsForSpeciesInDateRange(id, fromDate, toDate, locationName) {
+    findUploadsForSpeciesInDateRange(latinName, fromDate, toDate, locationName) {
         return async function() {
             let foundUploads;
 
             if (locationName) {
-                foundUploads = await this._model.find({ "species.species": { $eq: id }, "species.date": { $gte: fromDate, $lte: toDate }, location: locationName });
+                // Find the location, get the id.
+                let location = await lModel.findLocationByName(locationName);
+                if (!location)  {
+                    return false;
+                }
+
+                foundUploads = await this._model.find({ "species.latinName": { $eq: latinName }, "species.date": { $gte: fromDate, $lte: toDate }, location: { $eq: location.id }});
             }
             else {
-                foundUploads = await this._model.find({ "species.species": { $eq: id }, "species.date": { $gte: fromDate, $lte: toDate } });
+                foundUploads = await this._model.find({ "species.latinName": { $eq: latinName }, "species.date": { $gte: fromDate, $lte: toDate } });
             }
 
-            return foundUploads;
+            return foundUploads || [];
         }.bind(this)();
     }
 
