@@ -17,7 +17,7 @@ class MongooseSetup {
 
             try {
                 // Connect to the database.
-                await mongoose.connect("mongodb://localhost/wildlife_website_db");
+                await mongoose.connect("mongodb://localhost/wildlife_website_db", { useNewUrlParser: true });
                 
                 // Wait for necessary models to index.
                 await new User().waitForIndex();
