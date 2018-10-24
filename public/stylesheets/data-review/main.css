@@ -116,6 +116,20 @@ tbody tr {
     transition: opacity .75s;
 }
 
+/* Charts CSS */
+.chart-container {
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+.chart-label {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 25px 0 15px;
+    text-align: center;
+}
+
 /* Have to make this more specific to override default table styling. */
 table tbody .selected-row {
     background-color: #4dff4d;

@@ -141,8 +141,8 @@ class DataReviewRouter extends BaseRouter {
 
             // Loop through locations, then species.
             let queryError = false;
+            let speciesData = {};
             if (locationNames.length > 0) {
-                let speciesData = {};
                 for (let location of locationNames) {
                     speciesData[location] = {};
 
@@ -153,8 +153,6 @@ class DataReviewRouter extends BaseRouter {
                             log.error(`Failed to find location ${locationName}.`);
                         }
                         else {
-                            log.info(`Found ${results.length} suitable uploads.`);
-                            
                             if (!speciesData[location][latinName]) speciesData[location][latinName] = {};
                             if (results.length === 0) continue;
                             
@@ -182,192 +180,46 @@ class DataReviewRouter extends BaseRouter {
                         }
                     }
                 }
-
-                Utils.sendJSONResponse(res, { speciesData });
             }
             else {
-                let speciesData = {};
                 for (let latinName of latinNames) {
 
+                    let results = await dUpload.findUploadsForSpeciesInDateRange(latinName, fromDate, toDate);
+                        
+                    if (!speciesData[latinName]) speciesData[latinName] = {};
+                    if (results.length === 0) continue;
+                        
+                    for (let upload of results) {
+                        let species = upload.species;
+                        let singleData;
 
+                        // Find the species' data within the upload.
+                        for (let speciesItem of species) {
+                            if (speciesItem.latinName === latinName) singleData = speciesItem;
+                        }
 
-                }
-            }
-        });
+                        // Grab the count and date of the recording.
+                        let count = singleData.count;
+                        let date = singleData.date.toDateString();
 
-        // Show page, where all results are shown.
-        this._router.get("/show", async(req, res) => {
-            let query = req.query;
-
-            if (!Validator.isEmptyObject(query)) {
-                // Parse the query data.
-                let queryObject = {
-                    siteA: query.siteA,
-                    siteB: query.siteB,
-                    species: query.species ? query.species.split(",").map(s => s.toLowerCase()) : undefined,
-                    fromDate: query.fromDate,
-                    toDate: query.toDate
-                };
-
-                // Get date objects.
-                let fromDateObj = new Date(queryObject.fromDate);
-                let toDateObj = new Date(queryObject.toDate);
-
-                // Validate the number of species.
-                if (!queryObject.species || queryObject.species.length === 0 || queryObject.species.length > 5) {
-                    res.status(400).end("400 - Bad Request (invalid species)");
-                }
-                // Validate the dates.
-                else if (fromDateObj == "Invalid Date" || toDateObj == "Invalid Date") {
-                    res.status(400).end("400 - Bad Request (invalid dates)");
-                }
-                else {
-                    try {
-                        // Generate the data to render on the page.
-                        let reviewData = await this._generateReviewData(queryObject);
-
-                        // Render the page with the review data.
-                        res.render("data-review/show", { reviewData: reviewData });
-                    }
-                    catch (err) {
-                        // Render the error message.
-                        if (err.message === "NS") {
-                            res.status(400).end("400 - Bad Request (non-existant species given)");
+                        // Update the count at that date for this species and location.
+                        if (!speciesData[latinName][date]) {
+                            speciesData[latinName][date] = count;
                         }
                         else {
-                            res.render("data-review/show", { error: err.message });
+                            speciesData[latinName][date] += count;
                         }
                     }
                 }
             }
-            else {
-                res.status(400).end("400 - Bad Request (no query received)");
-            }
+
+            Utils.sendJSONResponse(res, { speciesData });
         });
 
         // No index route, redirect to main.
         this._router.get("/", (req, res) => {
             res.redirect("/review/main");
         });
-    }
-
-    _generateReviewData(query) {
-        return async function() {
-            let returnObject;
-            let reviewType = (query.siteA && query.siteB) ? "comparison" : query.siteA ? "single-site" : "overall";
-
-            // Placeholder dates, until I make the actual system.
-            let fromDate = new Date(query.fromDate);
-            let toDate = new Date(query.toDate);
-
-            if (reviewType === "overall" || reviewType === "single-site") {
-                try {
-                    // Get the data for the species.
-                    let dateCounts = await this._getOverallOrSiteSpeciesData(query.species, fromDate, toDate, query.siteA);
-
-                    returnObject = {
-                        reviewType,
-                        dateCounts: JSON.stringify(dateCounts),
-                        siteA: query.siteA
-                    };
-                }
-                catch (err) {
-                    // Throw the error down the stack.
-                    throw err;
-                }
-            }
-            else {
-                try {
-                    // Get the data for both sites.
-                    let data = await this._getSiteComparisonSpeciesData(query.species, fromDate, toDate, query.siteA, query.siteB);
-
-                    returnObject = {
-                        reviewType,
-                        data: {
-                            siteAData: JSON.stringify(data.siteAData),
-                            siteBData: JSON.stringify(data.siteBData)
-                        },
-                        siteA: query.siteA,
-                        siteB: query.siteB
-                    };
-                }
-                catch (err) {
-                    throw err;
-                }
-            }
-
-            returnObject.fromDate = fromDate.toDateString();
-            returnObject.toDate = toDate.toDateString();
-            returnObject.species = query.species;
-            return returnObject;
-        }.bind(this)();
-    }
-
-    _getOverallOrSiteSpeciesData(species, fromDate, toDate, locationName) {
-        return async function() {
-            let dateCounts = {};
-
-            for (let sp of species) {
-                try {
-                    // Find the species document and the uploads for it.
-                    let sDoc = await new Species().findSpeciesByName(sp);
-                    // Check that the species actually exists.
-                    if (!sDoc) {
-                        throw new Error("NS");
-                    }
-                    
-                    dateCounts[sp] = {};
-                    let relatedUploads = await dUpload.findUploadsForSpeciesInDateRange(sDoc._id, fromDate, toDate, locationName);
-
-                    // Nested loops that count the number of each species found by date.
-                    relatedUploads.forEach(upload => {
-                        let uploadSpecies = upload.species;
-
-                        uploadSpecies.forEach(us => {
-                            // Check if the ids are equal.
-                            if (sDoc._id.equals(us.species)) {
-                                let count = us.number;
-                                let dateString = us.date.toDateString();
-
-                                if (dateCounts[sp][dateString]) {
-                                    dateCounts[sp][dateString] += count;
-                                }
-                                else {
-                                    dateCounts[sp][dateString] = count;
-                                }
-                            }
-                        });
-
-                    });
-                }
-                catch (err) {
-                    // Print the stack and throw the error (if it is not a 'NS' error).
-                    if (err.message !== "NS") {
-                        new CustomError(err).printFormattedStack(log);
-                    }
-                    throw err;
-                }
-            }
-
-            return dateCounts;
-        }.bind(this)();
-    }
-
-    _getSiteComparisonSpeciesData(species, fromDate, toDate, siteA, siteB) {
-        return async function() {
-            try {
-                let siteAData = await this._getOverallOrSiteSpeciesData(species, fromDate, toDate, siteA);
-                let siteBData = await this._getOverallOrSiteSpeciesData(species, fromDate, toDate, siteB);
-
-                return {
-                    siteAData,
-                    siteBData
-                };
-            }
-            catch (err) {
-                throw err;
-            }
-        }.bind(this)();
     }
 }
 

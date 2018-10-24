@@ -347,6 +347,8 @@ input:focus {
     text-shadow: none;
     font-size: 17px;
     padding: 0 10px 15px 10px;
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 @keyframes modal-slide-down {

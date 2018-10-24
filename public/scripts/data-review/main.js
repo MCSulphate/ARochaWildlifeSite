@@ -331,47 +331,254 @@
     // Elements
     let fromDateInput = document.getElementById("from-date");
     let toDateInput = document.getElementById("to-date");
+    let chartsModal = document.getElementById("charts-modal");
+    let chartsContainer = document.getElementById("charts-container");
+
+    // Closes the modal on click.
+    chartsModal.querySelector(".close").addEventListener("click", () => {
+        chartsModal.style.display = "none";
+    });
 
     // Click listener for the locations submit button:
     // Fetches detailed data for each species from the server.
     document.getElementById("locations-submit-button").addEventListener("click", async() => {
         try {
+            let currentTime = new Date(new Date().toDateString()).getTime();
+
             let dataToSend = {
                 latinNames: selectedSpecies,
                 locationNames: selectedLocations,
-                fromDate: fromDateInput.value ? new Date(fromDateInput.value) : null,
-                toDate: toDateInput.value ? new Date(toDateInput.value) : null
+                fromDate: fromDateInput.value ? new Date(fromDateInput.value) : new Date(currentTime - (1000 * 60 * 60 * 24 * 365)),
+                toDate: toDateInput.value ? new Date(toDateInput.value) : new Date()
             };
 
-            // If there is a from-date and no to-date, set it to today.
-            if (dataToSend.fromDate && !dataToSend.toDate) {
-                dataToSend.toDate = new Date();
-            }
-
             // Check that the to-date is more recent than the from date.
-            if (dataToSend.fromDate && dataToSend.toDate && dataToSend.fromDate.getTime() > dataToSend.toDate.getTime()) {
+            if (dataToSend.fromDate.getTime() > dataToSend.toDate.getTime()) {
                 displayFormError(locationsModal, "Please select a to-date that is after the from-date.");
                 return;
             }
 
             detailedSpecies = await JSONRequest("/review/detailed-species-data", dataToSend);
-            createCharts();
+
+            // If there is only one selected location, then treat it like it was the species being charted.
+            let labelText;
+            if (selectedLocations.length === 1) {
+                detailedSpecies.speciesData = detailedSpecies.speciesData[selectedLocations[0]];
+                labelText = "Location: " + selectedLocations[0];
+            }
+
+            createCharts(selectedLocations.length > 1, dataToSend.fromDate, dataToSend.toDate, labelText);
         }
         catch (err) {
             displayFormError(locationsModal, "Failed to fetch species data. Please report this to an admin.");
-            console.log(err.message);
+            console.error(err);
         }
     });
 
+    // The colours for the lines.
+    const lineColours = [
+        "#ff0000",
+        "#ffcc00",
+        "#009900",
+        "#33cccc",
+        "#cc33ff"
+    ];
+    // The colours for the points on the chart.
+    const pointColours = [
+        "#990000",
+        "#b38f00",
+        "#006600",
+        "#1f7a7a",
+        "#730099"
+    ];
+
     // Creates the charts and opens them in a new modal.
-    function createCharts() {
+    function createCharts(createMultiple, fromDate, toDate, labelText) {
         if (detailedSpecies.error) displayFormError(locationsModal, detailedSpecies.error);
         else {
-            displayFormSuccess(locationsModal, "Successfully executed query, check console.");
-            console.dir(detailedSpecies.speciesData);
+            // Remove all child elements from the modal.
+            let charts = chartsContainer.querySelectorAll("div");
+            let chartLabels = chartsContainer.querySelectorAll("h3");
+            for (let i = 0; i < charts.length; i++) {
+                charts[i].remove();
+                if (chartLabels[i]) {
+                    chartLabels[i].remove();
+                }
+            }
 
             // Time to make the graphs!
+            if (createMultiple) {
+                createMultipleCharts(detailedSpecies.speciesData, fromDate, toDate);
+            }
+            else {
+                createSingleChart(detailedSpecies.speciesData, fromDate, toDate, labelText);
+            }
+
+            // Clear the selected locations & dates.
+            selectedLocations = [];
+            let rows = locationsTableBody.querySelectorAll("tr");
+            for (let i = 0; i < rows.length; i++) {
+                rows[i].className = undefined;
+            }
+
+            fromDateInput.value = undefined;
+            toDateInput.value = undefined;
         }
+    }
+
+    function createSingleChart(speciesData, fromDate, toDate, labelText) {
+        let canvasContainer = document.createElement("div");
+        let canvas = document.createElement("canvas");
+
+        // Create the label.
+        let label = document.createElement("h3");
+        label.className = "chart-label";
+        label.textContent = labelText;
+        chartsContainer.appendChild(label);
+
+        // Set the ids and classes, append to the container.
+        canvas.id = "species-chart";
+        canvasContainer.className = "chart-container";
+        canvasContainer.appendChild(canvas);
+        chartsContainer.appendChild(canvasContainer);
+
+        // Get the labels for the x axis.
+        let labels = getDateRange(fromDate, toDate);
+
+        // Generate the datasets for the species.
+        let datasets = [];
+        let latinNames = Object.keys(speciesData);
+        let colourIndex = 0;
+
+        for (let latinName of latinNames) {
+            let data = speciesData[latinName];
+            let dataset = {
+                label: latinName,
+                data: [],
+                fill: false,
+                borderColor: lineColours[colourIndex],
+                pointBorderColor: pointColours[colourIndex],
+                pointBorderWidth: 1,
+                pointRadius: 4,
+                pointHitRadius: 3,
+                pointHoverRadius: 6
+            }
+
+            colourIndex++;
+            if (colourIndex === 5) colourIndex = 0;
+
+            // Now loop through the date range generating the dataset.
+            for (let date of labels) {
+                if (data[date]) dataset.data.push(data[date]);
+                else dataset.data.push(0);
+            }
+
+            datasets.push(dataset);
+        }
+
+        // Create the chart.
+        new Chart(canvas, {
+            type: "line",
+            data: {
+                datasets,
+                labels
+            },
+            options: {
+                showLines: false
+            }
+        });
+
+        // Finally, close the locations modal and open the chart modal.
+        locationsModal.style.display = "none";
+        chartsModal.style.display = "block";
+    }
+
+    function createMultipleCharts(speciesData, fromDate, toDate) {
+        let locations = Object.keys(speciesData);
+        let latinNames = Object.keys(speciesData[locations[0]]);
+
+        // Create a new chart for each species.
+        for (let latinName of latinNames) {
+            let canvasContainer = document.createElement("div");
+            let canvas = document.createElement("canvas");
+
+            // Create a chart label to identify the species.
+            let label = document.createElement("h3");
+            label.className = "chart-label";
+            label.textContent = "Species: " + latinName;
+            chartsContainer.appendChild(label);
+
+            // Set the ids and classes, append to the container.
+            canvas.id = latinName + "-chart";
+            canvasContainer.className = "chart-container";
+            canvasContainer.appendChild(canvas);
+            chartsContainer.appendChild(canvasContainer);
+
+            // Get the labels for the x axis.
+            let labels = getDateRange(fromDate, toDate);
+
+            // Generate the datasets for the species.
+            let datasets = [];
+            let colourIndex = 0;
+
+            for (let location of locations) {
+                let data = speciesData[location][latinName];
+                let dataset = {
+                    label: location,
+                    data: [],
+                    fill: false,
+                    borderColor: lineColours[colourIndex],
+                    pointBorderColor: pointColours[colourIndex],
+                    pointBorderWidth: 1,
+                    pointRadius: 4,
+                    pointHitRadius: 3,
+                    pointHoverRadius: 6
+                };
+
+                colourIndex++;
+                if (colourIndex === 5) colourIndex = 0;
+
+                // Now loop through the date range generating the dataset.
+                for (let date of labels) {
+                    if (data[date]) dataset.data.push(data[date]);
+                    else dataset.data.push(0);
+                }
+
+                datasets.push(dataset);
+            }
+
+            // Create the chart.
+            new Chart(canvas, {
+                type: "line",
+                data: {
+                    datasets,
+                    labels
+                },
+                options: {
+                    showLines: false
+                }
+            });
+
+            // Finally, close the locations modal and open the chart modal.
+            locationsModal.style.display = "none";
+            chartsModal.style.display = "block";
+        }
+    }
+
+    // Generates an array containing date strings for all days between two dates.
+    function getDateRange(fromDate, toDate) {
+        let fromCopy = new Date(fromDate.toDateString());
+
+        // Add a day to the to-date to make it inclusive.
+        toDate.setDate(toDate.getDate() + 1);
+        let result = [];
+
+        while (fromCopy.toDateString() !== toDate.toDateString()) {
+            result.push(fromCopy.toDateString());
+            fromCopy.setDate(fromCopy.getDate() + 1);
+        }
+
+        return result;
     }
 
 })();

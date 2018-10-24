@@ -1086,3 +1086,7 @@
 [23/09/18] 17:30:53 [INFO] [Application] Application setup finished, server has been started.
 [23/09/18] 17:32:23 [INFO] [Routes/Index] admin has logged in.
 [23/09/18] 17:32:37 [INFO] [Routes/DataReview] Found 1 suitable uploads.
+[23/09/18] 22:21:12 [INFO] [Application] Starting application..
+[23/09/18] 22:21:16 [INFO] [Application] Application setup finished, server has been started.
+[23/09/18] 22:21:24 [INFO] [Routes/Index] admin has logged in.
+[23/09/18] 23:39:44 [INFO] [Routes/Index] admin has logged in.
