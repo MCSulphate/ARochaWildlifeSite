@@ -88,14 +88,25 @@ nav {
 }
 
 nav a, nav .nav-item {
-    height: 100%;
+    height: 40px;
     display: inline-flex;
     align-items: center;
     padding: 0 15px;
-    margin: 0 5px;
+    margin: 10px 5px;
     
     font-size: 20px;
     text-decoration: none;
+}
+
+nav a {
+    background-color: #d9d9d9;
+    border-radius: 10px;
+    transition: font-size .3s;
+}
+
+nav a:hover {
+    background-color: #bfbfbf;
+    font-size: 22px;
 }
 
 nav a, nav a:visited, nav a:active {
@@ -358,4 +369,22 @@ input:focus {
     to {
         top: 15%;
     }
+}
+
+/* Disabled Pages CSS */
+#disabled-banner {
+    margin: 100px auto 20px auto;
+    font-size: 40px;
+    text-align: center;
+    max-width: 800px;
+}
+
+#disabled-text {
+    font-size: 20px;
+    text-align: center;
+}
+
+#maintenance-image {
+    display: block;
+    margin: 25px auto 0 auto;
 }

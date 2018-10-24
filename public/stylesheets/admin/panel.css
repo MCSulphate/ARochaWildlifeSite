@@ -1,0 +1,16 @@
+#disabled-banner {
+    margin: 100px auto 20px auto;
+    font-size: 40px;
+    text-align: center;
+    max-width: 800px;
+}
+
+#disabled-text {
+    font-size: 20px;
+    text-align: center;
+}
+
+#maintenance-image {
+    display: block;
+    margin: 25px auto 0 auto;
+}

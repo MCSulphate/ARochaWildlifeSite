@@ -1,5 +1,6 @@
 node_modules/
 build/
 ssh_key
+putty_key.ppk
 update.sh
 connect.sh
