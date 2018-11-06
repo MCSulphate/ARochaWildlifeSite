@@ -1,8 +1,16 @@
 <% include ../partials/header-start %>
+<link rel="stylesheet" href="/stylesheets/admin/panel.css">
 <% include ../partials/header-end %>
 
-<h1 id="disabled-banner">The admin panel is currently being upgraded.</h1>
-<p id="disabled-text">Sorry for any inconvenience caused.</p>
-<img id="maintenance-image" src="/images/maintenance.png">
+<h1 class="header">Admin Panel</h1>
+
+<div id="panel-buttons">
+    <div class="button-container">
+            <a href="#" class="panel-button">User Management</a>
+    </div>
+    <div class="button-container">
+            <a href="#" class="panel-button">Upload Management</a>
+    </div>
+</div>
 
 <% include ../partials/footer %>
