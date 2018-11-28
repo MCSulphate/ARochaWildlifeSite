@@ -177,10 +177,10 @@ class User extends BaseModel {
     }
 
     // Changes a user's password (verifies it first).
-    changeUserPassword(data) {
+    changeUserPassword(data, force) {
         let username = data.username;
         let oldPassword = data.oldPassword;
-        let newPassword = data.newPassword;
+        let newPassword = force ? data.password : data.newPassword;
 
         return async function() {
             // Find the user.
@@ -190,7 +190,7 @@ class User extends BaseModel {
             }
 
             // Verify the old password (preventing unauthorised password changing)
-            let oldPasswordValid = this._verifyPassword(oldPassword, user.salt, user.hash);
+            let oldPasswordValid = force || this._verifyPassword(oldPassword, user.salt, user.hash);
             if (!oldPasswordValid) {
                 return false;
             }

@@ -1099,3 +1099,115 @@
 [24/09/18] 23:53:05 [INFO] [Application] Starting application..
 [24/09/18] 23:53:09 [INFO] [Application] Application setup finished, server has been started.
 [24/09/18] 23:53:28 [INFO] [Routes/Index] admin has logged in.
+[08/10/18] 01:53:32 [INFO] [Application] Starting application..
+[08/10/18] 01:53:36 [INFO] [Application] Application setup finished, server has been started.
+[08/10/18] 01:57:01 [INFO] [Application] Starting application..
+[08/10/18] 01:57:02 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[08/10/18] 01:57:02 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[08/10/18] 01:57:02 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1404:33)
+[08/10/18] 01:57:02 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[08/10/18] 01:57:02 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[08/10/18] 01:57:02 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[08/10/18] 01:57:02 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[08/10/18] 01:57:03 [INFO] [Application] Application setup finished, server has been started.
+[08/10/18] 01:59:22 [INFO] [Routes/Index] admin has logged in.
+[08/10/18] 16:33:41 [INFO] [Application] Starting application..
+[08/10/18] 16:33:42 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[08/10/18] 16:33:42 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[08/10/18] 16:33:42 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1404:33)
+[08/10/18] 16:33:42 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[08/10/18] 16:33:42 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[08/10/18] 16:33:42 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[08/10/18] 16:33:42 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[08/10/18] 16:33:43 [INFO] [Application] Application setup finished, server has been started.
+[08/10/18] 16:33:49 [INFO] [Routes/Index] admin has logged in.
+[08/10/18] 16:34:25 [INFO] [Routes/DataUpload] New data upload from admin completed, containing 1 species.
+[13/10/18] 22:07:14 [INFO] [Application] Starting application..
+[13/10/18] 22:07:15 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[13/10/18] 22:07:15 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[13/10/18] 22:07:15 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1404:33)
+[13/10/18] 22:07:15 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[13/10/18] 22:07:15 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[13/10/18] 22:07:15 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[13/10/18] 22:07:15 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[13/10/18] 22:07:16 [INFO] [Application] Application setup finished, server has been started.
+[13/10/18] 22:08:20 [INFO] [Routes/Index] admin has logged in.
+[28/10/18] 10:12:17 [INFO] [Application] Starting application..
+[28/10/18] 10:12:19 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[28/10/18] 10:12:19 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/10/18] 10:12:19 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1404:33)
+[28/10/18] 10:12:19 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[28/10/18] 10:12:19 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[28/10/18] 10:12:19 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/10/18] 10:12:19 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/10/18] 10:12:20 [INFO] [Application] Application setup finished, server has been started.
+[28/10/18] 10:12:28 [INFO] [Routes/Index] admin has logged in.
+[28/10/18] 10:25:59 [INFO] [Application] Starting application..
+[28/10/18] 10:26:00 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[28/10/18] 10:26:00 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/10/18] 10:26:00 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[28/10/18] 10:26:00 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[28/10/18] 10:26:00 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/10/18] 10:26:00 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/10/18] 10:26:00 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1415:33)
+[28/10/18] 10:26:01 [INFO] [Application] Application setup finished, server has been started.
+[28/10/18] 11:18:21 [INFO] [Routes/Index] admin has logged in.
+[28/10/18] 11:39:00 [INFO] [Routes/Admin] Created a new user: test
+[28/10/18] 11:40:43 [ERROR] [Application] DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead.
+[28/10/18] 11:40:43 [ERROR] [Application]     at NativeCollection.(anonymous function) [as remove] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/10/18] 11:40:43 [ERROR] [Application]     at NodeCollection.remove (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mquery\lib\collection\node.js:114:19)
+[28/10/18] 11:40:43 [ERROR] [Application]     at model.Query.Query.remove (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mquery\lib\mquery.js:2567:20)
+[28/10/18] 11:40:43 [ERROR] [Application]     at model.Query.Query._remove (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\query.js:2426:28)
+[28/10/18] 11:40:43 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/10/18] 11:40:43 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/10/18] 11:40:43 [ERROR] [Application]     at process.nextTick (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\kareem\index.js:369:33)
+[28/10/18] 11:40:43 [INFO] [Routes/Admin] Deleted a user: test
+[28/10/18] 11:41:27 [INFO] [Routes/Admin] Created a new user: test
+[28/10/18] 11:42:06 [INFO] [Routes/Admin] Deleted a user: test
+[28/10/18] 11:42:58 [INFO] [Routes/Admin] Created a new user: test
+[28/10/18] 11:49:10 [INFO] [Application] Starting application..
+[28/10/18] 11:49:11 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[28/10/18] 11:49:11 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/10/18] 11:49:11 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1415:33)
+[28/10/18] 11:49:11 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[28/10/18] 11:49:11 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[28/10/18] 11:49:11 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/10/18] 11:49:11 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/10/18] 11:49:12 [INFO] [Application] Application setup finished, server has been started.
+[28/10/18] 11:49:18 [INFO] [Routes/Index] admin has logged in.
+[28/10/18] 11:49:26 [ERROR] [Application] TypeError: Data must be a string or a buffer
+[28/10/18] 11:49:26 [ERROR] [Application]     at Hmac.update (crypto.js:99:16)
+[28/10/18] 11:49:26 [ERROR] [Application]     at User._hashPassword (C:/Users/Matthew Lester/Desktop/Files/Coding/VSCode Workspace/ARochaWildlifeSite/models/user.js:57:14)
+[28/10/18] 11:49:26 [ERROR] [Application]     at User._callee9$ (C:/Users/Matthew Lester/Desktop/Files/Coding/VSCode Workspace/ARochaWildlifeSite/models/user.js:200:32)
+[28/10/18] 11:49:26 [ERROR] [Application]     at tryCatch (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:65:40)
+[28/10/18] 11:49:26 [ERROR] [Application]     at Generator.invoke [as _invoke] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:303:22)
+[28/10/18] 11:49:26 [ERROR] [Application]     at step (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\models\user.js:35:191)
+[28/10/18] 11:49:26 [ERROR] [Application]     at C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\models\user.js:35:361
+[28/10/18] 11:49:26 [ERROR] [Application]     at <anonymous>
+[28/10/18] 11:49:26 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:228:7)
+[28/10/18] 11:49:26 [ERROR] [Application] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+[28/10/18] 11:49:26 [ERROR] [Application]     at emitWarning (internal/process/promises.js:78:15)
+[28/10/18] 11:49:26 [ERROR] [Application]     at emitPendingUnhandledRejections (internal/process/promises.js:95:11)
+[28/10/18] 11:49:26 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:229:7)
+[28/10/18] 11:49:26 [ERROR] [Application]     at Generator.prototype.(anonymous function) [as next] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\regenerator-runtime\runtime.js:117:21)
+[28/10/18] 11:50:28 [INFO] [Application] Starting application..
+[28/10/18] 11:50:29 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[28/10/18] 11:50:29 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/10/18] 11:50:29 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1415:33)
+[28/10/18] 11:50:29 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[28/10/18] 11:50:29 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[28/10/18] 11:50:29 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/10/18] 11:50:29 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/10/18] 11:50:30 [INFO] [Application] Application setup finished, server has been started.
+[28/10/18] 11:50:34 [INFO] [Routes/Index] admin has logged in.
+[28/10/18] 11:50:42 [ERROR] [Application] DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[28/10/18] 11:50:42 [ERROR] [Application]     at NativeCollection.(anonymous function) [as findAndModify] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/10/18] 11:50:42 [ERROR] [Application]     at NodeCollection.findAndModify (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mquery\lib\collection\node.js:123:19)
+[28/10/18] 11:50:42 [ERROR] [Application]     at model.Query.Query._findAndModify (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\query.js:3157:22)
+[28/10/18] 11:50:42 [ERROR] [Application]     at model.Query.Query._findOneAndUpdate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\query.js:2732:8)
+[28/10/18] 11:50:42 [ERROR] [Application]     at process.nextTick (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\kareem\index.js:369:33)
+[28/10/18] 11:50:42 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/10/18] 11:50:42 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/10/18] 11:50:42 [INFO] [Routes/Admin] Admin updated the password for test.
+[28/10/18] 11:50:52 [INFO] [Routes/Index] test has logged in.
+[28/10/18] 11:52:21 [INFO] [Routes/DataUpload] New data upload from test completed, containing 1 species.

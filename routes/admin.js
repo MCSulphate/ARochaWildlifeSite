@@ -29,7 +29,7 @@ class AdminRouter extends BaseRouter {
 
         // Always redirect non-admin users back to the landing page if they are
         // not the admin user.
-        this._router.use(Middleware.redirectTo("/login").ifNotAdmin);
+        this._router.use(Middleware.redirectTo("/").ifNotAdmin);
 
         // Admin panel route.
         this._router.get("/panel", (req, res) => {
@@ -65,12 +65,8 @@ class AdminRouter extends BaseRouter {
                     // Register the new user.
                     let createdUser = await user.registerUser(userToCreate);
 
-                    // Only send the username and location, not password-related info.
-                    delete createdUser.hash;
-                    delete createdUser.salt;
-
                     log.info("Created a new user: " + createdUser.username);
-                    Utils.sendJSONResponse(res, createdUser);
+                    Utils.sendJSONResponse(res, {});
                 }
                 catch (err) {
                     // Check if the reason is that the username already exists.
@@ -114,6 +110,24 @@ class AdminRouter extends BaseRouter {
             }
             else {
                 Utils.sendJSONResponse(res, isValid);
+            }
+        });
+
+        // Handles account updating.
+        this._router.put("/accounts", async(req, res) => {
+            // Get the submitted data.
+            let body = req.body;
+            
+            // Update the user's password.
+            let success = await user.changeUserPassword(body, true);
+
+            // Send the appropriate response.
+            if (!success) {
+                Utils.sendJSONResponse(res, "Failed to update the user.");
+            }
+            else {
+                log.info(`Admin updated the password for ${body.username}.`);
+                Utils.sendJSONResponse(res, {});
             }
         });
 

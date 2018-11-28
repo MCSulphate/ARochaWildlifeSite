@@ -22,23 +22,12 @@ html, body {
 
 /* General Styling */
 .header {
+    max-width: 20%;
+    border-bottom: 3px solid #ccc;
     text-align: center;
-    position: relative;
-    margin: 0 0 45px 0;
+    margin: 0 auto 45px auto;
     color: #eee;
     text-shadow: 2px 2px 5px black;
-}
-
-.header::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: auto;
-    height: 100%;
-    width: 15%;
-    box-shadow: 0 5px 4px -4px #333;
-    border-bottom: 2px solid #ddd;
 }
 
 /* Button Styling */
@@ -163,6 +152,11 @@ nav a, nav a:visited, nav a:active {
 /* Table Styling */
 table {
     border-collapse: collapse;
+    text-shadow: none;
+}
+
+thead tr, thead td, thead {
+    border-bottom: 2px solid #0033cc;
 }
 
 thead tr {

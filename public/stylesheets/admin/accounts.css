@@ -1,4 +1,77 @@
-/* Matthew Lester NEA Project - accounts.css (Admin Accounts Page CSS) */
-#form-toggle-button {
-    display: block;
+/* 
+ * Edit / Delete Buttons CSS
+ */
+.edit-button, .delete-button {
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    height: 20px;
+    width: 50px;
+    border-radius: 3px;
+    font-size: 12px;
+    color: #eee;
+    margin: 5px 0 5px 5px;
+    text-decoration: none;
+    line-height: 20px;
+}
+
+.edit-button:active, .delete-button:active {
+    position: relative;
+    top: 1px;
+    left: 1px;
+}
+
+.edit-button {
+    background-color: rgb(255, 162, 41);
+    box-shadow: 2px 2px 0 0 rgb(212, 103, 0);
+}
+.edit-button:active {
+    box-shadow: 1px 1px 0 0 rgb(212, 103, 0);
+}
+
+.delete-button {
+    background-color: rgb(255, 50, 50);
+    box-shadow: 2px 2px 0 0 rgb(177, 30, 30);
+}
+.delete-button:active {
+    box-shadow: 1px 1px 0 0 rgb(177, 30, 30);
+}
+
+/*
+ * Table Styling
+ */
+#user-table {
+    margin: 0 auto;
+    width: 60%;
+    max-height: 50%;
+    box-shadow: 3px 3px 10px 1px #333;
+}
+
+#user-table thead tr, #user-table thead td, #user-table thead {
+    height: 30px;
+}
+
+#user-table td {
+    text-align: center;
+}
+
+/* New User Button */
+#new-user-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    margin: 30px auto 0 auto;
+
+    background-color: #00cc00;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #222;
+
+    color: #eee;
+    text-decoration: none;
+    font-size: 20px;
+    text-shadow: 1px 1px 3px #333;
 }

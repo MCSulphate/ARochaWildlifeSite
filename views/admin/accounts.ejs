@@ -2,50 +2,109 @@
 <link rel="stylesheet" href="/stylesheets/admin/accounts.css">
 <% include ../partials/header-end %>
 
-<h1>User Account Management</h1>
+<h1 class="header">User Account Management</h1>
 
-<% if (error) { %>
-    <h3>There was an error finding the user accounts.</h3>
-    <p>Please contact a network administrator and quote the following message:</p>
-    <h5><%= error %></h5>
-<% } else { %>
-    <table id="users-table">
+<div id="new-user-modal" class="modal">
+    <div class="modal-container">
+        <span class="close">&times;</span>
+
+        <h2 class="modal-header">New User</h2>
+        <div class="modal-content">
+            <p>Please fill out this form to create a new user.</p>
+
+            <div id="new-user-form" class="form">
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <span class="field">Username</span>
+                        <input id="new-username-input" type="text" placeholder="Type Here" minlength="3" maxlength="100">
+                    </div>
+
+                    <span class="form-hint">This field is case-sensitive.</span>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <span class="field">Password</span>
+                        <input id="new-password-input" type="password" placeholder="Type Here" minlength="8" maxlength="200">
+                    </div>
+                </div>
+
+                <a id="new-user-submit-button" class="button">Create User</a>
+
+                <p class="form-error"></p>
+                <p class="form-success"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="edit-user-modal" class="modal">
+    <div class="modal-container">
+        <span class="close">&times;</span>
+
+        <h2 class="modal-header">Edit User</h2>
+        <div class="modal-content">
+            <p>Please fill out this form to edit the user.</p>
+
+            <div id="edit-user-form" class="form">
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <span class="field">Username</span>
+                        <input id="edit-username-input" type="text" disabled>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="form-group-input">
+                        <span class="field">Password</span>
+                        <input id="edit-password-input" type="password" placeholder="Type Here" minlength="8" maxlength="200">
+                    </div>
+                </div>
+
+                <a id="edit-user-submit-button" class="button">Edit User</a>
+
+                <p class="form-error"></p>
+                <p class="form-success"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="table-container">
+    <table id="user-table">
         <thead>
-            <tr>
-                <th>Username</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        
-        <tbody>
-            <% users.forEach(userObject => { %>
                 <tr>
-                    <td class="table-username"><%= userObject.username %></td>
-                    <% if (userObject.username !== user.username) { %>
-                        <td>
-                            <button class="delete-user-button">Delete</button>
-                        </td>
-                    <% } else { %>
-                        <td>No Actions Available</td>
-                    <% } %>
+                    <th>Username</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
                 </tr>
-            <% }); %>
+        </thead>
+
+        <tbody>
+            <% for (let user of users) { %>
+                <tr>
+                    <td class="username-data"><%= user.username %></td>
+                    <td>Unknown</td>
+                    <td>
+                        <a href="#" class="edit-button">Edit</a>
+                        <% if (user.username !== "admin") { %>
+                            <a href="#" class="delete-button">Delete</a>
+                        <% } %>
+                    </td>
+                </tr>
+            <% } %>
         </tbody>
     </table>
-    
-    <form id="new-user-form" style="display: none;">
-        <input id="username-field" type="text" placeholder="Username" minlength="3" maxlength="20">
-        <input id="password-field" type="password" placeholder="Password" minlength="8" maxlength="200">
-        <button>Submit</button>
-    </form>
-    
-    <a href="#" id="form-toggle-button">Add a new user account</a>
-    
-    <h4 id="error-message" style="display: none;"></h4>
-<% } %>
+</div>
 
+<div id="delete-messages-container">
+    <p class="form-error"></p>
+</div>
+
+<a href="#" id="new-user-button">New User</a>
+
+<!-- Scripts -->
 <script src="/scripts/lib/utils.js"></script>
-<script src="/scripts/lib/validator.js"></script>
 <script src="/scripts/admin/accounts.js"></script>
 
 <% include ../partials/footer %>
