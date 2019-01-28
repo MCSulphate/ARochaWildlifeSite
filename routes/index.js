@@ -20,11 +20,6 @@ class IndexRouter extends BaseRouter {
         this._router.get("/", (req, res) => {
             res.render("index/index");
         });
-        
-        // Help Page
-        this._router.get("/help", Middleware.redirectTo("/login").ifNotLoggedIn, (req, res) => {
-            res.render("index/help");
-        });
 
         // Login Routes
         this._router.get("/login", Middleware.redirectTo("/user/profile").ifLoggedIn, (req, res) => {

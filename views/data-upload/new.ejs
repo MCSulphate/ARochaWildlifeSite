@@ -12,6 +12,33 @@
 
 <% } else { %>
 
+    <div id="new-methodology-modal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+
+            <h2 class="modal-header">Submit a New Methodology</h2>
+            <div class="modal-content">
+                <p>If you could not see the methodology on the list, please fill out this form to submit a new methodology:</p>
+
+                <div id="methodology-form" class="form">
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Methodology Name</span>
+                            <input id="new-methodology-field" type="text">
+                        </div>
+
+                        <span class="form-hint">This field is case-sensitive.</span>
+                    </div>
+
+                    <a class="button" id="methodology-submit-button" href="#">Submit Methodology</a>
+
+                    <p class="form-error"></p>
+                    <p class="form-success"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="new-location-modal" class="modal">
         <div class="modal-container">
             <span class="close">&times;</span>
@@ -99,6 +126,20 @@
             </div>
 
             <div class="form-group">
+                    <div class="form-group-input">
+                        <span class="field">What methodology was used?</span>
+                        <select id="methodology-select">
+                            <option value=""></option>
+                            <% methodologies.forEach(methodology => { %>
+                                <option value="<%= methodology %>"><%= methodology %></option>
+                            <% }); %>
+                        </select>
+                    </div>
+    
+                    <span class="form-hint">Can't see the methodology? Click <a id="methodology-popup-link" href="#">here</a>!</span>
+                </div>
+
+            <div class="form-group">
                 <div class="form-group-input">
                     <span class="field">Who saw/recorded this data?</span>
                     <input id="observers-input" type="text">
@@ -111,6 +152,13 @@
     <div id="upload-container">
         <div class="form" id="species-form">
             <p class="form-header">Species Form</p>
+
+            <div class="form-group">
+                <div class="form-group-input">
+                    <span class="field">Date <span class="required">*</span></span>
+                    <input id="date-input" type="date">
+                </div>
+            </div>
 
             <div class="form-group">
                 <div class="form-group-input">
@@ -133,13 +181,6 @@
                 </div>
 
                 <p class="form-hint">For plants, please give an approximate value.</p>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group-input">
-                    <span class="field">Date <span class="required">*</span></span>
-                    <input id="date-input" type="date">
-                </div>
             </div>
 
             <div class="form-group">

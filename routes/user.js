@@ -7,6 +7,7 @@ import Utils from "../lib/utils";
 import Validator from "../lib/validator";
 import CustomError from "../lib/custom-error";
 import User from "../models/user";
+import DataUpload from "../models/data-upload";
 import logger from "coloured-logger";
 
 // UserRouter Class
@@ -27,34 +28,46 @@ class UserRouter extends BaseRouter {
         this._router.post("/profile", Middleware.redirectTo("/login").ifNotLoggedIn, async(req, res) => {
             // Data
             let userToUpdate = req.body;
+            userToUpdate.username = req.user.username;
             
-            // Validate the data.
-            let isValid = this._validateFormData(userToUpdate);
-            
-            // Make sure the user is trying to update themselves.
-            if (req.user.username != userToUpdate.username) {
-                Utils.sendJSONResponse(res, "You do not have permission to change other people's passwords.");
-            }
-            else if (isValid === true) {
-                try {
-                    let user = new User();
-                    let oldPasswordValid = await user.changeUserPassword(userToUpdate);
+            try {
+                let user = new User();
+                let oldPasswordValid = await user.changeUserPassword(userToUpdate, false);
                     
-                    if (!oldPasswordValid) {
-                        return Utils.sendJSONResponse(res, "Invalid password, please try again.");
-                    }
+                if (!oldPasswordValid) {
+                    return Utils.sendJSONResponse(res, "Invalid password, please try again.");
+                }
                     
-                    // Send a success response.
-                    log.info("Changed a user's password: " + req.user.username);
-                    Utils.sendJSONResponse(res, {});
-                }
-                catch (err) {
-                    new CustomError(err).printFormattedStack(log);
-                }
+                // Send a success response.
+                log.info("Changed a user's password: " + req.user.username);
+                Utils.sendJSONResponse(res, {});
             }
-            else {
-                Utils.sendJSONResponse(res, isValid);
+            catch (err) {
+                new CustomError(err).printFormattedStack(log);
+                Utils.sendJSONResponse(res);
             }
+        });
+
+        // Handles fetching of data uploads for a user.
+        this._router.post("/data-uploads", Middleware.redirectTo("/login").ifNotLoggedIn, async(req, res) => {
+            let id = req.user.id;
+            let uploads;
+
+            try {
+                uploads = await new DataUpload().findAndPopulateAllUploadsForUser(id);
+            }
+            catch (err) {
+                log.error("Error fetching data uploads for user " + req.user.username + ": " + err.message);
+                Utils.sendJSONResponse(res);
+                return;
+            }
+
+            // Send the uploads back to the client.
+            let body = {
+                uploads
+            };
+
+            Utils.sendJSONResponse(res, body);
         });
 
         // There is no index route, so redirect to their profile.

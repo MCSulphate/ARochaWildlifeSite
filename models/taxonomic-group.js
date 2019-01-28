@@ -1,9 +1,7 @@
 // Matthew Lester NEA Project - taxonomic-group.js (Taxonomic Group Model)
 
 // Imports
-import mongoose from "mongoose";
 import logger from "coloured-logger";
-import CustomError from "../lib/custom-error";
 
 // Require the BaseModel class.
 import BaseModel from "./base-model";

@@ -8,10 +8,10 @@ import TaxonomicGroup from "../models/taxonomic-group";
 import CustomError from "../lib/custom-error";
 import Utils from "../lib/utils";
 import Validator from "../lib/validator";
-import Species from "../models/species";
 import User from "../models/user";
 import DataUpload from "../models/data-upload";
 import Location from "../models/location";
+import Methodology from "../models/methodology";
 
 // Log
 const log = logger({ logName: "Routes/DataUpload" });
@@ -24,10 +24,10 @@ class DataUploadRouter extends BaseRouter {
 
         // Models
         let tGroup = new TaxonomicGroup();
-        let sModel = new Species();
         let uModel = new User();
         let lModel = new Location();
         let dModel = new DataUpload();
+        let mModel = new Methodology();
 
         // Redirect users if they are not logged in.
         this._router.use(Middleware.redirectTo("/login").ifNotLoggedIn);
@@ -37,11 +37,34 @@ class DataUploadRouter extends BaseRouter {
             try {
                 let groups = await tGroup.findAllGroups();
                 let locations = await lModel.findAllLocations();
-                res.render("data-upload/new", { groups, locations });
+                let methodologies = await mModel.findAllMethodologies();
+                
+                res.render("data-upload/new", { groups, locations, methodologies });
             }
             catch (err) {
                 new CustomError(err).printFormattedStack(log);
                 res.render("data-upload/new", { error: err.message, groups: null, locations: null });
+            }
+        });
+
+        // POST route for methodology creation.
+        this._router.post("/methodology", async(req, res) => {
+            let body = req.body;
+
+            // Validate the data.
+            let isValid = this._validateNewMethodologyData(body);
+            if (isValid === true) {
+                let success = await mModel.addNewMethodology(body);
+
+                if (!success) {
+                    Utils.sendJSONResponse(res);
+                }
+                else {
+                    Utils.sendJSONResponse(res, {});
+                }
+            }
+            else {
+                Utils.sendJSONResponse(res, isValid);
             }
         });
 
@@ -98,6 +121,7 @@ class DataUploadRouter extends BaseRouter {
             let species = body.species;
             let taxonomicGroup = body.taxonomicGroup;
             let location = body.location;
+            let methodology = body.methodology;
             let observers = body.observers;
             let owner = req.user._id;
 
@@ -105,9 +129,10 @@ class DataUploadRouter extends BaseRouter {
             try {
                 taxonomicGroup = await tGroup.findGroupID(taxonomicGroup);
                 location = await lModel.findLocationID(location);
+                methodology = await mModel.findMethodologyID(methodology);
             }
             catch (err) {
-                log.error(`Failed to resolve Taxonomic Group / Location ids: ${err.message}`);
+                log.error(`Failed to resolve Taxonomic Group / Location / Methodology IDs: ${err.message}`);
                 Utils.sendJSONResponse(res);
                 return;
             }
@@ -129,6 +154,7 @@ class DataUploadRouter extends BaseRouter {
                 species,
                 taxonomicGroup,
                 location,
+                methodology,
                 observers,
                 owner,
                 date: new Date()
@@ -144,171 +170,6 @@ class DataUploadRouter extends BaseRouter {
                 // Send the success response.
                 log.info(`New data upload from ${req.user.username} completed, containing ${species.length} species.`);
                 Utils.sendJSONResponse(res, {});
-            }
-
-            //
-            // LEGACY CODE!! DOES NOT WORK! Some may be helpful for writing new code though.
-            //
-
-            // Do not remove!
-            return;
-
-            let isValid = this._validateDataUpload(body);
-            if (isValid === true) {
-                let taxonomicGroup = body.taxonomicGroup;
-                let foundGroup = await tGroup.findGroupByName(taxonomicGroup);
-
-                if (foundGroup) {
-
-                    // Set the db reference on the upload.
-                    body.taxonomicGroup = foundGroup._id;
-
-                    // List of all possible fields.
-                    let fieldList = ["Species", "Number", "Gender", "Age", "Status", "Date", "Observers", "Comment"];
-
-                    let optionalFields = foundGroup.optionalFields;
-                    let invalidFields = foundGroup.invalidFields;
-                    // Generate required fields by filtering out optional and invalid ones.
-                    let requiredFields = fieldList.filter(field => {
-                        return optionalFields.indexOf(field) === -1 && invalidFields.indexOf(field) === -1;
-                    });
-
-                    // Only allow 500 species at a time.
-                    if (body.species.length > 500) {
-                        return Utils.sendJSONResponse(res, "Please only upload a maximum of 500 species at a time.");
-                    }
-
-                    // Validate the upload.
-                    let speciesError = false;
-                    body.species.forEach((s, index) => {
-                        if (speciesError) {
-                            return;
-                        }
-
-                        // Validate the row of data.
-                        // This both checks for the needed, optional and invalid fields and validates the data.
-                        let speciesValid = this._validateSpeciesData(s, index + 1, requiredFields, optionalFields, invalidFields, foundGroup.statuses);
-
-                        if (speciesValid !== true) {
-                            speciesError = true;
-                            Utils.sendJSONResponse(res, speciesValid);
-                        }
-                    });
-
-                    if (speciesError) {
-                        return;
-                    }
-
-                    // Loop through the species again.
-                    // This section looks to see if a new species document should be created, or if it should
-                    // just update an existing one.
-                    try {
-                        for (let species of body.species) {
-                            // Set the name to lower-case, otherwise it will be stored in the database wrong!
-                            let speciesName = species.species.toLowerCase();
-                            let foundSpecies = await sModel.findSpeciesByName(speciesName);
-
-                            // Set the number to itself or 1, for DRY code.
-                            species.number = species.number || 1;
-
-                            if (foundSpecies) {
-                                // Update the count.
-                                foundSpecies.count += species.number;
-
-                                // Convert the species' date field into a Date object.
-                                let firstSeen = foundSpecies.firstSeen;
-                                let lastSeen = foundSpecies.lastSeen;
-                                let thisDate = new Date(species.date);
-
-                                // Update the firstSeen property if earlier than current one.
-                                if (firstSeen.getTime() > thisDate.getTime()) {
-                                    foundSpecies.firstSeen = thisDate;
-                                }
-
-                                // Update the lastSeen property of the species if it's more recent.
-                                if (lastSeen.getTime() < thisDate.getTime()) {
-                                    foundSpecies.lastSeen = thisDate;
-                                }
-
-                                // Update the seenBy property if it's the first time they've seen it.
-                                let userId = req.user._id;
-                                let stringifiedSeenBy = foundSpecies.seenBy.map(id => id.toString());
-
-                                if (stringifiedSeenBy.indexOf(userId.toString()) === -1) {
-                                    foundSpecies.seenBy.push(userId);
-                                }
-
-                                // Update the species document.
-                                let updatedSpecies = await sModel.updateSpecies(foundSpecies);
-                                // Set the db reference for the species.
-                                species.species = updatedSpecies._id;
-                            }
-                            else {
-                                // Set up the object.
-                                let newSpecies = {
-                                    name: speciesName,
-                                    taxonomicGroup: foundGroup._id,
-                                    count: species.number,
-                                    seenBy: [req.user._id],
-                                    firstSeen: new Date(species.date),
-                                    lastSeen: new Date(species.date)
-                                };
-
-                                // Create the document.
-                                let createdSpecies = await sModel.createSpecies(newSpecies);
-                                // db reference.
-                                species.species = createdSpecies._id;
-                                log.info(`New species created: ${speciesName}.`);
-
-                                // Add the species to the taxonomic group.
-                                foundGroup.species.push(createdSpecies._id);
-                            }
-
-                            // Update the user's speciesSeen field.
-                            await uModel.updateSpeciesCount(req.user.username, speciesName, species.number);
-                        }
-
-                        // Update the taxonomic group document.
-                        await tGroup.updateGroup(foundGroup);
-                    }
-                    catch (err) {
-                        new CustomError(err).printFormattedStack(log);
-                        return Utils.sendJSONResponse(res);
-                    }
-
-                    try {
-                        // Time to create the upload!
-                        let newUpload = body;
-                        newUpload.location = req.user.locationName;
-                        newUpload.owner = req.user._id;
-                        newUpload.date = new Date();
-
-                        // Create the document.
-                        let dModel = new DataUpload();
-                        let upload = await dModel.createUpload(newUpload);
-
-                        // Add the upload reference to the user.
-                        let user = await uModel.findUserByUsername(req.user.username);
-                        user.dataUploads.push(upload._id);
-                        await uModel.updateUser(user);
-
-                        // Upload completed!!
-                        Utils.sendJSONResponse(res, {});
-
-                        log.info(`New upload completed from user ${req.user.username}`);
-                    }
-                    catch (err) {
-                        new CustomError(err).printFormattedStack(log);
-                        return Utils.sendJSONResponse(res);
-                    }
-
-                }
-                else {
-                    Utils.sendJSONResponse(res, `Failed to find the taxonomic group, ${taxonomicGroup}.`);
-                }
-            }
-            else {
-                Utils.sendJSONResponse(res, isValid);
             }
 
         });
@@ -335,6 +196,33 @@ class DataUploadRouter extends BaseRouter {
             locationName: [5, 50]
         }, localNames);
         
+        let keysValid = Validator.validateKeyCount(data, 1, "The uploaded data");
+        
+        let resultsArray = [typeValid, typesValid, lengthsValid, keysValid];
+        
+        if (Validator.allValid(resultsArray)) {
+            return true;
+        }
+        else {
+            return Validator.getErrorMessage(resultsArray);
+        }
+    }
+
+    _validateNewMethodologyData(data) {
+        let localNames = {
+            methodologyName: "Methodology Name"
+        };
+
+        let typeValid = Validator.validateType(data, Object, "Uploaded Data");
+
+        let typesValid = Validator.validateTypes(data, {
+            methodologyName: String
+        }, localNames);
+
+        let lengthsValid = Validator.validateLengths(data, {
+            methodologyName: [5, 50]
+        }, localNames);
+
         let keysValid = Validator.validateKeyCount(data, 1, "The uploaded data");
         
         let resultsArray = [typeValid, typesValid, lengthsValid, keysValid];

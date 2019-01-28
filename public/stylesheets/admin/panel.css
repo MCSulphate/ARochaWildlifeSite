@@ -29,6 +29,8 @@
     text-decoration: none;
     color: #eee;
     line-height: 100px;
+    border: 2px solid #0099ff;
+    border-radius: 10px;
 }
 
 .button-container:active {

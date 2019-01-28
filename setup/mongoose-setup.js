@@ -4,7 +4,6 @@
 import mongoose from "mongoose";
 import User from "../models/user";
 import TaxonomicGroup from "../models/taxonomic-group";
-import Species from "../models/species";
 
 // MongooseSetup Class
 class MongooseSetup {
@@ -22,7 +21,6 @@ class MongooseSetup {
                 // Wait for necessary models to index.
                 await new User().waitForIndex();
                 await new TaxonomicGroup().waitForIndex();
-                await new Species().waitForIndex();
             }
             catch (err) {
                 throw err;

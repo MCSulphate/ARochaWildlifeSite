@@ -4,7 +4,6 @@
 import mongoose from "mongoose";
 import crypto from "crypto";
 import CustomError from "../lib/custom-error";
-import Species from "./species";
 import logger from "coloured-logger";
 
 // Require the BaseModel class.
@@ -118,61 +117,6 @@ class User extends BaseModel {
         return async function() {
             let updatedUser = await this._model.findOneAndUpdate({ username: data.username }, data, { new: true });
             return updatedUser;
-        }.bind(this)();
-    }
-
-    // Determines whether a user has 'seen' a species before.
-    hasSeenSpecies(username, speciesName) {
-        return async function() {
-            // Find the species, or use the given one.
-            let species = speciesName instanceof Object ? speciesName : await new Species().findSpeciesByName(speciesName);
-            // If the species doesn't exist, they obviously haven't seen it.
-            if (!species) {
-                return false;
-            }
-            
-            // Find the user document (or use a given one) and check if the id is in the references.
-            let user = username instanceof Object ? username : await this.findUserByUsername(username);
-            let speciesSeen = user.speciesSeen;
-            let stringifiedSpeciesKeys = Object.keys(speciesSeen).map(id => id.toString());
-            
-            if (stringifiedSpeciesKeys.indexOf(species.id.toString()) === -1) {
-                return false;
-            }
-            else {
-                return true;
-            }
-        }.bind(this)();
-    }
-    
-    // Updates the count for a species, or adds it to their list if it's a first.
-    updateSpeciesCount(username, speciesName, count) {
-        return async function() {
-            let user = await this.findUserByUsername(username);
-            let species = await new Species().findSpeciesByName(speciesName);
-            
-            if (user && species) {
-                
-                // Find out if they've seen it before.
-                let speciesSeen = user.speciesSeen;
-                let hasSeenSpecies = await this.hasSeenSpecies(user, species); // Already have the documents, just pass them in.
-                
-                // If they have seen it before, just increase the count.
-                if (hasSeenSpecies) {
-                    speciesSeen[species._id.toString()] += count;
-                }
-                // Otherwise add the reference to the array.
-                else {
-                    speciesSeen[species._id.toString()] = count;
-                }
-                
-                let updatedUser = await this.updateUser(user);
-                return updatedUser;
-                
-            }
-            else {
-                throw new CustomError(`Could not find user or species '${speciesName}' to update a count for.`, null, "Models/User");
-            }
         }.bind(this)();
     }
 

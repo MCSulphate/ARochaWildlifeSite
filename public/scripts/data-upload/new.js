@@ -5,30 +5,76 @@
     // Modals
     let locationModal = document.getElementById("new-location-modal");
     let tGroupModal = document.getElementById("new-taxonomic-group-modal");
+    let methodModal = document.getElementById("new-methodology-modal");
 
     // Error Message
     let errorMessage = document.getElementById("error-message");
     let showMessage = message.bind(errorMessage);
 
     // Causes the modals to pop up.
-    document.getElementById("location-popup-link").addEventListener("click", event => {
+    document.getElementById("location-popup-link").addEventListener("click", () => {
         locationModal.style.display = "block";
     });
     document.getElementById("taxonomic-group-popup-link").addEventListener("click", () => {
         tGroupModal.style.display = "block";
     });
+    document.getElementById("methodology-popup-link").addEventListener("click", () => {
+        methodModal.style.display = "block";
+    });
 
     // Closes the modals.
-    locationModal.querySelector(".close").addEventListener("click", event => {
+    locationModal.querySelector(".close").addEventListener("click", () => {
         locationModal.style.display = "none";
     });
-    tGroupModal.querySelector(".close").addEventListener("click", event => {
+    tGroupModal.querySelector(".close").addEventListener("click", () => {
         tGroupModal.style.display = "none";
+    });
+    methodModal.querySelector(".close").addEventListener("click", () => {
+        methodModal.style.display = "none";
     });
 
     //
     // Modal Handling
     //
+
+    // Sends a POST request to create a new methodology.
+    document.getElementById("methodology-submit-button").addEventListener("click", async () => {
+        let newMethodologyField = document.getElementById("new-methodology-field");
+        let value = newMethodologyField.value;
+        let form = document.getElementById("methodology-form");
+
+        if (!value || value.length < 5 || value.length > 50) {
+            displayFormError(form, "Methodology must be at least 5 characters long, and less than 50.");
+        }
+        else {
+            let body = {
+                methodologyName: value
+            };
+
+            try {
+                let response = await JSONRequest("/track/methodology", body);
+
+                if (response.error) {
+                    displayFormError(form, response.error);
+                }
+                else {
+                    displayFormSuccess(form, "Successfully created the methodology.");
+
+                    // Create a new option for the select element.
+                    let option = document.createElement("option");
+                    option.value = value;
+                    option.textContent = value;
+                    
+                    // Find the select element and append the option.
+                    let methodologySelect = document.getElementById("methodology-select");
+                    methodologySelect.appendChild(option);
+                }
+            }
+            catch (err) {
+                displayFormError(form, "Failed to send request: " + err.message);
+            }
+        }
+    });
 
     // Sends a POST request to create a new location.
     document.getElementById("location-submit-button").addEventListener("click", async event => {
@@ -64,7 +110,7 @@
                 }
             }
             catch (err) {
-                displayFormError(form, err.message);
+                displayFormError(form, "Failed to send request: " + err.message);
             }
         }
     });
@@ -134,7 +180,7 @@
 
     // Handles clicks on the 'Add Species' button.
     document.getElementById("add-species-button").addEventListener("click", () => {
-        if (latinNameInput.value === "" || countInput.value === "" || dateInput.value === "") {
+        if (countInput.value === "" || dateInput.value === "" || latinNameInput.value === "") {
             displayFormError(speciesForm, "Please fill in the required fields.");
             return;
         }
@@ -287,6 +333,7 @@
 
     let taxonomicGroupSelect = document.getElementById("taxonomic-group-select");
     let locationSelect = document.getElementById("location-select");
+    let methodologySelect = document.getElementById("methodology-select");
     let observersInput = document.getElementById("observers-input");
 
     async function uploadData() {
@@ -297,8 +344,8 @@
         }
 
         // Check that both the taxonomic group and location have been set.
-        if (taxonomicGroupSelect.value === "" || locationSelect.value === "") {
-            displayFormError(uploadStatusForm, "Please fill out the Taxonomic Group and Location form.");
+        if (taxonomicGroupSelect.value === "" || locationSelect.value === "" || methodologySelect.value === "") {
+            displayFormError(uploadStatusForm, "Please fill out the Taxonomic Group, Location and Methodology form.");
             return;
         }
 
@@ -310,6 +357,7 @@
             species: speciesDataContainer, // Array containing data to be uploaded.
             taxonomicGroup: taxonomicGroupSelect.value,
             location: locationSelect.value,
+            methodology: methodologySelect.value,
             observers: observersInput.value || "Not Given"
         };
 

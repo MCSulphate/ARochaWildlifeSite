@@ -4,12 +4,9 @@
 import BaseRouter from "./base-router";
 import logger from "coloured-logger";
 import Middleware from "../lib/middleware";
-import CustomError from "../lib/custom-error";
-import Species from "../models/species";
 import DataUpload from "../models/data-upload";
 import TaxonomicGroup from "../models/taxonomic-group";
 import Location from "../models/location";
-import Validator from "../lib/validator";
 import Utils from "../lib/utils";
 
 // Log

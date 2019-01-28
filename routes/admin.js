@@ -10,7 +10,6 @@ import Validator from "../lib/validator";
 import Utils from "../lib/utils";
 import TaxonomicGroup from "../models/taxonomic-group";
 import DataUpload from "../models/data-upload";
-import Species from "../models/species";
 
 // AdminRouter Class
 class AdminRouter extends BaseRouter {
@@ -25,7 +24,6 @@ class AdminRouter extends BaseRouter {
         let user = new User();
         let tGroup = new TaxonomicGroup();
         let dUpload = new DataUpload();
-        let sModel = new Species();
 
         // Always redirect non-admin users back to the landing page if they are
         // not the admin user.
@@ -131,91 +129,6 @@ class AdminRouter extends BaseRouter {
             }
         });
 
-        // Taxonomic Groups Page
-        // Page route.
-        this._router.get("/taxonomic-groups", async(req, res) => {
-            try {
-                let groups = await tGroup.findAllGroups();
-                res.render("admin/taxonomic-groups", { groups: groups });
-            }
-            catch (err) {
-                new CustomError(err, "Routes/Admin").printFormattedStack(log);
-                res.render("admin/taxonomic-groups", { error: err.message });
-            }
-        });
-
-        // Handles creation of taxonomic groups.
-        this._router.post("/taxonomic-groups", async(req, res) => {
-            let body = req.body;
-
-            // Validate the data.
-            let isValid = this._validateGroupData(body);
-            if (isValid === true) {
-
-                try {
-                    let createdGroup = await tGroup.createGroup(body);
-                    log.info("Created a taxonomic group: " + createdGroup.name);
-                    Utils.sendJSONResponse(res, {});
-                }
-                catch (err) {
-                    new CustomError(err).printFormattedStack(log);
-                    Utils.sendJSONResponse(res);
-                }
-
-            }
-            else {
-                Utils.sendJSONResponse(res, isValid);
-            }
-        });
-
-        // Handles deletion of taxonomic groups.
-        this._router.delete("/taxonomic-groups", async(req, res) => {
-            let body = req.body;
-
-            // Validate
-            let isValid = this._validateGroupDeleteData(body);
-            if (isValid === true) {
-
-                try {
-                    await tGroup.removeGroupByName(body.name);
-                    log.info("Deleted a taxonomic group: " + body.name);
-                    Utils.sendJSONResponse(res, {});
-                }
-                catch (err) {
-                    new CustomError(err).printFormattedStack(log);
-                    Utils.sendJSONResponse(res);
-                }
-
-            }
-            else {
-                Utils.sendJSONResponse(res, isValid);
-            }
-        });
-
-        // Handles group updating.
-        this._router.put("/taxonomic-groups", async(req, res) => {
-            let body = req.body;
-
-            // Validate
-            let isValid = this._validateGroupData(body);
-            if (isValid === true) {
-
-                try {
-                    let updatedGroup = await tGroup.updateGroup(body);
-                    log.info("Updated a taxonomic group: " + updatedGroup.name);
-                    Utils.sendJSONResponse(res, {});
-                }
-                catch (err) {
-                    new CustomError(err).printFormattedStack(log);
-                    Utils.sendJSONResponse(res);
-                }
-
-            }
-            else {
-                Utils.sendJSONResponse(res, isValid);
-            }
-        });
-
         // Data Upload Show Page
         // Page route.
         this._router.get("/data-uploads", async(req, res) => {
@@ -227,140 +140,6 @@ class AdminRouter extends BaseRouter {
             catch (err) {
                 new CustomError(err).printFormattedStack(log);
                 res.render("admin/data-uploads", { error: err.message });
-            }
-        });
-
-        // Handles updating of data uploads.
-        this._router.put("/data-uploads", (req, res) => {
-            let body = req.body;
-
-            // TODO
-        });
-
-        // Handles deleting of data uploads.
-        this._router.delete("/data-uploads", async(req, res) => {
-            let body = req.body;
-
-            if (body) {
-                let id = body.id;
-                if (!id) {
-                    return Utils.sendJSONResponse(res, "No upload ID given.");
-                }
-
-                // Find the data upload to remove.
-                let upload = await dUpload.findUploadByID(id);
-                if (upload) {
-                    // Variable that stores changes to species.
-                    let changes = [];
-                    
-                    // User info.
-                    let userDoc = await user.findUserById(upload.owner);
-
-                    // Loop through the species, and update the data for each.
-                    for (let species of upload.species) {
-                        let id = species.species;
-                        let number = species.number || 1;
-                        let foundSpecies = await sModel.findSpeciesByID(id);
-                        let speciesExists = !!foundSpecies;
-
-                        if (!speciesExists) {
-                            foundSpecies = {};
-                        }
-
-                        // Species info.
-                        let count = foundSpecies.count;
-                        let seenBy = foundSpecies.seenBy;
-                        let firstSeen = foundSpecies.firstSeen;
-                        let lastSeen = foundSpecies.lastSeen;
-
-                        // Check if the user actually exists.
-                        if (userDoc) {
-                            let speciesSeen = userDoc.speciesSeen;
-                            let speciesCount = speciesSeen[id.toString()];
-                            speciesCount -= number;
-
-                            // Check if the user has still 'seen' the species.
-                            speciesSeen[id.toString()] = speciesCount;
-                            if (speciesCount <= 0) {
-                                // Remove them from the species' 'seen by' list.
-                                seenBy.splice(seenBy.indexOf(userDoc.id.toString()), 1);
-                                foundSpecies.seenBy = seenBy;
-                                
-                                // Remove the species from the user's document.
-                                delete speciesSeen[id.toString()];
-                            }
-                            else {
-                                // Update the count on the user's document.
-                                speciesSeen[id.toString()] = speciesCount;
-                            }
-                            
-                            userDoc.speciesSeen = speciesSeen;
-                        }
-
-                        // Lower the count, check if it is <= 0. If it is, then remove the species altogether, removing any other references.
-                        count -= number;
-                        if (count <= 0 && speciesExists) { // Make sure the species still exists!
-                            // TODO: Remove the species and all references (nothing else needed to be done).
-                            // Remove the species from the taxonomic group, and update it.
-                            let group = await tGroup.findGroupByID(upload.taxonomicGroup);
-                            group.species.splice(group.species.indexOf(id), 1);
-                            await tGroup.updateGroup(group);
-
-                            // Remove the upload document, from the user's references and the database.
-                            if (userDoc) {
-                                userDoc.dataUploads.splice(userDoc.dataUploads.indexOf(upload._id), 1);
-                                await user.updateUser(userDoc);
-                            }
-
-                            // Remove the species model.
-                            await sModel.removeSpeciesByID(id);
-
-                            // Add a change log.
-                            changes.push(`The species ${foundSpecies.name} was deleted (no more have been seen).`);
-                        }
-                        else {
-                            foundSpecies.count = count;
-
-                            if (userDoc) {
-                                // Remove the upload from the user's document and update the user.
-                                userDoc.dataUploads.splice(userDoc.dataUploads.indexOf(upload._id), 1);
-                                await user.updateUser(userDoc);
-                            }
-
-                            // Check if firstSeen or lastSeen need to be changed.
-                            if (upload.date.toDateString() === firstSeen.toDateString()) {
-                                let firstSeen = await dUpload.findWhenSpeciesFirstSeen(id);
-                                foundSpecies.firstSeen = firstSeen;
-                            }
-                            else if (upload.date.toDateString() === lastSeen.toDateString) {
-                                let lastSeen = await dUpload.findWhenSpeciesLastSeen(id);
-                                foundSpecies.lastSeen = lastSeen;
-                            }
-
-                            // Update the species document.
-                            await sModel.updateSpecies(foundSpecies);
-                            
-                            // Add a change log.
-                            changes.push(`The species ${foundSpecies.name} was updated (-${number} seen, now ${count} have been seen).`);
-                        }
-                    }
-                    
-                    // Log a summary of the changes made.
-                    log.info(`${req.user.username} deleted an upload, here are a summary of the changes:`);
-                    for (let key of Object.keys(changes)) {
-                        log.info((parseInt(key) + 1) + ". " + changes[key]);
-                    }
-
-                    // Delete the upload, and send a success message.
-                    await dUpload.removeUploadByID(upload._id);
-                    Utils.sendJSONResponse(res, {});
-                }
-                else {
-                    Utils.sendJSONResponse(res, "Invalid upload ID given.");
-                }
-            }
-            else {
-                Utils.sendJSONResponse(res, "No request body found.");
             }
         });
 

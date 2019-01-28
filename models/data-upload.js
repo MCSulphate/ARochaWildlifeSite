@@ -4,6 +4,7 @@
 import logger from "coloured-logger";
 import mongoose from "mongoose";
 import Location from "./location";
+import User from "./user";
 
 // Log
 const log = logger({ logName: "Models/DataUpload" });
@@ -36,6 +37,11 @@ const DataUploadSchema = {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Location"
     },
+    methodology: {
+        required: true,
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Methodology"
+    },
     observers: {
         required: true,
         type: String
@@ -51,8 +57,9 @@ const DataUploadSchema = {
 // Class instance (we only need one) - this makes it a singleton class.
 let instance = null;
 
-// Location model instance.
+// Model instances.
 let lModel = new Location();
+let uModel = new User();
 
 // DataUpload Class (contains DataUpload methods)
 class DataUpload extends BaseModel {
@@ -97,9 +104,24 @@ class DataUpload extends BaseModel {
                 .sort("-date")
                 .populate("taxonomicGroup")
                 .populate("owner")
-                // Populate the nested array of species data.
-                .populate("species.species")
+                .populate("location")
+                .populate("methodology")
                 .exec();
+
+            return foundUploads;
+        }.bind(this)();
+    }
+
+    findAndPopulateAllUploadsForUser(id) {
+        return async function() {
+            let foundUploads = await this._model.find({ "owner": { $eq: id } }, "-_id -__v")
+                .sort("-date")
+                .populate("taxonomicGroup", "-_id -__v")
+                .populate("owner", "-_id -__v -salt -hash")
+                .populate("location", "-_id -__v")
+                .populate("methodology", "-_id -__v -__v")
+                .exec();
+
             return foundUploads;
         }.bind(this)();
     }

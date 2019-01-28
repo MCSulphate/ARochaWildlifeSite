@@ -1,8 +1,118 @@
 <% include ../partials/header-start %>
+<link rel="stylesheet" href="/stylesheets/user/profile.css">
 <% include ../partials/header-end %>
 
-<h1 id="disabled-banner">The profile page is currently being upgraded.</h1>
+<!-- <h1 id="disabled-banner">The profile page is currently being upgraded.</h1>
 <p id="disabled-text">Sorry for any inconvenience caused.</p>
-<img id="maintenance-image" src="/images/maintenance.png">
+<img id="maintenance-image" src="/images/maintenance.png"> -->
+
+<h1 class="header">Your Profile</h1>
+
+<% if (error) { %>
+
+    <h2>There was an error loading this page.</h2>
+    <h4>Please contact a system administrator and quote this message:</h4>
+    <p><%= error %></p>
+
+<% } else { %>
+
+    <div class="modal" id="change-password-modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+
+            <h2 class="modal-header">Change Your Password</h2>
+            <div class="modal-content">
+                <p>Please fill out the form to change your password.</p>
+
+                <div id="change-password-form" class="form">
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Old Password <span class="required">*</span></span>
+                            <input type="password" id="old-password-input" placeholder="Type here" minlength="8" maxlength="200">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">New Password <span class="required">*</span></span>
+                            <input type="password" id="new-password-input" placeholder="Type here" minlength="8" maxlength="200">
+                        </div>
+                    </div>
+
+                    <a class="button" id="change-password-submit-button" href="#">Submit</a>
+                    <p class="form-footer">Fields marked with <span class="required">*</span> are required.</p>
+                    
+                    <p class="form-error"></p>
+                    <p class="form-success"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="data-upload-modal">
+        <div class="modal-container">
+                <span class="close">&times;</span>
+
+                <h2 class="modal-header">Manage Data Upload</h2>
+                <div class="modal-content">
+                    <h2 id="upload-information-header">Upload Information</h2>
+                    <h2 id="species-information-header">Species Information</h2>
+
+                    <div id="upload-information-table-container">
+                        <table id="upload-information-table">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Upload Information</th>
+                                </tr>
+                            </thead>
+            
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <div id="species-information-table-container">
+                        <table id="species-information-table">
+                            <thead>
+                                <tr>
+                                    <th>Latin Name</th>
+                                    <th>Common Name</th>
+                                    <th>Count</th>
+                                    <th>Grid Reference</th>
+                                    <th>Comment</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+        
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+
+    <div id="change-password-container">
+        <p>Want to change your password?</p>
+        <a href="#" class="button" id="change-password-button">Click Here</a>
+    </div>
+
+    <div id="uploads-container">
+        <h2>Your Data Uploads</h2>
+
+        <!-- Put 'form' error element so we can display errors. -->
+        <p class="form-error"></p>
+        <img id="loading-image" src="/images/loading.gif">
+
+        <div id="inner-container" style="display: none">
+            
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/scripts/lib/utils.js"></script>
+    <script src="/scripts/user/profile.js"></script>
+
+<% } %>
 
 <% include ../partials/footer %>
