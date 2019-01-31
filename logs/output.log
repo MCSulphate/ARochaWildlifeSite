@@ -1476,3 +1476,34 @@
 [25/00/19] 19:43:12 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
 [25/00/19] 19:43:13 [INFO] [Application] Application setup finished, server has been started.
 [25/00/19] 19:43:19 [INFO] [Routes/Index] admin has logged in.
+[28/00/19] 17:33:24 [INFO] [Application] Starting application..
+[28/00/19] 17:33:25 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[28/00/19] 17:33:25 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/00/19] 17:33:25 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1462:33)
+[28/00/19] 17:33:25 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[28/00/19] 17:33:25 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[28/00/19] 17:33:25 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/00/19] 17:33:25 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/00/19] 17:33:26 [INFO] [Application] Application setup finished, server has been started.
+[28/00/19] 17:33:57 [INFO] [Routes/Index] admin has logged in.
+[28/00/19] 17:34:41 [INFO] [Routes/Index] admin has logged in.
+[28/00/19] 17:36:01 [ERROR] [Application] DeprecationWarning: collection.findAndModify is deprecated. Use findOneAndUpdate, findOneAndReplace or findOneAndDelete instead.
+[28/00/19] 17:36:01 [ERROR] [Application]     at NativeCollection.(anonymous function) [as findAndModify] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[28/00/19] 17:36:01 [ERROR] [Application]     at model.Query.Query._findAndModify (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\query.js:3372:22)
+[28/00/19] 17:36:01 [ERROR] [Application]     at model.Query.<anonymous> (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\query.js:2830:8)
+[28/00/19] 17:36:01 [ERROR] [Application]     at model.Query._wrappedThunk [as _findOneAndUpdate] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\helpers\query\wrapThunk.js:16:8)
+[28/00/19] 17:36:01 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[28/00/19] 17:36:01 [ERROR] [Application]     at NodeCollection.findAndModify (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mquery\lib\collection\node.js:123:19)
+[28/00/19] 17:36:01 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[28/00/19] 17:36:01 [ERROR] [Application]     at process.nextTick (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\kareem\index.js:369:33)
+[28/00/19] 17:36:01 [INFO] [Routes/Admin] Admin updated the password for test.
+[29/00/19] 14:30:30 [INFO] [Application] Starting application..
+[29/00/19] 14:30:31 [ERROR] [Application]     at NativeCollection.create (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\model.js:1462:33)
+[29/00/19] 14:30:31 [ERROR] [Application]     at NativeCollection.(anonymous function) [as ensureIndex] (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\drivers\node-mongodb-native\collection.js:146:28)
+[29/00/19] 14:30:31 [ERROR] [Application]     at NativeCollection.Collection.doQueue (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:124:24)
+[29/00/19] 14:30:31 [ERROR] [Application]     at immediate (C:\Users\Matthew Lester\Desktop\Files\Coding\VSCode Workspace\ARochaWildlifeSite\node_modules\mongoose\lib\collection.js:86:24)
+[29/00/19] 14:30:31 [ERROR] [Application]     at _combinedTickCallback (internal/process/next_tick.js:131:7)
+[29/00/19] 14:30:31 [ERROR] [Application]     at process._tickDomainCallback (internal/process/next_tick.js:218:9)
+[29/00/19] 14:30:31 [ERROR] [Application] DeprecationWarning: collection.ensureIndex is deprecated. Use createIndexes instead.
+[29/00/19] 14:30:32 [INFO] [Application] Application setup finished, server has been started.
+[29/00/19] 14:30:38 [INFO] [Routes/Index] admin has logged in.

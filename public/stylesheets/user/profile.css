@@ -109,6 +109,7 @@
     display: inline-block;
     width: 30%;
     height: 40%;
+    overflow: hidden;
 }
 
 #species-information-table-container {
@@ -116,4 +117,23 @@
     width: 65%;
     height: 40%;
     overflow-y: auto;
+}
+
+#upload-delete-button {
+    display: inline-block;
+    color: #eee;
+    text-shadow: 1px 1px #000;
+    text-decoration: none;
+    margin-top: 15px;
+    width: 80%;
+    height: 75px;
+    line-height: 75px;
+    background-color: #ff6666;
+    border: 2px solid #ff1a1a;
+    transition: background-color .3s;
+}
+
+#upload-delete-button:hover {
+    background-color: #ff1a1a;
+    text-shadow: none;
 }
