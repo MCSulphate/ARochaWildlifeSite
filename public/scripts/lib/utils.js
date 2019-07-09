@@ -72,11 +72,11 @@ function displayMessage(element, message, timeoutIDs) {
     timeoutIDs[0] = setTimeout(() => {
         element.style.opacity = 0;
         timeoutIDs[0] = null;
-    }, 10000);
+    }, 6000);
     timeoutIDs[1] = setTimeout(() => {
         element.textContent = "";
         timeoutIDs[1] = null;
-    }, 10400);
+    }, 6400);
 }
 
 // Clears error messages.
@@ -157,93 +157,6 @@ function addListenersToAll(list, event, listener) {
     for (let i = 0; i < list.length; i++) {
         list[i].addEventListener(event, listener);
     }
-}
-
-// Renders a table from a data upload.
-function loadUploadTable(uploadData) {
-    let FIELD_LIST = ["Species", "Number", "Gender", "Age", "Status", "Date", "Observers", "Comment"];
-
-    let tGroup = uploadData.taxonomicGroup;
-    let optionalFields = tGroup.optionalFields;
-    let invalidFields = tGroup.invalidFields;
-    let lcFieldList = [];
-
-    let table = document.createElement("table");
-    let thead = document.createElement("thead");
-    let tbody = document.createElement("tbody");
-    let headrow = document.createElement("tr");
-
-    // Create the table headers, including 'required stars'.
-    for (let field of FIELD_LIST) {
-        if (invalidFields.indexOf(field) === -1) {
-            let header = document.createElement("th");
-            let headerText = document.createTextNode(field);
-            header.appendChild(headerText);
-
-            // Check if it is required (i.e. not in optional list).
-            if (optionalFields.indexOf(field) === -1) {
-                let requiredSpan = document.createElement("span");
-                requiredSpan.className = "required";
-                requiredSpan.textContent = "*";
-
-                header.appendChild(requiredSpan);
-            }
-
-            lcFieldList.push(field.toLowerCase());
-            headrow.appendChild(header);
-        }
-    }
-    // Add the header-row and the table head to the table.
-    thead.appendChild(headrow);
-    table.appendChild(thead);
-
-    // Create a row for each species uploaded.
-    for (let species of uploadData.species) {
-        let tr = document.createElement("tr");
-
-        // Set the 'species' field to be the actual name, not the document itself.
-        species.species = species.species.name;
-
-        // Loop through each field, stored in the lower-case field list.
-        for (let field of lcFieldList) {
-            let data = species[field];
-            let td = document.createElement("td");
-            let text;
-
-            // Get the text equivalent of the data.
-            if (data) {
-                if (field === "date") {
-                    text = document.createTextNode(new Date(data).toDateString());
-                }
-                else if (data instanceof Array) {
-                    if (data.length > 0) {
-                        text = document.createTextNode(data.join(", "));
-                    }
-                    else {
-                        text = document.createTextNode("No Data Given");
-                    }
-                }
-                else {
-                    text = document.createTextNode(data);
-                }
-            }
-            else {
-                text = document.createTextNode("No Data Given");
-            }
-
-            // Append to the row.
-            td.appendChild(text);
-            tr.appendChild(td);
-        }
-
-        // Append the row to the table.
-        tbody.append(tr);
-    }
-    // Append the table body to the table.
-    table.appendChild(tbody);
-
-    // Return the created table.
-    return table;
 }
 
 // Adds an 'enter' listener to forms to press the button at the end.

@@ -70,6 +70,72 @@ class UserRouter extends BaseRouter {
             Utils.sendJSONResponse(res, body);
         });
 
+        // Handles deleting of data uploads.
+        this._router.delete("/data-uploads", Middleware.redirectTo("/login").ifNotLoggedIn, async(req, res) => {
+            let userID = req.user.id;
+            let body = req.body;
+
+            // Make sure the request has the correct body.
+            if (!body.uploadID) {
+                Utils.sendJSONResponse(res);
+                return;
+            }
+
+            let uploadID = body.uploadID;
+            let dUpload = new DataUpload();
+
+            // Find the upload, check the owner's ID against the given one.
+            let upload = await dUpload.findUploadByID(uploadID);
+
+            // If the upload doesn't exist, or the owner does not match the logged-in-user, abort.
+            if (!upload || !upload.owner.equals(userID)) {
+                Utils.sendJSONResponse(res);
+                return;
+            }
+
+            // Delete the upload, send success response.
+            await dUpload.removeUploadByID(uploadID);
+            Utils.sendJSONResponse(res, {});
+        });
+
+        // Handles updating of data uploads.
+        this._router.put("/data-uploads", async(req, res) => {
+            let userID = req.user.id;
+            let body = req.body;
+            let uploadID = body.uploadID;
+            let species = body.species;
+
+            // Make sure there actually is an upload to update, and there is an ID.
+            if (!uploadID || !species) {
+                Utils.sendJSONResponse(res);
+                return;
+            }
+
+            // Check if the upload is owned by the user.
+            let dUpload = new DataUpload();
+
+            let foundUpload = await dUpload.findUploadByID(uploadID);
+            if (!foundUpload || !foundUpload.owner.equals(userID)) {
+                Utils.sendJSONResponse(res);
+                return;
+            }
+
+            // All set to go, update the upload.
+            foundUpload.species = species;
+
+            // Save the upload.
+            foundUpload.save(err => {
+                if (err) {
+                    log.error("Failed to update a data upload: " + err.message);
+                    Utils.sendJSONResponse(res);
+                }
+                else {
+                    // Send success response.
+                    Utils.sendJSONResponse(res, {});
+                }
+            });
+        });
+
         // There is no index route, so redirect to their profile.
         this._router.get("/", (req, res) => res.redirect("/user/profile"));
     }

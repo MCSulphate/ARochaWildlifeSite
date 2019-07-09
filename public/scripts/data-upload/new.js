@@ -6,10 +6,7 @@
     let locationModal = document.getElementById("new-location-modal");
     let tGroupModal = document.getElementById("new-taxonomic-group-modal");
     let methodModal = document.getElementById("new-methodology-modal");
-
-    // Error Message
-    let errorMessage = document.getElementById("error-message");
-    let showMessage = message.bind(errorMessage);
+    let sheetModal = document.getElementById("upload-spreadsheet-modal");
 
     // Causes the modals to pop up.
     document.getElementById("location-popup-link").addEventListener("click", () => {
@@ -21,6 +18,9 @@
     document.getElementById("methodology-popup-link").addEventListener("click", () => {
         methodModal.style.display = "block";
     });
+    document.getElementById("upload-spreadsheet-popup-link").addEventListener("click", () => {
+        sheetModal.style.display = "block";
+    });
 
     // Closes the modals.
     locationModal.querySelector(".close").addEventListener("click", () => {
@@ -31,6 +31,9 @@
     });
     methodModal.querySelector(".close").addEventListener("click", () => {
         methodModal.style.display = "none";
+    });
+    sheetModal.querySelector(".close").addEventListener("click", () => {
+        sheetModal.style.display = "none";
     });
 
     //
@@ -155,6 +158,145 @@
     });
 
     //
+    // Excel Spreadsheet Parsing
+    //
+
+    // Elements
+    let uploadSpreadsheetButton = document.getElementById("upload-spreadsheet-button");
+    let uploadSpreadsheetForm = document.getElementById("upload-spreadsheet-form");
+    let fileInput = document.getElementById("file-input");
+
+    // Upload handler.
+    uploadSpreadsheetButton.addEventListener("click", () => {
+        // Make sure this browser supports the FileReader API.
+        if (FileReader === undefined) {
+            displayFormError(uploadSpreadsheetForm, "Your browser does not support the FileReader API. Please upgrade your browser to use this feature.");
+            return;
+        }
+
+        let files = fileInput.files;
+
+        if (files.length === 0) {
+            displayFormError(uploadSpreadsheetForm, "Please select a file.");
+        }
+        else {
+            let file = files[0];
+            let reader = new FileReader();
+
+            try {
+                // Function to handle the read data.
+                reader.onload = e => {
+                    let data = new Uint8Array(e.target.result);
+                    let workbook = XLSX.read(data, { type: "array" });
+
+                    let sheet = workbook.Sheets[workbook.SheetNames[0]];
+
+                    // Loop until there is an empty AN, where N is a number.
+                    let chars = ["A", "B", "C", "D", "E", "F"];
+                    let dataKeys = ["date", "latinName", "commonName", "count", "gridReference", "comments"];
+                    let index = 0;
+                    let speciesToAdd = []; // Only add species after parsing the whole sheet.
+
+                    while (true) {
+                        let currentIndex = index % 6;
+                        let char = chars[currentIndex];
+                        let gridRef = char + (Math.floor(index / 6) + 2); // Starting at A2.
+                        let value = sheet[gridRef];
+
+                        if (!value) {
+                            // Check if it's a required value. If so, return and display an error - unless it's AN.
+                            if (char === "A") {
+                                break;
+                            }
+                            else if (char === "B" || char === "D") {
+                                fileInput.value = null;
+                                displayFormError(uploadSpreadsheetForm, "Found no value where one was required, grid reference: " + gridRef + ". Please correct this before continuing.");
+                                return;
+                            }
+                            else {
+                                // Otherwise, set it to the default value.
+                                value = "Not Given";
+                            }
+                        }
+                        else {
+                            value = value.h ? value.h : value.w;
+                        }
+
+                        // Update the current species.
+                        let speciesIndex = Math.floor(index / 6);
+                        
+                        if (currentIndex === 0) {
+                            speciesToAdd[speciesIndex] = {};
+                        }
+
+                        let dataKey = dataKeys[currentIndex];
+
+                        // If it's date, make sure it's a date.
+                        if (dataKey === "date") {
+                            let date = new Date(value);
+
+                            if (date == "Invalid Date") {
+                                fileInput.value = null;
+                                displayFormError(uploadSpreadsheetForm, "Found an invalid date at grid reference " + gridRef + ". Please correct this before continuing.");
+                                return;
+                            }
+                        }
+                        // If it's latin name or common name, correct the capitalisation.
+                        else if (dataKey === "latinName" || dataKey === "commonName") {
+                            // Unless it's common name and 'Not Given'.
+                            if (dataKey !== "commonName" || value !== "Not Given") {
+                                value = capitaliseFirst(value.toLowerCase());
+                            }
+                        }
+                        // If it's count, make sure it's a number.
+                        else if (dataKey === "count") {
+                            if (isNaN(value)) {
+                                fileInput.value = null;
+                                displayFormError(uploadSpreadsheetForm, "Found an invalid count at grid reference " + gridRef + ". Please correct this before continuing.");
+                                return;
+                            }
+                            else {
+                                value = parseInt(value);
+                            }
+                        }
+
+                        speciesToAdd[speciesIndex][dataKey] = value;
+
+                        index++;
+                    }
+
+                    // Make sure there are no duplicates.
+                    let latinNames = [];
+                    for (let species of speciesToAdd) {
+                        let latinName = species.latinName;
+
+                        if (latinNames.indexOf(latinName) !== -1) {
+                            fileInput.value = null;
+                            displayFormError(uploadSpreadsheetForm, "A duplicate species (" + latinName + ") was found. Please remove it before continuing.");
+                            return;
+                        }
+
+                        latinNames.push(latinName);
+                    }
+
+                    // Add the species to the upload, and display success message.
+                    for (let species of speciesToAdd) {
+                        addSpeciesToUpload(species);
+                    }
+
+                    clearFormErrors(uploadSpreadsheetForm);
+                    displayFormSuccess(uploadSpreadsheetForm, "Successfully parsed your spreadsheet. You may close this window.");
+                };
+
+                reader.readAsArrayBuffer(file);
+            }
+            catch (err) {
+                displayFormError(uploadSpreadsheetForm, "There was an error parsing your spreadsheet. Please ensure you are using a supported file type.");
+            }
+        }
+    });
+
+    //
     // Upload Form Handling
     //
 
@@ -200,6 +342,16 @@
             return;
         }
 
+        // Add the species to the upload.
+        addSpeciesToUpload(speciesData);
+
+        // Hide errors, show success.
+        clearFormErrors(speciesForm);
+        displayFormSuccess(speciesForm, "Species added to upload.");
+    });
+
+    // Adds a species to the upload.
+    function addSpeciesToUpload(speciesData) {
         speciesDataContainer.push(speciesData);
 
         // If this is the first species being added, remove the 'No species in upload' message.
@@ -243,14 +395,10 @@
         latinNameInput.value = "";
         commonNameInput.value = "";
         countInput.value = "";
-        dateInput.value = "";
+        // dateInput.value = ""; DO NOT CLEAR DATE! This means they only have to put it in once.
         gridReferenceInput.value = "";
         commentsInput.value = "";
-
-        // Hide errors, show success.
-        clearFormErrors(speciesForm);
-        displayFormSuccess(speciesForm, "Species added to upload.");
-    });
+    }
 
     // Checks if a species is already in the upload.
     function checkIfInUpload(latinName) {
@@ -271,7 +419,7 @@
         latinNameInput.value = speciesData.latinName;
         commonNameInput.value = speciesData.commonName;
         countInput.value = speciesData.count;
-        dateInput.value = speciesData.date;
+        dateInput.valueAsDate = new Date(speciesData.date);
         gridReferenceInput.value = speciesData.gridReference;
         commentsInput.value = speciesData.comments;
 
@@ -286,7 +434,6 @@
 
         // Remove the data from the object.
         speciesDataContainer.splice(index, 1);
-        console.log(speciesDataContainer);
 
         // Find and remove the element.
         statusControlsContainer.querySelectorAll(".upload-status-control")[index].remove();

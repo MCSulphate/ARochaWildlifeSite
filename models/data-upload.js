@@ -59,7 +59,6 @@ let instance = null;
 
 // Model instances.
 let lModel = new Location();
-let uModel = new User();
 
 // DataUpload Class (contains DataUpload methods)
 class DataUpload extends BaseModel {
@@ -114,7 +113,7 @@ class DataUpload extends BaseModel {
 
     findAndPopulateAllUploadsForUser(id) {
         return async function() {
-            let foundUploads = await this._model.find({ "owner": { $eq: id } }, "-_id -__v")
+            let foundUploads = await this._model.find({ "owner": { $eq: id } }, "-__v") // We need the ID, so they can delete/edit the upload.
                 .sort("-date")
                 .populate("taxonomicGroup", "-_id -__v")
                 .populate("owner", "-_id -__v -salt -hash")
@@ -159,45 +158,9 @@ class DataUpload extends BaseModel {
         }.bind(this)();
     }
 
-    findDateOrderedUploadsForSpecies(id) {
-        return async function() {
-            let foundUploads = await this._model.find({ "species.species": { $eq: id } }).sort("-date").exec();
-            return foundUploads;
-        }.bind(this)();
-    }
-
-    // These two functions are slightly different than expected - used to find the NEXT first seen/last seen.
-    // This is because it is used when an upload is being deleted - but still exists, and will show up if queried.
-    findWhenSpeciesFirstSeen(id) {
-        return async function() {
-            let uploads = await this.findDateOrderedUploadsForSpecies(id);
-
-            // Ensure that there are actually more uploads for this species.
-            if (uploads.length > 1) {
-                return uploads[1].date;
-            }
-            else {
-                return {};
-            }
-        }.bind(this)();
-    }
-
-    findWhenSpeciesLastSeen(id) {
-        return async function() {
-            let uploads = await this.findDateOrderedUploadsForSpecies(id);
-
-            if (uploads.length > 1) {
-                return uploads[uploads.length - 2].date;
-            }
-            else {
-                return {};
-            }
-        }.bind(this)();
-    }
-
     removeUploadByID(id) {
         return async function() {
-            await this._model.remove({ _id: id });
+            await this._model.deleteOne({ _id: id });
             return true;
         }.bind(this)();
     }

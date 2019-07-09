@@ -55,6 +55,9 @@
 
                 <h2 class="modal-header">Manage Data Upload</h2>
                 <div class="modal-content">
+                    <p class="form-error"></p>
+                    <p class="form-success"></p>
+
                     <h2 id="upload-information-header">Upload Information</h2>
                     <h2 id="species-information-header">Species Information</h2>
 
@@ -70,6 +73,7 @@
                         </table>
 
                         <a href="#" id="upload-delete-button">Delete Upload</a>
+                        <a href="#" id="upload-update-button">Update Upload</a>
                     </div>
 
                     <div id="species-information-table-container">
@@ -93,6 +97,68 @@
         </div>
     </div>
 
+    <div id="edit-species-modal" class="modal">
+        <div class="modal-container">
+            <span class="close">&times;</span>
+
+            <h2 class="modal-header">Edit Species</h2>
+            <div class="modal-content">
+                <p>Please edit the species data below.</p>
+
+                <div id="edit-species-form" class="form">
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Date <span class="required">*</span></span>
+                            <input id="date-input" type="date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Latin Name <span class="required">*</span></span>
+                            <input id="latin-name-input" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Common Name</span>
+                            <input id="common-name-input" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Count <span class="required">*</span></span>
+                            <input id="count-input" type="number">
+                        </div>
+
+                        <span class="form-hint">For plants, please give an estimate.</span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Grid Reference</span>
+                            <input id="grid-reference-input" type="text">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-group-input">
+                            <span class="field">Comments</span>
+                            <input id="comments-input" type="text">
+                        </div>
+                    </div>
+
+                    <a class="button" id="edit-species-submit-button" href="#">Submit Edit</a>
+                    <p class="form-footer">Fields marked with <span class="required">*</span> are required.</p>
+
+                    <p class="form-error"></p>
+                    <p class="form-success"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="change-password-container">
         <p>Want to change your password?</p>

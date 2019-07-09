@@ -129,20 +129,6 @@ class AdminRouter extends BaseRouter {
             }
         });
 
-        // Data Upload Show Page
-        // Page route.
-        this._router.get("/data-uploads", async(req, res) => {
-            // Get all of the data uploads.
-            try {
-                let uploads = await dUpload.findAndPopulateAllUploads();
-                res.render("admin/data-uploads", { uploads });
-            }
-            catch (err) {
-                new CustomError(err).printFormattedStack(log);
-                res.render("admin/data-uploads", { error: err.message });
-            }
-        });
-
         // There is no index route for this, redirect to the panel.
         this._router.get("/", (req, res) => res.redirect("/admin/panel"));
 
@@ -196,100 +182,6 @@ class AdminRouter extends BaseRouter {
         }, localNames);
 
         let resultsArray = [dataValid, typesValid];
-
-        if (Validator.allValid(resultsArray)) {
-            return true;
-        }
-        else {
-            return Validator.getErrorMessage(resultsArray);
-        }
-    }
-
-    _validateGroupDeleteData(data) {
-        let dataValid = Validator.validateType(data, Object);
-
-        let typesValid = Validator.validateTypes(data, {
-            name: String
-        });
-
-        let resultsArray = [dataValid, typesValid];
-
-        if (Validator.allValid(resultsArray)) {
-            return true;
-        }
-        else {
-            return Validator.getErrorMessage(resultsArray);
-        }
-    }
-
-    // Checks for duplicates across two arrays, where they must also be in inclusionList.
-    _checkForDuplicates(arr, inclusionList, exclusionList) {
-        let returnMessage = null;
-
-        arr.forEach(element => {
-            if (returnMessage) {
-                return;
-            }
-
-            // Check for inclusion/exclusion.
-            if (exclusionList && exclusionList.indexOf(element) !== -1) {
-                returnMessage = "You cannot have the same fields in optional and invalid.";
-                return;
-            }
-            else if (inclusionList && inclusionList.indexOf(element) === -1) {
-                returnMessage = "You have given an invalid field name.";
-                return;
-            }
-
-            // Count the number of instances of the element.
-            let instances = 0;
-            for (let i = 0; i < arr.length; i++) {
-                if (element === arr[i]) {
-                    instances++;
-                }
-            }
-
-            // More than one instance = duplicate.
-            if (instances > 1) {
-                returnMessage = "You cannot have duplicate fields.";
-                return;
-            }
-        });
-
-        return returnMessage || false; // false = no duplicates found.
-    }
-
-    // Validates taxonomic group data.
-    _validateGroupData(data) {
-        // Check for duplicate / repeated fields.
-        const OPTIONAL_FIELDS = ["Gender", "Observers", "Number", "Comment", "Status", "Age"];
-        const INVALID_FIELDS = ["Gender", "Number", "Observers", "Age"];
-
-        let optionalFields = data.optionalFields;
-        let invalidFields = data.invalidFields;
-        let statuses = data.statuses;
-
-        let optionalDuplicates = this._checkForDuplicates(optionalFields, OPTIONAL_FIELDS, invalidFields);
-        let invalidDuplicates = this._checkForDuplicates(invalidFields, INVALID_FIELDS); // No need to check for repeated fields again.
-
-        if (optionalDuplicates) {
-            return optionalDuplicates;
-        }
-        else if (invalidDuplicates) {
-            return invalidDuplicates;
-        }
-
-        // Validate the data.
-        let nameTypeValid = Validator.validateType(data.name, String, "Group Name");
-        let nameLengthValid = Validator.validateLength(data.name, 3, 30, "Group Name");
-
-        let optionalTypesValid = Validator.validateArrayTypes(optionalFields, String, "Optional Field");
-        let invalidTypesValid = Validator.validateArrayTypes(invalidFields, String, "Optional Field");
-
-        let statusTypesValid = Validator.validateArrayTypes(statuses, String, "Status");
-        let statusLengthsValid = Validator.validateArrayLengths(statuses, 3, 30, "Status");
-
-        let resultsArray = [nameTypeValid, nameLengthValid, optionalTypesValid, invalidTypesValid, statusTypesValid, statusLengthsValid];
 
         if (Validator.allValid(resultsArray)) {
             return true;

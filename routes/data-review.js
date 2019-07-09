@@ -131,9 +131,13 @@ class DataReviewRouter extends BaseRouter {
 
             let latinNames = body.latinNames;
             let locationNames = body.locationNames;
-            // If there is no from date, set it to a year ago.
-            let fromDate = body.fromDate ? new Date(body.fromDate) : new Date(currentTime - (1000 * 60 * 60 * 24 * 365));
-            // If there is no to date, set it to today.
+
+            // If there is no from date, then it should find all records from the start (first recorded).
+            // To do this, we will set it to 1st January 1970.
+            let fromDate = body.fromDate ? new Date(body.fromDate) : new Date("1 Jan 1970");
+
+            // If there is no to date, then it should find all records to the end (last recorded).
+            // To do this, we will set it to today.
             let toDate = body.toDate ? new Date(body.toDate) : new Date();
 
             // Loop through locations, then species.

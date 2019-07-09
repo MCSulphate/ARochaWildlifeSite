@@ -146,8 +146,10 @@
         // Ignore the click if they haven't selected things.
         if (!sortType || !sortMethod) return;
         let isAZ = sortMethod === "az";
-        let typeIndex = sortType === "latinName" ? 0 : sortType === "commonName" ? 1 : 2;
+        // This index represents the nth td element on the rows.
+        let typeIndex = sortType === "latinName" ? 0 : sortType === "commonName" ? 1 : sortType === "taxonomicGroup" ? 2 : 3;
 
+        // Compares two strings, for sorting alphabetically.
         function compare(a, b) {
             if (a.toLowerCase() < b.toLowerCase()) {
                 if (isAZ) return -1;
@@ -167,6 +169,7 @@
 
             let result = compare(typeA, typeB);
 
+            // If they are equal, then sort by the latin name.
             if (result === null && typeIndex !== 0) {
                 let latinNameA = a.querySelectorAll("td")[0].textContent;
                 let latinNameB = b.querySelectorAll("td")[0].textContent;
@@ -218,6 +221,15 @@
 
             if (typeof filterData === "string") {
                 if (filterData.toLowerCase().indexOf(filterText) !== -1) containsFlag = true;
+            }
+            // This one is for location name filtering.
+            else if (filterData === undefined) {
+                // Get the fourth td element on the table row, this holds the locations.
+                let locations = tableRows[i].querySelectorAll("td")[3].textContent.split(",");
+
+                for (let location of locations) {
+                    if (location.toLowerCase().indexOf(filterText) !== -1) containsFlag = true;
+                }
             }
             else {
                 for (let str of filterData) {
@@ -348,12 +360,12 @@
             let dataToSend = {
                 latinNames: selectedSpecies,
                 locationNames: selectedLocations,
-                fromDate: fromDateInput.value ? new Date(fromDateInput.value) : new Date(currentTime - (1000 * 60 * 60 * 24 * 365)),
-                toDate: toDateInput.value ? new Date(toDateInput.value) : new Date()
+                fromDate: fromDateInput.value ? new Date(fromDateInput.value) : "",
+                toDate: toDateInput.value ? new Date(toDateInput.value) : ""
             };
 
             // Check that the to-date is more recent than the from date.
-            if (dataToSend.fromDate.getTime() > dataToSend.toDate.getTime()) {
+            if (dataToSend.fromDate && dataToSend.getDate && (dataToSend.fromDate.getTime() > dataToSend.toDate.getTime())) {
                 displayFormError(locationsModal, "Please select a to-date that is after the from-date.");
                 return;
             }
@@ -367,7 +379,30 @@
                 labelText = "Location: " + selectedLocations[0];
             }
 
-            createCharts(selectedLocations.length > 1, dataToSend.fromDate, dataToSend.toDate, labelText);
+            // Get the earliest and latest dates in the resulting data.
+            let speciesNames = Object.keys(detailedSpecies.speciesData);
+            let earliestDate = new Date(); // Today will be the latest, so compare it to this.
+            let latestDate = new Date("1 Jan 1970"); // Pretty sure there won't be any records before this.
+
+            for (let name of speciesNames) {
+                let dateStrings = Object.keys(detailedSpecies.speciesData[name]);
+
+                for (let dateString of dateStrings) {
+                    let testDate = new Date(dateString);
+
+                    // Compare to current earliest, if it's earlier then set it so.
+                    if (testDate < earliestDate) {
+                        earliestDate = testDate;
+                    }
+
+                    // Compare to the current latest, if it's later then set it so.
+                    if (testDate > latestDate) {
+                        latestDate = testDate;
+                    }
+                }
+            }
+
+            createCharts(selectedLocations.length > 1, earliestDate, latestDate, labelText);
         }
         catch (err) {
             displayFormError(locationsModal, "Failed to fetch species data. Please report this to an admin.");
@@ -462,14 +497,15 @@
                 pointRadius: 4,
                 pointHitRadius: 3,
                 pointHoverRadius: 6
-            }
+            };
 
             colourIndex++;
             if (colourIndex === 5) colourIndex = 0;
 
             // Now loop through the date range generating the dataset.
             for (let date of labels) {
-                if (data[date]) dataset.data.push(data[date]);
+                // Only push non-0 values.
+                if (data[date] > 0) dataset.data.push(data[date]);
                 else dataset.data.push(0);
             }
 
@@ -540,7 +576,8 @@
 
                 // Now loop through the date range generating the dataset.
                 for (let date of labels) {
-                    if (data[date]) dataset.data.push(data[date]);
+                    // Only push non-0 values.
+                    if (data[date] > 0) dataset.data.push(data[date]);
                     else dataset.data.push(0);
                 }
 
